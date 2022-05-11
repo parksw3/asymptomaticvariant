@@ -1,6 +1,9 @@
 library(deSolve)
 library(dplyr)
+
 library(shellpipes)
+
+loadEnvironments()
 
 p <- seq(0, 1, length.out=21)
 epsilon_i <- epsilon_s <- epsilon_d <- c(0, 0.2, 0.4, 0.6, 0.8)
@@ -17,5 +20,7 @@ allout <- apply(simparam2, 1, function(x) {
   out <- do.call(simulate, as.list(x))
   
   as.data.frame(append(out, x))
-}) %>%
-  bind_rows(.id="sim")
+}) %>% bind_rows(.id="sim")
+
+rdsSave(allout)
+

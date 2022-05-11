@@ -1,3 +1,9 @@
+library(dplyr)
+
+library(shellpipes)
+
+allout <- rdsRead()
+
 outsumm <- . %>%
   group_by(sim) %>%
   filter(time==max(time)) %>%
@@ -20,3 +26,5 @@ allout_s_summarize <- allout_s %>%
 
 allout_d_summarize <- allout_d %>%
   outsumm
+
+saveEnvironment()

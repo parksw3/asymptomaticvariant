@@ -1,5 +1,11 @@
 library(ggplot2); theme_set(theme_bw())
 
+library(shellpipes)
+
+startGraphics()
+
+loadEnvironments()
+
 ggplot(allout_i_summarize) +
   geom_line(aes(p, D_p+D_n, col=factor(epsilon_i))) +
   scale_x_continuous("Proportion asymptomatic")
