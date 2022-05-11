@@ -199,3 +199,4 @@ all.time
 *.wrapR.*
 *.Rds
 *.master.mk
+.Rproj.user

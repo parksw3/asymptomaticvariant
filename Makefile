@@ -26,7 +26,7 @@ summarize.Rout: summarize.R simulate.rds
 figure.Rout: figure.R summarize.rda
 	$(pipeR)
 
-figure.Rout-2.pdf:
+# figure.ggp.pdf: figure.Rout
 
 ######################################################################
 ### Makestuff
