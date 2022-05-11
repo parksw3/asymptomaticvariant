@@ -20,7 +20,7 @@ g1 <- ggplot(allout_i_summarize) +
   )
 
 g2 <- ggplot(allout_s_summarize) +
-  geom_line(aes(p, D_p+D_n, col=factor(epsilon_s))) +
+  geom_line(aes(p, (D_p+D_n) * pop, col=factor(epsilon_s))) +
   scale_x_continuous("Proportion asymptomatic") +
   scale_y_continuous("Total deaths") +
   scale_color_viridis_d("VE") +
@@ -31,7 +31,7 @@ g2 <- ggplot(allout_s_summarize) +
   )
 
 g3 <- ggplot(allout_d_summarize) +
-  geom_line(aes(p, D_p+D_n, col=factor(epsilon_d))) +
+  geom_line(aes(p, (D_p+D_n) * pop, col=factor(epsilon_d))) +
   scale_x_continuous("Proportion asymptomatic") +
   scale_y_continuous("Total deaths") +
   scale_color_viridis_d("VE") +
