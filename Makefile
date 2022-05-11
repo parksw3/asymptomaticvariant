@@ -12,16 +12,26 @@ current: target
 
 Sources += $(wildcard *.R)
 
-figure.Rout: figure.R summarize.R simulate.R funs.R
+## Simulations functions
+funs.Rout: funs.R
+	$(wrapR)
+
+## Do some simulations
+simulate.Rout: simulate.R funs.rda
 	$(pipeR)
 
-simulate.Rout: simulate.R funs.R
+summarize.Rout: summarize.R simulate.rds
 	$(pipeR)
+
+figure.Rout: figure.R summarize.rda
+	$(pipeR)
+
+figure.Rout-2.pdf:
 
 ######################################################################
 ### Makestuff
 
-# Sources += Makefile
+Sources += Makefile
 
 Ignore += makestuff
 msrepo = https://github.com/dushoff
@@ -36,7 +46,7 @@ makestuff/%.stamp:
 
 -include makestuff/texi.mk
 -include makestuff/pipeR.mk
--include makestuff/hotcold.mk
+-include makestuff/pdfpages.mk
 
 -include makestuff/git.mk
 -include makestuff/visual.mk
