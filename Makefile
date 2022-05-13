@@ -29,6 +29,12 @@ figure.Rout: figure.R summarize.rda
 # figure.ggp.pdf: figure.Rout
 
 ######################################################################
+## Final-size approach
+
+fs.Rout: fs.R
+	$(pipeR)
+
+######################################################################
 ### Makestuff
 
 Sources += Makefile
