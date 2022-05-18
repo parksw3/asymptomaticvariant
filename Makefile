@@ -56,6 +56,12 @@ figure_variant.Rout: figure_variant.R simulate_variant_profile.rda
 # figure.ggp.pdf: figure.Rout
 
 ######################################################################
+## Final-size approach
+
+fs.Rout: fs.R
+	$(pipeR)
+
+######################################################################
 ### Makestuff
 
 Sources += Makefile
