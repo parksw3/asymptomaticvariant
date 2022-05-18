@@ -1,0 +1,26 @@
+\documentclass[tikz,border=2mm]{standalone}
+
+\usepackage{grffile}
+\usetikzlibrary{arrows,positioning}
+
+\begin{document}
+
+\begin{tikzpicture}[node distance=3.5cm,auto,>=latex',every node/.append style={align=center},int/.style={draw, minimum size=1cm},inverter/.style={rectangle,draw,inner sep=2pt,minimum size=6mm},]
+    \node [int, ultra thick] (S)             {$S$};
+    \node [int, right=of S, ultra thick] (E)             {$E$};
+    \node [int, above right=of E, ultra thick] (Ia)             {$I_a$};
+    \node [int, below right=of E, ultra thick] (Is)             {$I_s$};
+    \node [int, right=of Ia, ultra thick] (R)             {$R$};
+    \node [int, right=of Is, ultra thick] (D)             {$D$};
+    \path[->, ultra thick] (S) edge node [above] {${\color{red}(1-  \epsilon_i)} \lambda(t)$} (E);
+    \path[->, ultra thick] (E) edge node [sloped, above] {$\big[1-{\color{red}(1-\epsilon_s)} (1-p)\big] \mu$} (Ia);
+    \path[->, ultra thick] (E) edge node [sloped, above] {${\color{red}(1-\epsilon_s)} (1-p) \mu$} (Is);
+    \path[->, ultra thick] (Ia) edge node [above] {$\gamma$} (R);
+    \path[->, ultra thick] (Is) edge node [sloped, above] {$\big[1-{\color{red}(1 - \epsilon_d)} f\big] \gamma$} (R);
+    \path[->, ultra thick] (Is) edge node [above] {${\color{red}(1 - \epsilon_d)} f \gamma$} (D);
+    \node [right=1.5cm of S, ultra thick] (Ts)             {};
+    \path[->, ultra thick, dashed] (Ia.west) edge [out=180, in=90] node [sloped, above] {$\beta$} ([yshift=5mm]Ts.north);
+    \path[->, ultra thick, dashed] (Is.west) edge [out=180, in=-90] node [sloped, above] {$(1-\delta) \beta$} (Ts.south);
+    \node [below=8.5cm of S, anchor=west] (pic) {\includegraphics{figure_immune.ggp.pdf}};
+\end{tikzpicture}
+\end{document}
