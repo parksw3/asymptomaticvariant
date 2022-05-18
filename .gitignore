@@ -3,6 +3,14 @@ local.mk
 target.mk
 .*.sw*
 make.log
+*.pdf
+*.rda
+*.mk
+*.deps
+*.Rproj
+*.subdeps
+.DS_Store
+makestuff
 
 ## content from makestuff
 local.mk
