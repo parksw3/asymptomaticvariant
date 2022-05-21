@@ -1,0 +1,211 @@
+\documentclass[12pt]{article}
+% \usepackage[top=1in,left=1in, right = 1in, footskip=1in]{geometry}
+\usepackage[top=1in,footskip=1in]{geometry}
+
+\usepackage{graphicx}
+\usepackage{xspace}
+%\usepackage{adjustbox}
+
+\usepackage{grffile}
+
+\newcommand{\comment}{\showcomment}
+%% \newcommand{\comment}{\nocomment}
+
+\newcommand{\showcomment}[3]{\textcolor{#1}{\textbf{[#2: }\textsl{#3}\textbf{]}}}
+\newcommand{\nocomment}[3]{}
+
+\newcommand{\jd}[1]{\comment{cyan}{JD}{#1}}
+\newcommand{\swp}[1]{\comment{magenta}{SWP}{#1}}
+\newcommand{\bmb}[1]{\comment{blue}{BMB}{#1}}
+\newcommand{\djde}[1]{\comment{red}{DJDE}{#1}}
+
+\newcommand{\eref}[1]{Eq.~(\ref{eq:#1})}
+\newcommand{\fref}[1]{Fig.~\ref{fig:#1}}
+\newcommand{\Fref}[1]{Fig.~\ref{fig:#1}}
+\newcommand{\sref}[1]{Sec.~\ref{#1}}
+\newcommand{\frange}[2]{Fig.~\ref{fig:#1}--\ref{fig:#2}}
+\newcommand{\tref}[1]{Table~\ref{tab:#1}}
+\newcommand{\tlab}[1]{\label{tab:#1}}
+\newcommand{\seminar}{SE\mbox{$^m$}I\mbox{$^n$}R}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage[utf8]{inputenc} % make sure fancy dashes etc. don't get dropped
+
+\usepackage{lineno}
+\linenumbers
+
+\usepackage[pdfencoding=auto, psdextra]{hyperref}
+
+\usepackage{natbib}
+\bibliographystyle{unsrt}
+\date{\today}
+
+\usepackage{xspace}
+\newcommand*{\ie}{i.e.\@\xspace}
+
+\usepackage{color}
+
+\newcommand{\Rx}[1]{\ensuremath{{\mathcal R}_{#1}}\xspace} 
+\newcommand{\RR}{\ensuremath{{\mathcal R}}\xspace}
+\newcommand{\Rres}{\Rx{\mathrm{res}}}
+\newcommand{\Rinv}{\Rx{\mathrm{inv}}}
+\newcommand{\Rhat}{\ensuremath{{\hat\RR}}}
+\newcommand{\Rt}{\ensuremath{{\mathcal R}(t)}\xspace}
+\newcommand{\tsub}[2]{#1_{{\textrm{\tiny #2}}}}
+\newcommand{\dd}[1]{\ensuremath{\, \mathrm{d}#1}}
+\newcommand{\dtau}{\dd{\tau}}
+\newcommand{\dx}{\dd{x}}
+\newcommand{\dsigma}{\dd{\sigma}}
+
+\newcommand{\rx}[1]{\ensuremath{{r}_{#1}}\xspace} 
+\newcommand{\rres}{\rx{\mathrm{res}}}
+\newcommand{\rinv}{\rx{\mathrm{inv}}}
+
+\newcommand{\psymp}{\ensuremath{p}} %% primary symptom time
+\newcommand{\ssymp}{\ensuremath{s}} %% secondary symptom time
+\newcommand{\pinf}{\ensuremath{\alpha_1}} %% primary infection time
+\newcommand{\sinf}{\ensuremath{\alpha_2}} %% secondary infection time
+
+\newcommand{\psize}{{\mathcal P}} %% primary cohort size
+\newcommand{\ssize}{{\mathcal S}} %% secondary cohort size
+
+\newcommand{\gtime}{\tau_{\rm g}} %% generation interval
+\newcommand{\gdist}{g} %% generation-interval distribution
+\newcommand{\idist}{\ell} %% incubation-period distribution
+
+\newcommand{\total}{{\mathcal T}} %% total number of serial intervals
+
+\usepackage{lettrine}
+
+\newcommand{\dropcapfont}{\fontfamily{lmss}\bfseries\fontsize{26pt}{28pt}\selectfont}
+\newcommand{\dropcap}[1]{\lettrine[lines=2,lraise=0.05,findent=0.1em, nindent=0em]{{\dropcapfont{#1}}}{}}
+
+\begin{document}
+
+\begin{flushleft}{
+	\Large
+	\textbf\newline{
+		Intermediate levels of symptomaticity can lead to the worst population-level outcomes
+	}
+}
+\newline
+\\
+Joshua Weitz\textsuperscript{1,2,3},
+Sang Woo Park\textsuperscript{4},
+Jonathan Dushoff\textsuperscript{5,6,7}
+\\
+\bigskip
+\textbf{1} School of Biological Sciences, Georgia Institute of Technology, Atlanta, GA, USA
+\\
+\textbf{2} School of Physics, Georgia Institute of Technology, Atlanta, GA, USA
+\\
+\textbf{3} Institut de Biologie, \'{E}cole Normale Sup\'{e}rieure, Paris, France
+\\
+\textbf{4} Department of Ecology and Evolutionary Biology, Princeton University, Princeton, NJ, USA
+\\
+\textbf{5} Department of Biology, McMaster University, Hamilton, ON, Canada
+\\
+\textbf{6} Department of Mathematics and Statistics, McMaster University, Hamilton, ON, Canada
+\\
+\textbf{7} M.\,G.\,DeGroote Institute for Infectious Disease Research, McMaster University, Hamilton, ON, Canada
+\\
+\bigskip
+
+\bigskip
+\end{flushleft}
+
+\section{Introduction}
+
+SARS-CoV-2 has had devastating effects at the population level even as individuals have experienced highly disparate infection outcomes.
+Notably, many individuals have mild or even asymptomatic cases making it harder to estimate the magnitude of spread and fatality rate. 
+The documented case-fatality rate (CFR) at the population level varies with population, testing infrastructure, and case definitions, typically between 1\%--4\% \citep{rajgor2020many,VERITY2020669,yang2020early}.
+But, many infections are never documented. 
+The infection fatality rate (IFR), which takes undocumented infections into account, has been estimated to be closer to 0.5\%--1\% for demographics similar to that of the United States \citep{levin2020assessing}. 
+This means that more than 99\% of individuals infected with COVID-19 will survive. 
+Moreover, at least half of the infections are sufficiently mild that they could be classified as subclinical and even asymptomatic. 
+Yet, asymptomatically infected individuals can still transmit to others. 
+Hence, asymptomatic infections can be a double-edged sword. 
+On the one hand, an asymptomatic infection means that the individual infected avoids hospitalization and fatality. 
+On the other hand, asymptomatic infections are less likely to be detected, and are may therefore be more likely to infect others, since precautions are less likely to be taken.
+This means that the prevalence of asymptomatic infections can paradoxically make population-level outcomes worse than if SARS-CoV-2 was more dangerous at the individual level.
+\swp{I feel like ``severe'' is not the right word here. Severe could mean higher f or lower p. But we strictly mean lower p here. Maybe: ``more likely to result in symptomatic infection at the individual level.''}.
+\jd{This seems OK as long as we disambiguate later. Symptomaticity is prerequisite to any other kind of severity, and it's the route that we're talking about. I did change the word in a way that may help a little.}
+
+To explore this idea, we propose a simple epidemic model,
+in which infected individuals can be asymptomatically or symptomatically infected, with probabilities $p$ and $1-p$, respectively.  
+Asymptomatically infected individuals always recover, whereas a fraction $f$ of symptomatically infected individuals die.
+Our key assumption is symptomatically infected individuals  take precautions (e.g., reducing contacts or mask-wearing) and therefore reduce their transmission rate by a fraction $\delta$. 
+The full model equations are shown in Section.~\ref{sec.methods}. We start by making the parsimonious assumption that 
+transmission rates and recovery rates are equivalent for the two routes. 
+We assume that asymptomatic individuals do not die, and evaluate the effects of changing the asymptomatic proportion $p$ while holding the fatality rate for \emph{symptomatic} cases, $f$, constant (the IFR $(1-p)f$ thus decreases as $p$ increases).
+
+\jd{How long do you run the ODE? Probably it's better to use the final-size formula.}
+
+
+Figure~\ref{fig.reduce} evaluates epidemic outcomes using epidemiological parameters similar to that of the originating strain of SARS-CoV-2, without any mitigation other than that individuals who are symptomatic reduce their effective transmission rate by $\delta$. 
+When asymptomatic proportion is very high, fatalities are very low, as would be expected.
+When asymptomatic proportion is low, however, the disease spreads poorly or not at all.
+Thus, the peak fatality level is at intermediate levels of asymptomatic spread.  
+
+\jd{I added some simpler explanations above. I'm not sure why we need any of the stuff in the rest of the \P\ (now below).}
+At high values of $p$, then the disease spreads unabated, reaching a herd immunity level at $1-\frac{1}{{\cal{R}}_0}$ before leading to epidemic overshoot and termination of the epidemic due to susceptible
+depletion. 
+Hence, differences in $\delta$ are immaterial: nearly everyone gets infected, but almost no one dies because nearly every case is asymptomatic.  
+In contrast, the dynamics of the system are markedly different as $p\rightarrow 0$, i.e., all individuals are symptomatic and there are very few asymptomatically infected individuals. 
+In this limit, then the total number of cases decreases, potentially to 0 (in a deterministic limit, see bottom panel). 
+Although more individuals die per infection (\swp{meaning that IFR becomes higher}), the decrease in total infections also leads to a decrease in total fatalities. 
+As a result, the severity of the impact as evaluated at the population level peaks at intermediate levels of asympmtomatic infection at the individual scale. Notably, the model also predicts that an outbreak will not initiate
+when asymptomatic infections are rare and symptomatic reduction in transmission is high.
+\jd{It would be good to explain clearly (given the nature of the paper) that the only assumption is that we have is that $\RR_a = \delta R_i$.}
+The finding that fatalities peak at intermediate levels of asymptomatic infection $p$ can be
+anticipated through analysis of the epidemic takeoff thresholds and the herd immunity threshold. The epidemic strength in this model is:
+\begin{equation}
+    {\cal{R}}_p = {\cal{R}}_0\left(p+(1-p)(1-\delta)\right)
+\end{equation}
+where ${\cal{R}}_0=\beta/\gamma$ is assumed to be equivalent for both the asymptomatic and symptomatic transmission routes. Keeping ${\cal{R}}_0$ fixed, then there is a critical level of asymptomatic transmission, $p_c$
+\begin{equation}
+    p_c = \frac{1}{{\cal{R}}_0}\delta+\frac{1-\delta}{\delta}
+\end{equation}
+such that $p>p_c$ is required for an outbreak. In the limit that $\delta=1$, then $p_c=1/{\cal{R}}_0$ (here equivalent
+to $p_c=1/4$.  The critical outbreak requirement decreases with increasing $\delta$ such that an outbreak will happen
+for all values of $p$ as long as $\delta<1-1/{\cal{R}}_0$ -- notice the difference between the cases 
+of $\delta=0.7$ and $\delta=0.8$ which bridge this critical point.  Next, the total number of fatalities should be
+$f$ multiplied by the fraction of symptomatic cases.  At the herd immunity threshold there should already
+have been $f(1-p)\left(1-1/{\cal{R}}_0\right)$ fatalities.  Although cases go up with $p$ the likelihood of a fatal outcome goes down with $p$. The maximum can be found by finding the value $\hat{p}$ associated with the herd immunity threshold. In the case of $\delta=1$ (symptomatic individuals can have fatal outcomes but are sinks for transmission), then $\hat{p}=\frac{1}{{\cal{R}}_0^{1/2}}$, i.e., $\hat{p}=0.5$ for ${\cal{R}}=4$ as in this example.  The same
+principle holds for sufficiently high values of $\delta$.
+
+We then extend the model to understand the impact of immunity on the severity of the disease by dividing the population into two groups: immunologically naive and protected.
+The dynamics of immunologically naive individuals are equivalent to our original model.
+The dynamics of protected individuals include three additional parameters, which characterize the degree of protection against infection $\epsilon_i$, symptoms $\epsilon_s$, and deaths $\epsilon_d$.
+For simplicity, we assume that the population is exactly split in half (50\% naive and 50\% protected) and mixes homogeneously; we do not consider the effect of immunity on transmission.
+
+The impact of protection against infection $\epsilon_i$ is analogous to changing ${\cal{R}}_0$ in the original model: as immunity provides stronger protection against infection (higher $\epsilon_i$), the number of deaths decreases and a higher asymptomatic fraction $p$ is required for the infection to spread (\fref{immunity}A).
+We note that protection against infection scales the fatality curve nonlinearly, reflecting the nonlinear relationship between ${\cal{R}}_0$ and the final size.
+The impact of protection against symptoms $\epsilon_s$ is exactly equivalent to changing fraction asymptomatic $p$ for the protected population:
+the fatality curves move left as we increase the degree of protection $\epsilon_s$ (\fref{immunity}B).
+Therefore, for low values of $p$, protection against symptoms can inadvertently increase the total number of fatalities at the population level by increasing the proportion (and number) of asymptomatically infected individuals, who can ready transmit infections to other individuals. 
+Finally, protection against deaths $\epsilon_d$ directly modulates the CFR and therefore linearly scales the fatality curves (\fref{immunity}C).
+
+In summary, using a simplified model we have shown that asymptomatic infections can represent
+a double-edge sword insofar as the represent a better outcome for some individuals but a mechanism for onwards transmission that leads to a worse outcome for the population as a whole. SARS-CoV-2 has proven hard to control in large part because transmission is often decoupled from symptoms.  Although mitigation efforts have often prioritized responding to symptoms -- including symptom-based testing, fever checks, mask-wearing for infectious individuals -- a different approach that strives to reduce the chance of asymptomatic transmission while increasing treatment of symptomatically infected individuals could both reduce infection risk at the source and in the event that individuals are at risk for severe outcomes.
+
+\section*{Methods}
+\label{sec.methods}
+The model dynamics are as follows
+\begin{eqnarray}
+\dot{S}=\beta_a S I_a -(1-\delta) \beta_s S I_s \\
+\dot{E} = \beta_a S I_a + (1-\delta) \beta_s S I_s - \mu E\\
+\dot{I}_a = p \mu E - \gamma_a I_a\\
+\dot{I}_s = (1-p) \mu E -\gamma_s I_s\\
+\dot{R} = \gamma_a I_a + (1-f) \gamma_s I_s \\
+\dot{D} = f \gamma_s I_s
+\end{eqnarray}
+where the transmission rate $\beta$ and recover rate $\gamma$ can be potentially differ
+between asymptomatic and symptomatically infected individuals.  Here, $\delta$ denotes the reduction in transmissability due to responsive measures taken by symptomatically infected indivivduals. Note that the SEIR model framework does not impact final size outcomes, so for convenience, all final size simulations ignore the $E$ class.
+
+\bibliography{main}
+
+\end{document}
