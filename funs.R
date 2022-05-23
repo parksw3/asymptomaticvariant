@@ -1,6 +1,6 @@
 model <- function(t, y, parms) {
   with(as.list(c(parms, y)), {
-    foi <- (beta * (Ia_n + Ia_p) + (1 - delta) * beta * (Is_n + Is_p))
+    foi <- (beta_a * (Ia_n + Ia_p) + (1 - delta) * beta_s * (Is_n + Is_p))
     
     dS_n <- - foi * S_n ## naive
     dS_p <- - (1-epsilon_i) * foi * S_p ## protected
@@ -29,7 +29,8 @@ model <- function(t, y, parms) {
 simulate <- function(N=1,
                      S0=0.5,
                      D0=0,
-                     beta=4/5,
+                     beta_a=4/5 * 0.75,
+                     beta_s=4/5,
                      mu=1/2,
                      gamma=1/5,
                      delta=0.8,
@@ -42,7 +43,7 @@ simulate <- function(N=1,
                      I0=1e-4) {
   y0 <- c(S_n=S0-I0, S_p=1-S0-D0, E_n=0, Ia_n=p * I0, Is_n=(1-p) * I0,  R_n=0, D_n=D0, E_p=0, Ia_p=0, Is_p=0, R_p=0, D_p=0)
   
-  parms <- c(beta=beta, mu=mu, gamma=gamma, delta=delta, f=f, p=p, epsilon_i=epsilon_i, epsilon_s=epsilon_s, epsilon_d=epsilon_d)
+  parms <- c(beta_a=beta_a, beta_s=beta_s, mu=mu, gamma=gamma, delta=delta, f=f, p=p, epsilon_i=epsilon_i, epsilon_s=epsilon_s, epsilon_d=epsilon_d)
   
   out <- as.data.frame(ode(y0, tvec, model, parms))
   

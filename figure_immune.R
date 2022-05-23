@@ -2,8 +2,6 @@ library(ggplot2); theme_set(theme_bw(base_family="Times"))
 library(egg)
 library(shellpipes)
 
-startGraphics()
-
 loadEnvironments()
 
 ymax <- 0.0052
@@ -18,7 +16,7 @@ g1 <- ggplot(simulate_immune_i_summarize) +
                      limits=c(0, ymax),
                      expand=c(0, 0)) +
   scale_color_viridis_d("Protection", option="B", end=0.9) +
-  ggtitle("A. Protection against\ninfection") +
+  ggtitle("Protection against\ninfection") +
   theme(
     panel.grid = element_blank(),
     legend.position = "none"
@@ -34,7 +32,7 @@ g2 <- ggplot(simulate_immune_s_summarize) +
                      limits=c(0, ymax),
                      expand=c(0, 0)) +
   scale_color_viridis_d("Protection", option="B", end=0.9) +
-  ggtitle("B. Protection against\nsymptoms") +
+  ggtitle("Protection against\nsymptoms") +
   theme(
     panel.grid = element_blank(),
     legend.position = "none"
@@ -50,7 +48,7 @@ g3 <- ggplot(simulate_immune_d_summarize) +
                      limits=c(0, ymax),
                      expand=c(0, 0)) +
   scale_color_viridis_d(expression(epsilon), option="B", end=0.9) +
-  ggtitle("C. Protection against\ndeaths") +
+  ggtitle("Protection against\ndeaths") +
   theme(
     panel.grid = element_blank(),
     legend.position = "right"

@@ -1,9 +1,7 @@
 library(dplyr)
-library(ggplot2); theme_set(theme_bw(base_family="Times", base_size = 16))
+library(ggplot2); theme_set(theme_bw(base_family="Times", base_size = 14))
 library(egg)
 library(shellpipes)
-
-startGraphics()
 
 simulate_base <- rdsRead()
 
@@ -25,7 +23,8 @@ g1 <- ggplot(simulate_base_max) +
   scale_color_viridis_d(expression(delta)) +
   theme(
     panel.grid = element_blank(),
-    legend.position = c(0.8, 0.45)
+    legend.position = c(0.8, 0.4),
+    legend.background = element_rect(fill=NA)
   )
 
 g2 <- ggplot(simulate_base_max) +

@@ -53,7 +53,7 @@ simulate_variant_profile.Rout: simulate_variant_profile.R simulate_variant.rda f
 figure_variant.Rout: figure_variant.R simulate_variant_profile.rda
 	$(pipeR)
 
-# figure.ggp.pdf: figure.Rout
+main.pdf: main.tex
 
 ######################################################################
 ## Final-size approach

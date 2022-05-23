@@ -1,15 +1,14 @@
+library(dplyr)
 library(ggplot2); theme_set(theme_bw(base_family="Times"))
 library(gridExtra)
 library(egg)
 library(shellpipes)
 
-startGraphics()
-
 loadEnvironments()
 
 ymax <- 0.0052
 ymax2 <- 0.19
-ymax3 <- 0.000155
+ymax3 <- 0.00007
 
 simulate_orig_profile_summarize <- simulate_orig_profile %>%
   group_by(sim) %>%
@@ -133,6 +132,6 @@ g6 <- ggplot(simulate_orig, aes(time, dD_n + dD_p)) +
 
 gcomb2 <- ggarrange(g5, g6, nrow=2, draw=FALSE)
 
-gfinal <- arrangeGrob(g1, gcomb1, g4, gcomb2, widths=c(1, 2))
+gfinal <- arrangeGrob(g1, gcomb1, g4, gcomb2, widths=c(1, 1))
 
-saveGG(gfinal, target="figure_variant.Rout", width=10, height=6)
+saveGG(gfinal, target="figure_variant.Rout", width=8, height=6)
