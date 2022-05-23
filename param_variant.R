@@ -1,5 +1,5 @@
 p_orig <- p_var1 <- 0.2
-p_var2 <- 0.5
+p_var2 <- 0.8
 delta <- 0.8
 epsilon_s <- 0.4
 epsilon_i <- 0.4
