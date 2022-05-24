@@ -10,6 +10,8 @@ current: target
 
 ######################################################################
 
+## Main document (implicit rules)
+
 ## main.pdf: main.tex
 
 ######################################################################
@@ -56,8 +58,6 @@ simulate_variant_profile.Rout: simulate_variant_profile.R simulate_variant.rda f
 	
 figure_variant.Rout: figure_variant.R simulate_variant_profile.rda
 	$(pipeR)
-
-main.pdf: main.tex
 
 ######################################################################
 ## Final-size approach
