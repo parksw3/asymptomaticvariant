@@ -52,6 +52,19 @@ simulate_variant_profile.Rout: simulate_variant_profile.R simulate_variant.rda f
 	
 figure_variant.Rout: figure_variant.R simulate_variant_profile.rda
 	$(pipeR)
+	
+## Simulations functions
+funs_pre.Rout: funs_pre.R
+	$(wrapR)	
+	
+## Do supp simulations
+simulate_pre.Rout: simulate_pre.R funs_pre.rda
+	$(pipeR)
+
+figure_pre.Rout: figure_pre.R simulate_pre.rds
+	$(pipeR)
+
+diagram_pre.pdf: diagram_pre.tex
 
 main.pdf: main.tex
 

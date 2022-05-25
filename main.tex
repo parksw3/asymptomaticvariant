@@ -173,6 +173,20 @@ When $\delta = 0$, total fataities decrease with $p$ because IFR ($(1-p)f$) decr
 In contrast, for high values of $\delta$, the peak fatality occurs at intermediate levels of asymptomatic spread:
 although less individuals die per infection for higher values of $p$, the increase in total infections also leads to an increase in total fatalities.
 
+High values of $\delta$ may seem unrealistic---in practice, $\delta$ cannot be greater than the amouont of post-symptomatic transmission.
+While several studies have estimated the proportion of pre-symptomatic transmission to be around 30\%--60\% for the SARS-CoV-2 wildtype strain, many of them were likely subject to 
+
+mitigation steps took place and before awareness of the
+epidemic became widespread
+
+\citep{he2020temporal}.
+
+\cite{sender2021unmitigated} recently showed the proportion of pre-symptomatic transmission is likely lower than previously estimated 
+
+can be as low as 20\% (95\%CI: 6\%--32\%) in the absence of intervention measures, providing indirect support for the plausibility of high $\delta$ values.
+In Supplementary Figure S1, we therefore consider a more realistic model which includes a presymptomatic stage before asymptomatic and symptomatic stages; and we assume that the behavioral effect
+
+
 We then extend the model to understand the impact of immunity on the severity of the disease by dividing the population into two groups: immunologically naive and protected.
 The dynamics of immunologically naive individuals are equivalent to our original model (\fref{base}).
 The dynamics of protected individuals include three additional parameters, which characterize the amount of protection against infection $\epsilon_i$, symptoms $\epsilon_s$, and deaths $\epsilon_d$ (\fref{immune}).
@@ -237,17 +251,8 @@ For example, milder variants can result in even faster epidemic growth rates and
 
 Our simulatons of invading variants resemble the dynamics of the SARS-CoV-2 Omicron variant.
 Despite moderate levels of vaccine effectivenss against symptomatic and severe cases caused by the Omicron variant, especially after booster shots \citep{andres2022omicron}, both vaccine- and infection-derived immunity has provided limited protection against infections \citep{pearson2021omicron}.
-For example, its immune evasive property allowed the Omicron variant to cause more infections in South Africa than previous variants \citep{sun2022omicron};
-therefore, even though the Omicron variant is thought to be milder \citep{MENNI20221618}, the number of deaths caused by the Omicron variant has been comparable to 
-
-We hypothesize that the behavioral effect also played a role in allowing the Omicron to spread better: milder infections caused by the Omicron variant likely 
-
-
-Even though the Omicron variant has been reported to be milder than previous variants  it has 
-
-
-
-Despite high levels of vaccination 
+Its immune evasive property allowed the Omicron variant to cause more infections in South Africa than previous variants \citep{sun2022omicron};
+therefore, even though the Omicron variant has been estimated to be milder \citep{MENNI20221618,ulloa2022estimates}, the number of hospitalizations and deaths caused by the Omicron variant have remained high \citep{Iacobuccio254,faust2022omicron,sigal2022estimating}.
 
 There are several limitations to our analysis.
 First of all, behavioral and intervention effects must 
