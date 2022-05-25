@@ -72,6 +72,18 @@ figure_pre.Rout: figure_pre.R simulate_pre.rds
 
 diagram_pre.pdf: diagram_pre.tex
 
+simulate_sub.Rout: simulate_sub.R funs_pre.rda
+	$(pipeR)
+	
+figure_sub.Rout: figure_sub.R simulate_sub.rds
+	$(pipeR)
+	
+simulate_sub2.Rout: simulate_sub2.R funs_pre.rda
+	$(pipeR)
+	
+figure_sub2.Rout: figure_sub2.R simulate_sub2.rds
+	$(pipeR)
+
 ######################################################################
 ## Final-size approach
 

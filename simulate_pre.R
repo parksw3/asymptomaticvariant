@@ -13,7 +13,7 @@ p <- 0
 
 p_pre <- seq(0, 1, length.out=101)
 delta <- 0:5 * 0.2
-power <- c(1, 2, 5, 10)
+power <- c(-1, 1, 2, 5)
 
 simparam <- expand.grid(p_pre, delta, power)
 names(simparam) <- c("p_pre", "delta", "power")
@@ -26,8 +26,11 @@ simulation_pre <- apply(simparam, 1, function(x) {
     beta_s <- Rsymp/D_s
     beta_p <- Rpre/D_p
     
-    f <- p_pre_to_f(p_pre, power=power)
-    
+    if (power==-1) {
+      f <- p_pre_to_f(0)
+    } else {
+      f <- p_pre_to_f(p_pre, power=power)
+    }
     
     out <- do.call(simulate_pre, c(as.list(x[-c(1, 3)]), f=f, beta_s=beta_s, beta_p=beta_p, beta_a=0, p=p))
     
