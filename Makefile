@@ -10,6 +10,12 @@ current: target
 
 ######################################################################
 
+## Main document (implicit rules)
+
+## main.pdf: main.tex
+
+######################################################################
+
 Sources += $(wildcard *.R)
 
 ## Simulations functions
@@ -65,8 +71,6 @@ figure_pre.Rout: figure_pre.R simulate_pre.rds
 	$(pipeR)
 
 diagram_pre.pdf: diagram_pre.tex
-
-main.pdf: main.tex
 
 ######################################################################
 ## Final-size approach
