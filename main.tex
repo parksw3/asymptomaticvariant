@@ -146,7 +146,7 @@ We assume that asymptomatic individuals do not die, and evaluate the effects of 
 (Left) $S$ represents susceptible individuals; $E$ represents exposed individuals; $I_a$ represents asymptomatically infected individuals; $I_s$ represents symptomatically infected individuals; $R$ represents recovered individuals; and $D$ represents deceased individuals. See Methods for model details.
 (Middle) Total infections as a function of the proportion of asymptomatic infections $p$ across a wide range scenarios for $\delta$.
 (Right) Total deaths as a function of the proportion of asymptomatic infections $p$ across a wide range scenarios for $\delta$.
-We simulate the model for 365 days, assuming $\beta_s = 4/5/\mathrm{day}$, $\beta_a = 0.75 \beta_s$, $\mu=1/2/\mathrm{day}$, $\gamma_s=\gamma_a=1/5/\mathrm{day}$, and $f=0.01$.
+We simulate the model for 365 days, assuming $\beta_s = 0.8/\mathrm{day}$, $\beta_a = 0.75 \beta_s$, $\mu=0.5/\mathrm{day}$, $\gamma_s=\gamma_a=0.2/\mathrm{day}$, and $f=0.01$.
 We assume that $10^{-4}$ proportion of individuals are initially infected.
 }
 \label{fig:base}
@@ -218,41 +218,41 @@ We assume that $10^{-4}$ proportion of individuals are initially infected.
 \label{fig:immune}
 \end{figure}
 
-The impact of protection against infection $\epsilon_i$ is analogous to changing $\RR_0$ in the original model: as immunity provides stronger protection against infection (higher $\epsilon_i$), the number of deaths decreases and a higher asymptomatic fraction $p$ is required for the infection to spread (\fref{immunity}A).
+The impact of protection against infection $\epsilon_i$ is analogous to changing $\RR_0$ in the original model: as immunity provides stronger protection against infection (higher $\epsilon_i$), the number of deaths decreases and a higher asymptomatic fraction $p$ is required for the infection to spread (\fref{immune}A).
 We note that protection against infection scales the fatality curve nonlinearly, reflecting the nonlinear relationship between $\RR_0$ and the final size.
 The impact of protection against symptoms $\epsilon_s$ is exactly equivalent to changing fraction asymptomatic $p$ for the protected population:
-the fatality curves move left as we increase the degree of protection $\epsilon_s$ (\fref{immunity}B).
+the fatality curves move left as we increase the degree of protection $\epsilon_s$ (\fref{immune}B).
 Therefore, for low values of $p$, protection against symptoms can inadvertently increase the total number of fatalities at the population level by increasing the proportion (and number) of asymptomatically infected individuals, who can readily transmit infections to other individuals.
 This also means that the critical level of asymptomatic proportion decreases, allowing more dangerous infections (with lower $p$) to invade, which would not have been able to spread in an otherwise immunologically naive population.
-Protection against deaths $\epsilon_d$ directly modulates the fatality rate for symptomatic cases and therefore linearly scales the fatality curves (\fref{immunity}C).
+Protection against deaths $\epsilon_d$ directly modulates the fatality rate for symptomatic cases and therefore linearly scales the fatality curves (\fref{immune}C).
 
 \begin{figure}[!ht]
 \includegraphics[width=\textwidth]{figure_variant.ggp.pdf}
 \caption{
 \textbf{Dynamics of invading variants under symptom-responsive transmission reduction and immunity.}
-(Top) The subscript $p$ represents protected individuals. 
-Immunity may provide protection against infection, symptoms, or deaths.
-The dynamics of immunologically naive individuals are described in (\fref{base}).
-(Bottom) Total deaths as a function of the proportion of asymptomatic infections $p$ across a wide range scenarios for protection against infection $\epsilon_i$, symptoms $\epsilon_s$, and deaths $\epsilon_d$.
-We simulate the model for 365 days, assuming $\beta_s = 4/5/\mathrm{day}$, $\beta_a = 0.75 \beta_s$, $\mu=1/2/\mathrm{day}$, $\gamma_s=\gamma_a=1/5/\mathrm{day}$, $f=0.01$, and $\delta=0.8$ for illustration.
-We assume that $10^{-4}$ proportion of individuals are initially infected.
+(A, D) Asymptomaticity--fatality curves for the first (solid lines) and second waves (dashed lines).
+Points represent specific scenarios we assume for the first and second waves.
+Fatality curves for the first wave are calculated by simulating an epidemic for 1 year using same parameters as \fref{base} and $\delta=0.8$.
+Fatality curves for the second wave are calculated by first simulating the first wave assuming $p=0.2$ (wildtype) for 1 year to calculate the proportion immune and then simulating the extended model presented in \fref{immune}.
+(B, E) Dynamics of infection prevalence for the wildtype variant (black, solid line) and two possible invading variants (colored, dashed line).
+(C, F) Dynamics of daily deaths for the wildtype variant (black, solid line) and two possible invading variants (colored, dashed line).
 }
 \label{fig:variant}
 \end{figure}
 
 Finally, we use our framework to understand the impact of behavioral effects on invading variants (\fref{variant}).
-In doing so, we first simulate the dynamics of a resident variant for 1 year using our base model (\fref{base}).
-We then simulate a new variant invading a partially immune population using our extended model (\fref{immune}), where the immunity is solely derived from natural infections caused by the resident variant.
-We consider two types of variants (which are simulated separately): one with the same severity $p$ (orange) and a milder one with higher $p$ (purple).
+In doing so, we first simulate the dynamics of a wildtype variant for 1 year using our base model (\fref{base}).
+We then simulate a new variant invading a partially immune population using our extended model (\fref{immune}), where the immunity is solely derived from natural infections caused by the wildtype variant.
+We consider two types of variants (which are simulated separately): one with the same severity $p$ (variant 1, orange) and a milder one with higher $p$ (variant 2, purple).
 
 First, we consider a scenario in which immunity only provides protection against symptoms, $\epsilon_s = 0.4$ (\fref{variant}A--C).
 In this case, protection against symptoms allows new variants to spread faster, resulting in larger outbreaks (\fref{variant}B).
 Although, a milder (purple) variant exhibits a faster epidemic growth rate and reaches a higher peak (\fref{variant}B), it reaches similar peak fatality as the more severe (orange) variant (\fref{variant}C).
-The asymptomaticity--fatality curve provides additional insight (\fref{variant}A): even though a milder, invading variant (purple square) gives higher peak fatality than the original, resident variant (black circle), it leads to lower fatalities overall because deaths are concentrated over a shorter period of time.
+The asymptomaticity--fatality curve provides additional insight (\fref{variant}A): even though a milder, invading variant (purple square) gives higher peak fatality than the original, wildtype variant (black circle), it leads to lower fatalities overall because deaths are concentrated over a shorter period of time.
 In general, invading variants with similar asymptomaticity $p$ will spread better and result in worse population-level outcomes if immunity (either from vaccination or natural infection) provides protection against symptoms, given that asymptomatically infected individuals can transmit better than symptomatically infected individuals (due to either behavioral and intervention effects).
 
 Next, we consider a more realistic scenario in which immunity provides protection against symptoms, $\epsilon_s = 0.4$, and infection, $\epsilon_i = 0.4$ (\fref{variant}D--F).
-In this case, cross protection against infection has a disproportionately larger effect on the more severe (orange) variant, causing its peak infection prevalence (\fref{variant}E) and fatality (\fref{variant}F) to be lower than that of the original, resident variant.
+In this case, cross protection against infection has a disproportionately larger effect on the more severe (orange) variant, causing its peak infection prevalence (\fref{variant}E) and fatality (\fref{variant}F) to be lower than that of the original, wildtype variant.
 Across a wide range of asymptomatic proportion $p$, we find that this immunity profile is sufficient to prevent worse outcomes at the population level.
 
 In summary, using a simplified model we have shown that asymptomatic infections can represent a double-edge sword insofar as they represent a better outcome for some individuals but a mechanism for onwards transmission that leads to a worse outcome for the population as a whole.
@@ -266,27 +266,148 @@ Its immune evasive property allowed the Omicron variant to cause more infections
 therefore, even though the Omicron variant has been estimated to be milder \citep{MENNI20221618,ulloa2022estimates}, the number of hospitalizations and deaths caused by the Omicron variant have remained high \citep{Iacobuccio254,faust2022omicron,sigal2022estimating}.
 
 There are several limitations to our analysis.
-First of all, behavioral and intervention effects must 
+First of all, behavioral and intervention effects must sufficiently high in order for the fatality to peak at intermediate levels of asymptomaticity.
+While we are able to generalize our results using more realistic models, incorporating both presymptomatic and asymptomatic transmission, the transmission rate needs to be reduced by at least 60\% after symptom onset for us to see the nonlinear effects of subclinical transmission on population-level outcomes.
+\swp{what are some other limitations we should address?}
 
 SARS-CoV-2 has proven hard to control in large part because transmission is often decoupled from symptoms. 
 Although mitigation efforts have often prioritized responding to symptoms---including symptom-based testing, fever checks, mask-wearing for infectious individuals---a different approach that strives to reduce the chance of asymptomatic transmission while increasing treatment of symptomatically infected individuals could both reduce infection risk at the source and in the event that individuals are at risk for severe outcomes.
-As more variants continue to emerge, updating vaccines to prevent infections, and not just diseases, is 
+As more variants continue to emerge, updating vaccines to prevent infections, and not just diseases, will be critical to controlling the course of the pandemic.
 
+\pagebreak
 
+\section*{Supplementary Materials}
+\setcounter{figure}{0}
+\renewcommand{\thefigure}{S\arabic{figure}}
 
-\section*{Methods}
-\label{sec.methods}
-The model dynamics are as follows
-\begin{eqnarray}
-\dot{S}=\beta_a S I_a -(1-\delta) \beta_s S I_s \\
-\dot{E} = \beta_a S I_a + (1-\delta) \beta_s S I_s - \mu E\\
-\dot{I}_a = p \mu E - \gamma_a I_a\\
-\dot{I}_s = (1-p) \mu E -\gamma_s I_s\\
-\dot{R} = \gamma_a I_a + (1-f) \gamma_s I_s \\
-\dot{D} = f \gamma_s I_s
-\end{eqnarray}
-where the transmission rate $\beta$ and recover rate $\gamma$ can be potentially differ
-between asymptomatic and symptomatically infected individuals.  Here, $\delta$ denotes the reduction in transmissibility due to responsive measures taken by symptomatically infected individuals. Note that the SEIR model framework does not impact final size outcomes, so for convenience, all final size simulations ignore the $E$ class.
+\subsection*{Methods}
+
+\subsubsection*{Models without immunity}
+
+First, we consider a simple, compartmental model with asymptomatic and symptomatic infections in a homogeneously mixing population.
+The model dynamics are as follows:
+\begin{align}
+\dot{S} &= -\beta_a S I_a -(1-\delta) \beta_s S I_s \\
+\dot{E} &= \beta_a S I_a + (1-\delta) \beta_s S I_s - \mu E\\
+\dot{I}_a &= p \mu E - \gamma_a I_a\\
+\dot{I}_s &= (1-p) \mu E -\gamma_s I_s\\
+\dot{R} &= \gamma_a I_a + (1-f) \gamma_s I_s \\
+\dot{D} &= f \gamma_s I_s
+\end{align}
+where the transmission rate $\beta$ and recovery rate $\gamma$ can be potentially differ between asymptomatic and symptomatically infected individuals.  
+Here, $\delta$ denotes the reduction in transmissibility due to responsive measures taken by symptomatically infected individuals.
+Throughout the paper, we use parameters that are broadly consistent with the dynamics of the originating strain of SARS-CoV-2: $\beta_s = 0.8/\mathrm{day}$, $\beta_a = 0.75 \beta_s$, $1/\mu=2\,\mathrm{days}$, $1/\gamma_s=1/\gamma_a=5\,\mathrm{days}$, and $f=0.01$.
+
+We then consider a model with presymptomatic transmission (and without asymptomatic transmission), where all infected individuals eventually develop symptoms:
+\begin{align}
+\dot{S} &= -\beta_a S I_a -(1-\delta) \beta_s S I_s \\
+\dot{E} &= \beta_a S I_a + (1-\delta) \beta_s S I_s - \mu E\\
+\dot{I}_p &= \mu E - \sigma I_p\\
+\dot{I}_s &= \sigma I_p -\gamma_s I_s\\
+\dot{R} &= (1-f) \gamma_s I_s \\
+\dot{D} &= f \gamma_s I_s
+\end{align}
+For this model, the presymptomatic $\RR_p$ and symptomatic $\RR_s$ reproduction numbers are given by $\RR_p = \beta_p/\sigma$ and $\RR_s=\beta_s/\gamma_s$ in the absence of the behavioral effect; and the basic reproduction number is equal to the sum of the two.
+Then, the intrinsic proportion of presymptomatic transmission is given by: 
+\begin{equation}
+\theta = \frac{\RR_p}{\RR_p + \RR_s}.
+\end{equation}
+We assume there is a tradeoff between the proportion of presymptomatic transmission and fatality rate: 
+\begin{equation}
+f(\theta) = f_0 (1-\theta^a),
+\end{equation}
+where $f_0=0.01$ represents the baseline fatality rate and the exponent $a$ is varied between 1 and 5.
+Throughout simulations, we assume $\mathcal R_0 = 4$, $1/\sigma=2\,\mathrm{days}$, and $1/\gamma_s=3\,\mathrm{days}$.
+All other parameters are same as before.
+
+Finally, we combine both models to include both presymptomatic and asymptomatic transmission:
+\begin{align}
+\dot{S} &= -\beta_a S I_a -(1-\delta) \beta_s S I_s \\
+\dot{E} &= \beta_a S I_a + (1-\delta) \beta_s S I_s - \mu E\\
+\dot{I}_p &= \mu E - \sigma I_p\\
+\dot{I}_a &= p \sigma I_p - \gamma_a I_a\\
+\dot{I}_s &= (1-p) \sigma I_p -\gamma_s I_s\\
+\dot{R} &= \gamma_a I_a + (1-f) \gamma_s I_s \\
+\dot{D} &= f \gamma_s I_s
+\end{align}
+For this model, the reproduction number of individuals who will eventually develop symptoms is equal to: $\RR_p + \RR_s$;
+similarly, the reproduction number of individuals who remain asymptomatic is equal to: $\RR_p + \RR_a$.
+Since proportion $p$ of all infections is asymptomatic, the basic reproduction number is given by the weighted average of these two reproduction numbers: 
+\begin{equation}
+\RR_0 = p(\RR_p + \RR_a) + (1-p) (\RR_p + \RR_s) = \RR_p + p \RR_a + (1-p) \RR_s.
+\end{equation}
+Then, the proportion of subclinical transmission $\phi$ is given by:
+\begin{equation}
+\phi = \frac{\RR_p + p \RR_a}{\RR_0}.
+\end{equation}
+
+For simulations of the combined model, we start by fixing the reproduction number of individuals who will eventually develop symptoms: $\RR_{\textrm{symp}} = \RR_p + \RR_s = 4$. 
+Consistent with previous assumptions, we also assume that asymptomatic reproduction number is lower than that of the symptomatic reproduction number: $\RR_a = \rho \RR_s$ where $\rho = 0.75$.
+Then, for a given value of the proportion of subclinical transmission $\phi$ and proportion of subclinical transmission caused by the presymptomatic transmission, $\eta = \RR_p/(\RR_p + p \RR_a)$, we can solve for the transmission rate for each compartment $\beta$ and the proportion asymptomatic $p$.
+More specifically:
+\begin{align}
+\RR_p &= \frac{\RR_{\textrm{symp}}}{1 + y}\\
+\RR_s &= \RR_{\textrm{symp}} - \RR_p\\
+\RR_a &=  \rho \RR_s\\
+p &= \left(\frac{1}{\eta} - 1 \right) \frac{\RR_p}{\RR_a},
+\end{align}
+where $y = (1/\phi - 1)/\eta + (1/\eta - 1)/\rho$.
+All other parameters are same as before.
+
+\subsubsection*{Model with immunity}
+
+We then model the spread of infection in a partially immune population.
+The model dynamics are as follows:
+\begin{align}
+\dot{S} &= -\lambda (t) S \\
+\dot{E} &= \lambda (t) S - \mu E\\
+\dot{I}_a &= p \mu E - \gamma_a I_a\\
+\dot{I}_s &= (1-p) \mu E -\gamma_s I_s\\
+\dot{R} &= \gamma_a I_a + (1-f) \gamma_s I_s \\
+\dot{D} &= f \gamma_s I_s\\
+\dot{S}_p &= - (1-\epsilon_i) \lambda (t) S_p \\
+\dot{E}_p &= (1-\epsilon_i) \lambda (t) S_p - \mu E_p\\
+\dot{I}_{p, a} &= (1 - (1-\epsilon_s) (1-p)) \mu E_p - \gamma_a I_{p,a}\\
+\dot{I}_{p, s} &= (1-\epsilon_s) (1-p) \mu E_p -\gamma_s I_{p,s}\\
+\dot{R}_p &= \gamma_a I_{p,a} + (1-(1-\epsilon_d) f) \gamma_s I_{p,s} \\
+\dot{D}_p &= (1-\epsilon_d) f \gamma_s I_{p,s}
+\end{align}
+where $\epsilon$ represents the degree of protection against infection, symptoms and death. 
+The force of infection $\lambda(t)$ is given by:
+\begin{equation}
+\lambda(t) = \beta_a (I_a + I_{p,a}) + (1-\delta) \beta_s (I_s + I_{p,s}).
+\end{equation}
+Here, subscripts $p$ denote individuals who are immune and therefore are protected.
+
+\pagebreak
+
+\section*{Supplementary Figures}
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=0.7\textwidth]{diagram_pre.pdf}
+\caption{
+\textbf{Schematic diagram and simulations of a model with presymptomatic transmission and symptom-responsive transmission reduction.}
+(Top) $S$ represents susceptible individuals; $E$ represents exposed individuals; $I_p$ represents presymptomatically infected individuals; $I_s$ represents symptomatically infected individuals; $R$ represents recovered individuals; and $D$ represents deceased individuals. See Methods for model details.
+(Bottom) Total deaths as a function of the proportion of presymptomatic transmission $\theta$ across a wide range scenarios for $\delta$ and a tradeoff between the proportion of presymptomatic infections $\theta$ and fatality rates $f$.
+}
+\end{center}
+\end{figure}
+
+\pagebreak
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=0.7\textwidth]{diagram_sub.pdf}
+\caption{
+\textbf{Schematic diagram and simulations of a model with presymptomatic and asymptomatic transmission and symptom-responsive transmission reduction.}
+(Top) $S$ represents susceptible individuals; $E$ represents exposed individuals; $I_p$ represents presymptomatically infected individuals; $I_a$ represents symptomatically infected individuals; $I_s$ represents symptomatically infected individuals; $R$ represents recovered individuals; and $D$ represents deceased individuals. See Methods for model details.
+(Bottom) Total deaths as a function of the proportion of subclinical transmission $\phi$ across a wide range scenarios for $\delta$ and a tradeoff between the proportion of presymptomatic infections $\theta$ and fatality rates $f$.
+}
+\end{center}
+\end{figure}
+
+\pagebreak
 
 \bibliography{main}
 

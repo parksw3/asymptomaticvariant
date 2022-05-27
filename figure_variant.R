@@ -14,21 +14,21 @@ simulate_orig_profile_summarize <- simulate_orig_profile %>%
   group_by(sim) %>%
   filter(time==max(time)) %>%
   mutate(
-    type="Resident"
+    type="First wave"
   )
 
 simulate_var_profile_summarize <- simulate_var_profile %>%
   group_by(sim) %>%
   filter(time==max(time)) %>%
   mutate(
-    type="Invading"
+    type="Second wave"
   )
 
 simulate_var_cross_profile_summarize <- simulate_var_cross_profile %>%
   group_by(sim) %>%
   filter(time==max(time)) %>%
   mutate(
-    type="Invading"
+    type="Second wave"
   )
 
 g1 <- ggplot(simulate_orig_profile_summarize, aes(p, (D_p+D_n), lty=type)) +
@@ -40,9 +40,9 @@ g1 <- ggplot(simulate_orig_profile_summarize, aes(p, (D_p+D_n), lty=type)) +
   #         arrow = arrow(length=unit(0.1, "inches")), col="purple") +
   geom_line() +
   geom_line(data=simulate_var_profile_summarize) +
-  geom_point(x=p_orig, y=tail(simulate_orig$D_p+simulate_orig$D_n, 1), size=3) +
-  geom_point(x=p_var1, y=tail(simulate_var1$D_p+simulate_var1$D_n, 1)-tail(simulate_orig$D_p+simulate_orig$D_n, 1), col="orange", size=3, shape="triangle") +
-  geom_point(x=p_var2, y=tail(simulate_var2$D_p+simulate_var2$D_n, 1)-tail(simulate_orig$D_p+simulate_orig$D_n, 1), col="purple", size=3, shape="square") +
+  geom_point(x=p_orig, y=tail(simulate_orig$D_p+simulate_orig$D_n, 1), size=3, aes(col="Wildtype", shape="Wildtype")) +
+  geom_point(x=p_var1, y=tail(simulate_var1$D_p+simulate_var1$D_n, 1)-tail(simulate_orig$D_p+simulate_orig$D_n, 1), size=3, aes(col="Variant 1", shape="Variant 1")) +
+  geom_point(x=p_var2, y=tail(simulate_var2$D_p+simulate_var2$D_n, 1)-tail(simulate_orig$D_p+simulate_orig$D_n, 1), size=3, aes(col="Variant 2", shape="Variant 2")) +
   scale_x_continuous("Proportion asymptomatic", 
                      breaks=c(0, 0.2, 0.4, 0.6, 0.8, 1),
                      labels=c("0", "0.2", "0.4", "0.6", "0.8", "1"),
@@ -50,12 +50,15 @@ g1 <- ggplot(simulate_orig_profile_summarize, aes(p, (D_p+D_n), lty=type)) +
   scale_y_continuous("Proportion deceased",
                      limits = c(0, ymax),
                      expand=c(0, 0)) +
+  scale_color_manual("", values=c("orange", "purple", "black")) +
+  scale_shape_manual("", values=c("triangle", "square", "circle")) +
   ggtitle("A. Without cross protection against infection") +
-  scale_linetype_manual("Variant", values=c(2, 1)) +
+  scale_linetype_manual("Variant", values=c(1, 2)) +
   theme(
     panel.grid = element_blank(),
-    legend.position = c(0.8, 0.8),
-    legend.background = element_rect(fill=NA)
+    legend.position = c(0.85, 0.75),
+    legend.background = element_rect(fill=NA),
+    legend.title = element_blank()
   )
 
 g2 <- ggplot(simulate_orig, aes(time, Ia_n + Is_n + Ia_p + Is_p)) +
@@ -101,7 +104,7 @@ g4 <- ggplot(simulate_orig_profile_summarize, aes(p, (D_p+D_n), lty=type)) +
   scale_y_continuous("Proportion deceased",
                      limits = c(0, ymax),
                      expand=c(0, 0)) +
-  scale_linetype_manual("Variant", values=c(2, 1)) +
+  scale_linetype_manual("Variant", values=c(1, 2)) +
   ggtitle("D. With cross protection against infection") +
   theme(
     panel.grid = element_blank(),
@@ -134,4 +137,4 @@ gcomb2 <- ggarrange(g5, g6, nrow=2, draw=FALSE)
 
 gfinal <- arrangeGrob(g1, gcomb1, g4, gcomb2, widths=c(1, 1))
 
-saveGG(gfinal, target="figure_variant.Rout", width=8, height=6)
+saveGG(gfinal, target="figure_variant.Rout", width=10, height=8)
