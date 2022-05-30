@@ -6,7 +6,7 @@ current: target
 # -include makestuff/perl.def
 
 vim_session:
-	 bash -cl "vmt main.bib"
+	 bash -cl "vmt main.tex main.bib"
 
 ######################################################################
 

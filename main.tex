@@ -223,10 +223,11 @@ We assume that $10^{-4}$ proportion of individuals are initially infected.
 
 The impact of protection against infection $\epsilon_i$ is analogous to changing $\RR_0$ in the original model: as immunity provides stronger protection against infection (higher $\epsilon_i$), the number of deaths decreases and a higher asymptomatic fraction $p$ is required for the infection to spread (\fref{immune}A).
 We note that protection against infection scales the fatality curve nonlinearly, reflecting the nonlinear relationship between $\RR_0$ and the final size.
+\jd{The exact equivalance is sort of an assumption: we shold find an opportunity to say explicitly that we assume that asymptomatic infections in protected and unprotected people have the same \RR.}
 The impact of protection against symptoms $\epsilon_s$ is exactly equivalent to changing fraction asymptomatic $p$ for the protected population:
 the fatality curves move left as we increase the degree of protection $\epsilon_s$ (\fref{immune}B).
-Therefore, for low values of $p$, protection against symptoms can inadvertently increase the total number of fatalities at the population level by increasing the proportion (and number) of asymptomatically infected individuals, who can readily transmit infections to other individuals.
-This also means that the critical level of asymptomatic proportion decreases, allowing more dangerous infections (with lower $p$) to invade, which would not have been able to spread in an otherwise immunologically naive population.
+Therefore, for low values of $p$, protection against symptoms can increase the total number of fatalities at the population level by increasing the proportion (and number) of asymptomatically infected individuals, who can readily transmit infections to other individuals.
+\jd{Do we need ff.~s.?} This also means that the critical level of asymptomatic proportion decreases, allowing more dangerous infections (with lower $p$) to invade, which would not have been able to spread in an otherwise immunologically naive population.
 Protection against deaths $\epsilon_d$ directly modulates the fatality rate for symptomatic cases and therefore linearly scales the fatality curves (\fref{immune}C).
 
 \begin{figure}[!ht]
@@ -235,8 +236,8 @@ Protection against deaths $\epsilon_d$ directly modulates the fatality rate for 
 \textbf{Dynamics of invading variants under symptom-responsive transmission reduction and immunity.}
 (A, D) Asymptomaticity--fatality curves for the first (solid lines) and second waves (dashed lines).
 Points represent specific scenarios we assume for the first and second waves.
-Fatality curves for the first wave are calculated by simulating an epidemic for 1 year using same parameters as \fref{base} and $\delta=0.8$.
-Fatality curves for the second wave are calculated by first simulating the first wave assuming $p=0.2$ (wildtype) for 1 year to calculate the proportion immune and then simulating the extended model presented in \fref{immune}.
+Fatality curves for the first wave are calculated by simulating an epidemic for 1 year using parameters from \fref{base} with $\delta=0.8$.
+Fatality curves for the second wave are calculated by first simulating the first wave assuming $p=0.2$ for 1 year to calculate the proportion immune and then simulating the extended model presented in \fref{immune} for two different values of $p$ as shown.
 (B, E) Dynamics of infection prevalence for the wildtype variant (black, solid line) and two possible invading variants (colored, dashed line).
 (C, F) Dynamics of daily deaths for the wildtype variant (black, solid line) and two possible invading variants (colored, dashed line).
 }
@@ -250,9 +251,10 @@ We consider two types of variants (which are simulated separately): one with the
 
 First, we consider a scenario in which immunity only provides protection against symptoms, $\epsilon_s = 0.4$ (\fref{variant}A--C).
 In this case, protection against symptoms allows new variants to spread faster, resulting in larger outbreaks (\fref{variant}B).
-Although, a milder (purple) variant exhibits a faster epidemic growth rate and reaches a higher peak (\fref{variant}B), it reaches similar peak fatality as the more severe (orange) variant (\fref{variant}C).
+Although the milder (purple) variant exhibits a faster epidemic growth rate and reaches a higher peak (\fref{variant}B), it reaches similar peak fatality as the more severe (orange) variant (\fref{variant}C).
 The asymptomaticity--fatality curve provides additional insight (\fref{variant}A): even though a milder, invading variant (purple square) gives higher peak fatality than the original, wildtype variant (black circle), it leads to lower fatalities overall because deaths are concentrated over a shorter period of time.
 In general, invading variants with similar asymptomaticity $p$ will spread better and result in worse population-level outcomes if immunity (either from vaccination or natural infection) provides protection against symptoms, given that asymptomatically infected individuals can transmit better than symptomatically infected individuals (due to either behavioral and intervention effects).
+\jd{Be more clear what comparison we are making here. If we are comparing immunity to symptoms with immunity to infection, this s.~can be sharper and clearer. If not, what are we comparing?}
 
 Next, we consider a more realistic scenario in which immunity provides protection against symptoms, $\epsilon_s = 0.4$, and infection, $\epsilon_i = 0.4$ (\fref{variant}D--F).
 In this case, cross protection against infection has a disproportionately larger effect on the more severe (orange) variant, causing its peak infection prevalence (\fref{variant}E) and fatality (\fref{variant}F) to be lower than that of the original, wildtype variant.
