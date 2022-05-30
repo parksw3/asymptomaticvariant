@@ -5,13 +5,14 @@ current: target
 
 # -include makestuff/perl.def
 
-# vim_session:
-#	 bash -cl "vmt"
+vim_session:
+	 bash -cl "vmt main.bib"
 
 ######################################################################
 
 ## Main document (implicit rules)
 
+Sources += main.tex main.bib
 ## main.pdf: main.tex
 
 ######################################################################

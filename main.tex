@@ -117,27 +117,29 @@ Jonathan Dushoff\textsuperscript{5,6,7}
 \bigskip
 \end{flushleft}
 
-SARS-CoV-2 has had devastating effects at the population level even as individuals have experienced highly disparate infection outcomes.
-Notably, many individuals have mild or even asymptomatic cases making it harder to estimate the magnitude of spread and fatality rate. 
-The documented case-fatality rate (CFR) at the population level varies with population, testing infrastructure, and case definitions, typically between 1\%--4\% \citep{rajgor2020many,VERITY2020669,yang2020early}.
-But, many infections are never documented. 
-The infection fatality rate (IFR), which takes undocumented infections into account, has been estimated to be closer to 0.5\%--1\% for demographics similar to that of the United States \citep{levin2020assessing}. 
+SARS-CoV-2 has had devastating effects at the population level.
+However, many individuals have mild cases, making it harder to estimate the magnitude of spread and fatality rate. 
+The ratio of fatalities to documented cases (the case-fatality rate, CFR) is typically between 1\%--4\%, varying across population because of testing patterns, treatment practice, case definitions, and other factors \%--4\% \citep{rajgor2020many,VERITY2020669,yang2020early}.
+But many infections are never documented;
+the ratio of fatalities to total infections (the infection fatality rate, IFR) has been estimated to be closer to 0.5\%--1\% for demographics similar to that of the United States \citep{levin2020assessing}. 
 This means that more than 99\% of individuals infected with COVID-19 will survive. 
-Moreover, at least half of the infections are sufficiently mild that they could be classified as subclinical and even asymptomatic. 
-Yet, asymptomatically infected individuals can still transmit to others. 
-Hence, asymptomatic infections can be a double-edged sword.
-On the one hand, an asymptomatic infection means that the individual infected avoids hospitalization and fatality. 
-On the other hand, asymptomatic infections are less likely to be detected \citep{fraser2004factors}, and are may therefore be more likely to infect others, since precautions are less likely to be taken.
+Moreover, at least half of the infections are sufficiently mild that they could be classified as subclinical or even asymptomatic. 
+
+Individuals infected asymptomatically with SARS-CoV-2 can still transmit to others. 
+This means that the presence of asymptomatic infections has countervailing effects at the population level. 
+On one hand, an asymptomatic infection means that the individual infected avoids hospitalization and fatality. 
+On the other hand, asymptomatic infections are less likely to be detected \citep{fraser2004factors}, and may therefore be more likely to infect others, since precautions are less likely to be taken.
 This means that the prevalence of asymptomatic infections can paradoxically make population-level outcomes worse than if SARS-CoV-2 was more dangerous at the individual level.
 
 To explore this idea, we propose a simple epidemic model,
 in which infected individuals can be asymptomatically or symptomatically infected, with probabilities $p$ and $1-p$, respectively (\fref{base}).  
 Asymptomatically infected individuals always recover, whereas a fraction $f$ of symptomatically infected individuals die.
 Asymptomatically and symptomatically infected individuals can also have different infection characteristics, including their transmission rates ($\beta_a$ and $\beta_s$) and recovery rates ($\gamma_a$ and $\gamma_s$).
-Our key assumption is symptomatically infected individuals take precautions (e.g., reducing contacts or mask-wearing) and therefore reduce their transmission rate by a fraction $\delta$;
+Our key assumption is that symptomatically infected individuals take precautions (e.g., reducing contacts or mask-wearing) and therefore reduce their transmission rate by a fraction $\delta$;
 we note that the parameter $\delta$ may also capture intervention measures that target symptomatically infected individuals, such as symptom-based isolation. 
-As our nominal parameters, we assume lower transmission rates for asymptomatically infected individuals ($\beta_a = 0.75 \beta_s$) and equal recovery rates ($\gamma_a = \gamma_s$).
-We assume that asymptomatic individuals do not die, and evaluate the effects of changing the asymptomatic proportion $p$ while holding the fatality rate for \emph{symptomatic} cases, $f$, constant (the IFR $(1-p)f$ thus decreases as $p$ increases).
+For our main simulations, we assume lower transmission rates for asymptomatically infected individuals ($\beta_a = 0.75 \beta_s$) and equal recovery rates ($\gamma_a = \gamma_s$).
+We assume that asymptomatic individuals do not die, and evaluate the effects on population-level mortality of changing the asymptomatic proportion $p$ while holding the fatality rate for \emph{symptomatic} cases, $f$, constant (the IFR $(1-p)f$ thus decreases as $p$ increases).
+\jd{It's probably friendlier to talk mostly about \RR, we can then mention $\gamma$ only briefly.}
 
 \begin{figure}[!ht]
 \includegraphics[width=\textwidth]{diagram_base.pdf}
@@ -152,37 +154,38 @@ We assume that $10^{-4}$ proportion of individuals are initially infected.
 \label{fig:base}
 \end{figure}
 
-\fref{base} evaluates epidemic outcomes using epidemiological parameters similar to that of the originating strain of SARS-CoV-2, without any mitigation other than that individuals who are symptomatic reduce their transmission rate by $\delta$. 
+\fref{base} shows simulated epidemic outcomes using parameters similar to those of the originating strain of SARS-CoV-2, without any mitigation other than that individuals who are symptomatic reduce their transmission rate by $\delta$. 
 In the absence of the behavioral effect ($\delta=0$), the final size decreases with the asymptomatic proportion $p$ because more symptomatic infections leads to a higher basic reproduction number:
 \begin{equation}
 \RR_0 = (1-p) (1-\delta) \RR_s + p \RR_a,
 \end{equation}
 where $\RR_s = \beta_s/\gamma_s$ and $\RR_a = \beta_a/\gamma_a$ represent the reproduction numbers of asymptomatic and symptomatic individuals.
 This relationship changes as $\delta$ increases.
-In particular, when $\delta > 1-\RR_a/\RR_s$ (in our case, $\delta > 0.25)$, the basic reproduction number increases with $p$ because the behavioral effect causes the effective symptomatic transmission rate to be lower than that that of asymptomatic individuals;
-therefore, the number of infections increases with $p$.
-For even higher values of $\delta$, we find that there is a critical level of asymptomatic proportion, $p_c$:
+In particular, when $\delta > 1-\RR_a/\RR_s$ (in our case, $\delta > 0.25)$, the basic reproduction number (and thus epidemic size) increases with $p$ because the effective symptomatic transmission rate (including behavioral response) is less than that the asymptomatic rate.
+For $\delta$ in this range, we can find a critical level of asymptomatic proportion, $p_c$:
 \begin{equation}
     p_c = \frac{1 - (1-\delta) \RR_s}{\RR_a - (1-\delta) \RR_s}
 \end{equation}
 such that $p>p_c$ is required for an outbreak. 
-In the limit that $\delta=1$ (i.e., when symptomatically individuals does not transmit at all), then $p_c=1/\RR_a$.
+\jd{ff.~s.~seems unnecessary:} In the limit that $\delta=1$ (i.e., when symptomatically individuals does not transmit at all), then $p_c=1/\RR_a$.
 
-More intricate patterns emerge for fatalities.
-When $\delta = 0$, total fatalities decrease with $p$ because IFR ($(1-p)f$) decreases.
-In contrast, for high values of $\delta$, the peak fatality occurs at intermediate levels of asymptomatic spread:
+When behavioral protection is high, the effect of asymptomatic proportion on fatalities shows countervailing effects of individual-level protection and population-level risk.
+For high values of $\delta$, the peak fatality occurs at intermediate levels of asymptomatic spread:
 although less individuals die per infection for higher values of $p$, the increase in total infections also leads to an increase in total fatalities.
+In contrast, when $\delta$ is small enough that $\RR_s\geq\RR_a$, then total fatalities decrease with $p$ because the IFR ($(1-p)f$) decreases.
 
 High values of $\delta$ required for the nonlinear effects of asymptomaticity on deaths may seem unrealistic---in practice, $\delta$ cannot be greater than the amount of post-symptomatic transmission.
 While several studies have estimated the proportion of pre-symptomatic transmission to be around 30\%--60\% for the SARS-CoV-2 wildtype strain, many of them were likely subject to intervention and behavioral effects already as they were conducted after SARS-CoV-2 awareness became widespread \citep{he2020temporal}.
 Instead, \cite{sender2021unmitigated} recently showed that the proportion of pre-symptomatic transmission can be as low as 20\% (95\%CI: 6\%--32\%) in the absence of intervention measures;
 while this study provides indirect support for the feasibility of high $\delta$ values, it is still uncertain whether similar effects can be found in more realistic settings.
+\jd{We need to be a bit more nuanced here: we get the low value by focusing on just a couple of weeks, so we're sort of suggesting a counter-factual where nobody notices COVID for a long time.}
 
 We therefore consider two additional of mathematical models with increasing complexities to answer a more general question:
 does intermediate amount of subclinical (including both asymptomatic and presymptomatic) transmission lead to peak fatalities?
 First, we analyze a model with presymptomatic transmission alone (Supplementary Figure S1).
 When the reproduction number is fixed, increasing the proportion of presymptomatic transmission $\theta$ causes larger outbreaks, and therefore more deaths, in the presence of symptom-responsive transmission reduction ($\delta > 0$).
 However, standard compartmental models implicitly assume that the fatality rate $f$ is independent of the amount of presymptomatic transmission---in the extreme case where all transmission happens presymptomatically, infected individuals no longer shed infectious virus after symptom onset, meaning that they should be less likely to die from infection.
+\jd{We need a bit more detail here. I have no idea what proportion of COVID deaths are post-viral. Maybe I'm COVID-ignorant, but I want more info: many flu deaths are post-viral, and it's not super-clear how much of a role viral replication (or escape from deep lungs?) plays in fatality.}
 We therefore assume a tradeoff between the amount of presymptomatic transmission $\theta$ and the fatality rate $f$ that follows a power law: $f(\theta) = f_0 (1-\theta^a)$, which monotonically decreases from $f_0$ to 0.
 In the simple case where the fatality rate decreases linearly with $\theta$, the relationship between the amount of presymptomatic transmission $\theta$ and total fatalities is equivalent to that between the amount of asymptomatic transmission and total fatalities in the original model (\fref{base}).
 As we increase the exponent $a$, we obtain a more realistic tradeoff curve such that fatality rate $f$ remains roughly constant for low to intermediate values of $\theta$ and suddenly decreases to $0$ as $\theta$ approaches 1;
@@ -193,16 +196,16 @@ In particular, we fix the reproduction number of symptomatic individuals and cal
 This model generalizes two earlier models:
 when all subclinical transmission is caused by asymptomatic transmission, we have the first model (\fref{base});
 and when all subclinical transmission is caused by presymptomatic transmission, we have the second model (Supplementary Figure S1).
-Across almost all ranges of scenarios we consider, we find that peak fatalities occur at intermediate levels of subclinical transmission in the presence of moderate to strong behavioral effect, $\delta > 0.6$ (Supplementary Figure S2);
-in particular, we find that this pattern is robust even in the absence of the tradeoff between the amount of presymptomatic transmission and the fatality rate.
-One exception is the case in which all subclinical transmission is caused by presymptomatic transmission as shown earlier.
-Hereafter, we focus on asymptomatic infections for simplicity, but our conclusions are expected to hold for more general cases with respect to subclinical transmission.
+We find a wide variety of scenarios for which peak fatalities occur at intermediate levels of subclinical transmission in the presence of moderate to strong behavioral effect, $\delta > 0.6$ (Supplementary Figure S2);
+this pattern is robust even to the absence of a tradeoff between the amount of presymptomatic transmission and the fatality rate.
+One exception is the case discussed earlier in which all subclinical transmission is caused by presymptomatic transmission.
+Hereafter, we focus on asymptomatic infections for simplicity, but our conclusions have implications for the more general case of subclinical transmission.
 
 We now apply our framework to understand the impact of immunity on the severity of the disease by dividing the population into two groups: immunologically naive and protected.
 The dynamics of immunologically naive individuals are equivalent to our original model (\fref{base}).
 The dynamics of protected individuals include three additional parameters, which characterize the amount of protection against infection $\epsilon_i$, symptoms $\epsilon_s$, and deaths $\epsilon_d$ (\fref{immune}).
-For simplicity, we assume that the population is exactly split in half (50\% naive and 50\% protected) and mixes homogeneously; we do not consider the effect of immunity on transmission.
-We assume a relatively strong behaviroal effect $\delta=0.8$ for illustration.
+For simplicity, we assume that the population is exactly split in half (50\% naive and 50\% protected) and mixes homogeneously; we do not consider the separate effect of immunity on transmission (beyond the effect on infection).
+We assume a relatively strong behavioral effect $\delta=0.8$ for illustration.
 
 \begin{figure}[!ht]
 \includegraphics[width=\textwidth]{diagram_immune.pdf}
