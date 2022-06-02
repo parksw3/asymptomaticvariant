@@ -12,6 +12,8 @@ vim_session:
 
 Sources += README.md
 
+Ignore += asymptomaticvariant ## For testing instructions
+
 ######################################################################
 
 ## Main document (implicit rules)
