@@ -4,7 +4,7 @@
 To make the whole project from source:
 
 ```
-git clone https://github.com/parksw3/asymptomaticvariant.git
+git clone https://github.com/parksw3/asymptomaticvariant.git ##
 cd asymptomaticvariant
 make Makefile
 make pullall
