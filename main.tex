@@ -137,10 +137,8 @@ Asymptomatically infected individuals always recover, whereas a fraction $f$ of 
 Asymptomatically and symptomatically infected individuals can also have different infection characteristics, including their transmission rates ($\beta_a$ and $\beta_s$) and recovery rates ($\gamma_a$ and $\gamma_s$).
 Our key assumption is that symptomatically infected individuals take precautions (e.g., reducing contacts or mask-wearing) and therefore reduce their transmission rate by a fraction $\delta$;
 we note that the parameter $\delta$ may also capture intervention measures that target symptomatically infected individuals, such as symptom-based isolation. 
-For our main simulations, we assume lower transmission rates for asymptomatically infected individuals ($\beta_a = 0.75 \beta_s$) and equal recovery rates ($\gamma_a = \gamma_s$).
+For our main simulations, we assume that asymptomatically infected individuals have a lower reproduction number---this is modeled by assuming lower transmission rates for asymptomatically infected individuals ($\beta_a = 0.75 \beta_s$) and equal recovery rates ($\gamma_a = \gamma_s$).
 We assume that asymptomatic individuals do not die, and evaluate the effects on population-level mortality of changing the asymptomatic proportion $p$ while holding the fatality rate for \emph{symptomatic} cases, $f$, constant (the IFR $(1-p)f$ thus decreases as $p$ increases).
-\jd{It's probably friendlier to talk mostly about \RR, we can then mention $\gamma$ only briefly.}
-
 \begin{figure}[!ht]
 \includegraphics[width=\textwidth]{diagram_base.pdf}
 \caption{
@@ -166,8 +164,7 @@ For $\delta$ in this range, we can find a critical level of asymptomatic proport
 \begin{equation}
     p_c = \frac{1 - (1-\delta) \RR_s}{\RR_a - (1-\delta) \RR_s}
 \end{equation}
-such that $p>p_c$ is required for an outbreak. 
-\jd{ff.~s.~seems unnecessary:} In the limit that $\delta=1$ (i.e., when symptomatically individuals does not transmit at all), then $p_c=1/\RR_a$.
+such that $p>p_c$ is required for an outbreak.
 
 When behavioral protection is high, the effect of asymptomatic proportion on fatalities shows countervailing effects of individual-level protection and population-level risk.
 For high values of $\delta$, the peak fatality occurs at intermediate levels of asymptomatic spread:
@@ -176,9 +173,10 @@ In contrast, when $\delta$ is small enough that $\RR_s\geq\RR_a$, then total fat
 
 High values of $\delta$ required for the nonlinear effects of asymptomaticity on deaths may seem unrealistic---in practice, $\delta$ cannot be greater than the amount of post-symptomatic transmission.
 While several studies have estimated the proportion of pre-symptomatic transmission to be around 30\%--60\% for the SARS-CoV-2 wildtype strain, many of them were likely subject to intervention and behavioral effects already as they were conducted after SARS-CoV-2 awareness became widespread \citep{he2020temporal}.
-Instead, \cite{sender2021unmitigated} recently showed that the proportion of pre-symptomatic transmission can be as low as 20\% (95\%CI: 6\%--32\%) in the absence of intervention measures;
-while this study provides indirect support for the feasibility of high $\delta$ values, it is still uncertain whether similar effects can be found in more realistic settings.
+Instead, \cite{sender2021unmitigated} recently estimated that the proportion of pre-symptomatic transmission can be as low as 20\% (95\%CI: 6\%--32\%) during the first few weeks of the pandemic when the pandemic-awareness and intervention measures were minimal.
+There are two implications for the discrepancy in the estimates of the proportion of presymptomatic transmission---first, a low proportion of presymptomatic transmission suggests that high $\delta$ values are feasible (although not necessarily likely) relative to the initial pandemic phase; and second, intermediate levels of behavioral effects ($\delta > 0$) would have been already present early in the pandemic to reduce the proportion of presymptomatic transmission from 20\% to 60\%.
 \jd{We need to be a bit more nuanced here: we get the low value by focusing on just a couple of weeks, so we're sort of suggesting a counter-factual where nobody notices COVID for a long time.}
+\swp{How's this?}
 
 We therefore consider two additional of mathematical models with increasing complexities to answer a more general question:
 does intermediate amount of subclinical (including both asymptomatic and presymptomatic) transmission lead to peak fatalities?
@@ -204,8 +202,11 @@ Hereafter, we focus on asymptomatic infections for simplicity, but our conclusio
 We now apply our framework to understand the impact of immunity on the severity of the disease by dividing the population into two groups: immunologically naive and protected.
 The dynamics of immunologically naive individuals are equivalent to our original model (\fref{base}).
 The dynamics of protected individuals include three additional parameters, which characterize the amount of protection against infection $\epsilon_i$, symptoms $\epsilon_s$, and deaths $\epsilon_d$ (\fref{immune}).
-For simplicity, we assume that the population is exactly split in half (50\% naive and 50\% protected) and mixes homogeneously; we do not consider the separate effect of immunity on transmission (beyond the effect on infection).
+For simplicity, we assume that the population is exactly split in half (50\% naive and 50\% protected) and mixes homogeneously. We also do not consider the separate effect of immunity on transmission (beyond the effect on infection). 
+In other words, we assume that asymptomatic infections in protected and unprotected people have the same reproduction numbers (and likewise for the symptomatic infections).
+In practice, both asymptomatic and symptomatic infections in protected people are less likey to transmit than their unprotected counterparts: asymptomatic infections in protected people may indicate limited viral replication or even immune boosting, in which case an exposed individual may successfully fight off the pathogen early in infection before it can be transmitted; and symptomatic infections in protected people may reflect a strong immune response (rather than high viral laod), in which case symptomaticity can be a poor proxy for transmission.
 We assume a relatively strong behavioral effect $\delta=0.8$ for illustration.
+\swp{JD: see if you like what I did in this P, esp in terms of boosting.}
 
 \begin{figure}[!ht]
 \includegraphics[width=\textwidth]{diagram_immune.pdf}
@@ -223,11 +224,11 @@ We assume that $10^{-4}$ proportion of individuals are initially infected.
 
 The impact of protection against infection $\epsilon_i$ is analogous to changing $\RR_0$ in the original model: as immunity provides stronger protection against infection (higher $\epsilon_i$), the number of deaths decreases and a higher asymptomatic fraction $p$ is required for the infection to spread (\fref{immune}A).
 We note that protection against infection scales the fatality curve nonlinearly, reflecting the nonlinear relationship between $\RR_0$ and the final size.
-\jd{The exact equivalance is sort of an assumption: we shold find an opportunity to say explicitly that we assume that asymptomatic infections in protected and unprotected people have the same \RR.}
 The impact of protection against symptoms $\epsilon_s$ is exactly equivalent to changing fraction asymptomatic $p$ for the protected population:
 the fatality curves move left as we increase the degree of protection $\epsilon_s$ (\fref{immune}B).
 Therefore, for low values of $p$, protection against symptoms can increase the total number of fatalities at the population level by increasing the proportion (and number) of asymptomatically infected individuals, who can readily transmit infections to other individuals.
-\jd{Do we need ff.~s.?} This also means that the critical level of asymptomatic proportion decreases, allowing more dangerous infections (with lower $p$) to invade, which would not have been able to spread in an otherwise immunologically naive population.
+This also means that the critical level of asymptomatic proportion decreases, allowing more dangerous infections (with lower $p$) to invade, which would not have been able to spread in an otherwise immunologically naive population.
+We note that the equivalence between protection against symptoms $\epsilon_s$ and fraction asymptomatic $p$ relies on our assumption that immunity does not provide protection against transmission.
 Protection against deaths $\epsilon_d$ directly modulates the fatality rate for symptomatic cases and therefore linearly scales the fatality curves (\fref{immune}C).
 
 \begin{figure}[!ht]
@@ -253,8 +254,7 @@ First, we consider a scenario in which immunity only provides protection against
 In this case, protection against symptoms allows new variants to spread faster, resulting in larger outbreaks (\fref{variant}B).
 Although the milder (purple) variant exhibits a faster epidemic growth rate and reaches a higher peak (\fref{variant}B), it reaches similar peak fatality as the more severe (orange) variant (\fref{variant}C).
 The asymptomaticity--fatality curve provides additional insight (\fref{variant}A): even though a milder, invading variant (purple square) gives higher peak fatality than the original, wildtype variant (black circle), it leads to lower fatalities overall because deaths are concentrated over a shorter period of time.
-In general, invading variants with similar asymptomaticity $p$ will spread better and result in worse population-level outcomes if immunity (either from vaccination or natural infection) provides protection against symptoms, given that asymptomatically infected individuals can transmit better than symptomatically infected individuals (due to either behavioral and intervention effects).
-\jd{Be more clear what comparison we are making here. If we are comparing immunity to symptoms with immunity to infection, this s.~can be sharper and clearer. If not, what are we comparing?}
+In general, when $\delta$ is large, invading variants with similar asymptomaticity $p$ will spread better and result in worse population-level outcomes if immunity (either from vaccination or natural infection) provides protection against symptoms.
 
 Next, we consider a more realistic scenario in which immunity provides protection against both symptoms, $\epsilon_s = 0.4$, and infection, $\epsilon_i = 0.4$ (\fref{variant}D--F).
 In this case, cross protection against infection has a large effect on the more severe (orange) variant, causing its peak infection prevalence (\fref{variant}E) and fatality (\fref{variant}F) to be lower than that of the original, wildtype variant.
