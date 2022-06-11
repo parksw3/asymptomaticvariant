@@ -25,6 +25,10 @@ Sources += main.tex main.bib
 
 Sources += $(wildcard *.R)
 
+## data figure 
+figure_evidence.Rout: figure_evidence.R
+	$(wrapR)
+
 ## Simulations functions
 funs.Rout: funs.R
 	$(wrapR)
