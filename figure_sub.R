@@ -8,20 +8,21 @@ simulate_sub <- rdsRead()
 simulate_sub_max <- simulate_sub %>%
   group_by(sim) %>%
   filter(
-    time==max(time)
+    time==max(time),
+    power==-1
   ) %>%
   mutate(
-    power=paste0("f(theta)==f[0](1-theta^", power, ")"),
-    power=factor(power,
-                 levels=paste0("f(theta)==f[0](1-theta^", c(-1, 1, 2, 5), ")"),
-                 labels=c("No~tradeoff", paste0("f(theta)==f[0](1-theta^", c(1, 2, 5), ")"))),
+    # power=paste0("f(theta)==f[0](1-theta^", power, ")"),
+    # power=factor(power,
+    #              levels=paste0("f(theta)==f[0](1-theta^", c(-1, 1, 2, 5), ")"),
+    #              labels=c("No~tradeoff", paste0("f(theta)==f[0](1-theta^", c(1, 2, 5), ")"))),
     p_pre_ratio=factor(paste0(p_pre_ratio*100, "*\'%\'"),
                        levels=paste0(0:5*0.2*100, "*\'%\'"))
   )
 
 g1 <- ggplot(simulate_sub_max) +
   geom_line(aes(p_sub, D, col=factor(delta), group=factor(delta))) +
-  scale_x_continuous(expression(Proportion~subclinical~"transmission,"~phi), 
+  scale_x_continuous(expression(Proportion~"non-symptomatic"~"transmission,"~phi), 
                      breaks=c(0, 0.2, 0.4, 0.6, 0.8, 1),
                      labels=c("0", "0.2", "0.4", "0.6", "0.8", "1"),
                      expand=c(0, 0)) +
@@ -29,12 +30,11 @@ g1 <- ggplot(simulate_sub_max) +
                      limits=c(0, 0.0103),
                      expand=c(0, 0)) +
   scale_color_viridis_d(expression(delta)) +
-  facet_grid(p_pre_ratio~power, labeller = label_parsed) +
+  facet_wrap(~p_pre_ratio, labeller = label_parsed) +
   theme(
     panel.grid = element_blank(),
     strip.background = element_blank(),
     legend.position = "right"
   )
 
-saveGG(g1, width=8, height=8)
-
+saveGG(g1, width=6, height=4)

@@ -14,20 +14,7 @@ data <- read.csv("indiv_data.csv") %>%
 ## posterior from diamond
 posterior <- readRDS("primary.rds")
 
-gamma_p <- 1/2.1
-gamma_s <- 1/2.9
-gamma_a <- 1/5
-
-theta_a <- posterior$output$theta_a$value
-theta_p <- posterior$output$theta_p$value
-
-R_s <- 1/gamma_s + theta_p * 1/gamma_p
-R_a <- theta_a * 1/gamma_a
-
-Rratio <- data.frame(
-  value=R_a/R_s
-)
-
+theta_a <- posterior$output$theta_a
 chi <- posterior$output$chi
 
 g1 <- ggplot(chi) +
@@ -42,9 +29,9 @@ g1 <- ggplot(chi) +
     panel.grid = element_blank()
   )
 
-g2 <- ggplot(Rratio) +
+g2 <- ggplot(theta_a) +
   geom_histogram(aes(value, y=..density..), color="black", fill=NA) +
-  scale_x_continuous("Relative infectiousness of asymptomatic infection") +
+  scale_x_continuous("Relative asymptomatic transmission rate") +
   scale_y_continuous("Density") +
   ggtitle("B. Diamond Princess cruise ship") +
   theme(
