@@ -128,30 +128,31 @@ Moreover, at least half of the infections are sufficiently mild that they could 
 \begin{figure}[!ht]
 \includegraphics[width=\textwidth]{figure_evidence.ggp.pdf}
 \caption{
-\textbf{Available data on asymptomatic transmissibility of SARS-CoV-2.}
-(A) Previous estimates of the proportion of asymptomatic infections from the Diamond Princess Cruise Ship.
-(B) Previous estimates of the ratio $\theta_a$ of the transmission rates between asymptomatic and symptomatic individuals from the Diamond Princess Cruise Ship.
+\textbf{Asymptomatic transmissibility of SARS-CoV-2.}
+(A) Posterior estimates of the proportion of asymptomatic infections from the Diamond Princess Cruise Ship \cite{emery2020}.
+(B) Posterior estimates of the ratio $\theta_a$ of the transmission rates between asymptomatic and symptomatic individuals from the Diamond Princess Cruise Ship \cite{emery2020}.
+Bar charts represent the posterior distributions.
 Symptomatic individuals were assumed to transmit at rate $\beta(t)$ for an average of 2.9 days, followed by a presymptomatic stage with an average of 2.1 days. 
 Asymptomatic individuals were assumed to transmit at rate $\theta_a \beta(t)$ for an average of 5 days.
-Both estimates are publicly available from \cite{emery2020}.
-(C) Viral load trajectory data from National Basketball Association (NBA).
+Both estimates are publicly available with further details in \cite{emery2020}.
+(C) Viral load trajectory data from players, staff, and vendors of the National Basketball Association (NBA).
 Points represent each Ct measurement.
 Lines and shaded areas represent the smooth trajectories estimated via LOESS and the associated 95\% confidence intervals.
-Data are publicly available from \cite{Kissler2020}.
+Data are publicly available in \cite{Kissler2020}.
 }
 \label{fig:evidence}
 \end{figure}
 
 Early in the pandemic, a COVID-19 outbreak on the Diamond Princess Cruise Ship played a critical role in understanding the role of asymptomatic infections in the spread of SARS-CoV-2;
 the outbreak occurred among 3711 passengers and crew, of which 634 individuals tested positive by 20 February 2020 \citep{mizumoto2020estimating}.
-\cite{emery2020} estimated 74\% (95\% CI: 70\%--78\%) infections on the cruise ship to be asymptomatic (\fref{evidence}A), with about a half of total infections undetected;
-an earlier analysis of the same outbreak estimated a much lower asymptomatic proportion (17.9\%; 95\% CI: 15.5\%--20.2\%) but neglected undetected cases \citep{mizumoto2020estimating}.
-\cite{emery2020} found that the relative transmission rate of asymptomatic individuals were largely unidentifiable (\fref{evidence}B) but they were still able to rule out low transmissibility (0\%--25\%) as they require unrealistically high reproduction number of symptomatic individuals.
-Other modeling studies have also typically assumed low values for the ratio of the reproduction numbers between asymptomatic and symptomatic individuals, but their assumptions have ranged from 10\%--100\% \citep{ferretti2020quantifying,lavezzo2020}.
-Similarities in viral load trajectories of asymptomatic and symptomatic individuals also provide indirect support for the transmissibility of asymptomatically infected individuals (\fref{evidence}C, \cite{Kissler2020}); 
-however, differences between total viral load and infectious viral load add uncertainties to how well asymptomatic individuals can transmit.
+Early response work estimated that 17.9\% (95\% CI: 15.5\%--20.2\%) of confirmed infections on the Diamond Princess Cruise Ship were asymptomatic; but such estimates neglected undetected cases \citep{mizumoto2020estimating}.
+In contrast, re-analysis estimated that 75\% (95\% C: 70\%-78\%) of all infections on the cruise ship were asymptomatic (\fref{evidence}A) with about half of total infections undetected \cite{emery2020}.   
+The relative transmission rate of asymptomatically infected individuals was not well constrained, but relatively low transmissability (e.g., between 0\%-25\%) by asymptomatic individuals was ruled out becase it required unrealistically high transmissability for symptomatically infected individuals (\fref{evidence}B).
+Modeling studies have typically assumed that transmissability is lower for asymptomatic than for symptomatic individuals, but their assumptions have ranged from 10\%--100\% \citep{ferretti2020quantifying,lavezzo2020}.
+Similarities in viral load trajectories of asymptomatic and symptomatic individuals provide indirect support for the transmissibility of asymptomatically infected individuals (\fref{evidence}C, \cite{Kissler2020}); 
+however, differences between inferred total viral load from Ct values and infectious viral load add uncertainties to how well asymptomatic individuals can transmit relative to that of symptomatic individuals.
 
-Despite large uncertainties in asymptomatic transmissibility, it is clear that individuals infected asymptomatically with SARS-CoV-2 can still transmit to others. 
+Despite quantitative uncertainties in asymptomatic transmissibility, it is clear that individuals infected asymptomatically with SARS-CoV-2 can still transmit to others. 
 This means that the presence of asymptomatic infections may have countervailing effects at the population level. 
 On one hand, an asymptomatic infection means that the individual infected avoids hospitalization and fatality. 
 On the other hand, asymptomatic infections are less likely to be detected \citep{fraser2004factors}, meaning that they are less likely to take precautions and more likely to infect others;
@@ -159,13 +160,13 @@ asymptomatic SARS-CoV-2 infections present additional challenges due to the poss
 Altogether, the prevalence of asymptomatic infections can paradoxically make population-level outcomes worse than if SARS-CoV-2 was more dangerous at the individual level.
 
 To explore this idea, we propose a simple epidemic model,
-in which infected individuals can be asymptomatically or symptomatically infected, with probabilities $p$ and $1-p$, respectively (\fref{base}).  
+in which infected individuals can be asymptomatically or symptomatically infected, with probabilities $p$ and $1-p$, respectively (\fref{base}A).  
 Asymptomatically infected individuals always recover, whereas a fraction $f$ of symptomatically infected individuals die.
 Asymptomatically and symptomatically infected individuals can also have different infection characteristics, including their transmission rates ($\beta_a$ and $\beta_s$) and recovery rates ($\gamma_a$ and $\gamma_s$).
 Our key assumption is that symptomatically infected individuals take greater precautions than do asymptomatically infected individuals (e.g., via reducing contacts or increased mask-wearing) and therefore reduce their transmission rate by a fraction $\delta$;
 we note that the parameter $\delta$ may also capture intervention measures that target symptomatically infected individuals, such as symptom-based isolation. 
 For our main simulations, we assume that asymptomatically infected individuals have a lower reproduction number---this is modeled by assuming lower transmission rates for asymptomatically infected individuals ($\beta_a = 0.75 \beta_s$) and equal recovery rates ($\gamma_a = \gamma_s$).
-We assume that asymptomatic individuals do not die, and evaluate the effects on population-level mortality of changing the asymptomatic proportion $p$ while holding the fatality rate for \emph{symptomatic} cases, $f$, constant (the IFR $(1-p)f$ thus decreases as $p$ increases).
+We evaluate the effects on population-level mortality of changing the asymptomatic proportion $p$ while holding the fatality rate for \emph{symptomatic} cases, $f$, constant (the IFR $(1-p)f$ thus decreases as $p$ increases).
 \begin{figure}[!ht]
 \includegraphics[width=\textwidth]{diagram_base.pdf}
 \caption{
@@ -179,21 +180,22 @@ We assume that $10^{-4}$ proportion of individuals are initially infected.
 \label{fig:base}
 \end{figure}
 
-\fref{base} shows simulated epidemic outcomes using parameters similar to those of the originating strain of SARS-CoV-2, without any mitigation other than that individuals who are symptomatic reduce their transmission rate by $\delta$. 
-In the absence of the behavioral effect ($\delta=0$), the final size decreases with the asymptomatic proportion $p$ because more symptomatic infections leads to a higher basic reproduction number:
+\fref{base}B--C shows simulated epidemic outcomes using parameters similar to those of the originating strain of SARS-CoV-2, without any mitigation other than that individuals who are symptomatic reduce their transmission rate by $\delta$. 
+For this model, the basic reproduction number is given by:
 \begin{equation}
 \RR_0 = (1-p) (1-\delta) \RR_s + p \RR_a,
 \end{equation}
-where $\RR_s = \beta_s/\gamma_s$ and $\RR_a = \beta_a/\gamma_a$ represent the reproduction numbers of asymptomatic and symptomatic individuals.
+where $\RR_s = \beta_s/\gamma_s$ and $\RR_a = \beta_a/\gamma_a$ represent the reproduction numbers of asymptomatic and symptomatic individuals (i.e., the average number of secondary infections caused by asymptomatic and symptomatic individuals);
+therefore, in the absence of the behavioral effect ($\delta=0$), the final size decreases with the asymptomatic proportion $p$ because more symptomatic infections leads to a higher basic reproduction number.
 This relationship changes as $\delta$ increases.
 In particular, when $\delta > 1-\RR_a/\RR_s$ (in this case, $\delta > 0.25)$, the basic reproduction number (and thus epidemic size) increases with $p$ because the effective symptomatic transmission rate (including behavioral response) is less than that the asymptomatic rate.
 For $\delta$ in this range, we can find a critical level of asymptomatic proportion, $p_c$:
 \begin{equation}
     p_c = \frac{1 - (1-\delta) \RR_s}{\RR_a - (1-\delta) \RR_s}
 \end{equation}
-such that $p>p_c$ is required for an outbreak.
+such that $p>p_c$ is required for an outbreak (see threshold effects for large values of $\delta$ in \fref{base}B).
 
-When behavioral protection is high, the effect of asymptomatic proportion on fatalities shows countervailing effects of individual-level protection and population-level risk.
+When behavioral protection is high, the effect of asymptomatic proportion on fatalities shows countervailing effects of individual-level protection and population-level risk (\fref{base}C).
 For high values of $\delta$, the peak fatality occurs at intermediate levels of asymptomatic spread:
 although less individuals die per infection for higher values of $p$, the increase in total infections also leads to an increase in total fatalities.
 In contrast, when $\delta$ is small enough such that $\RR_s\geq\RR_a$, then total fatalities decrease with $p$ because because both the number of infections and the IFR ($(1-p)f$) decrease with increasing $p$.
@@ -205,9 +207,9 @@ Instead, \cite{sender2021unmitigated} recently estimated that the proportion of 
 There are two implications for the discrepancy in the estimates of the proportion of presymptomatic transmission---first, a low proportion of presymptomatic transmission suggests that high $\delta$ values are feasible (although not necessarily likely) during the initial pandemic phase; and second, intermediate levels of behavioral effects ($\delta > 0$) would have been already present early in the pandemic to reduce the proportion of presymptomatic transmission from 20\% to 60\%.
 
 We therefore extend our model to consider the effects of generalized \textit{non-symptomatic} transmission, which includes both presymptomatic and asymptomatic transmission (Supplementary Figure S1), to ask the following question:
-does intermediate amount of non-symptomatic transmission lead to a peak in fatalities?
+does an intermediate amount of non-symptomatic transmission lead to a peak in fatalities?
 For this model, we assume that $\delta$ decreases transmission only after symptom onset.
-We then fix the reproduction number of symptomatic individuals and calculate the proportion of fatalities as a function of the proportion of total non-symptomatic transmission and the proportion of non-symptomatic transmission that is caused by presymptomatic transmission.
+We then fix the reproduction number of symptomatic individuals and calculate fatalities at the population level as a function of the proportion of total non-symptomatic transmission and the proportion of non-symptomatic transmission that is caused by presymptomatic transmission.
 Using the generalized non-symptomatic transmission model, we find a wide variety of scenarios for which peak fatalities occur at intermediate levels of non-symptomatic transmission in the presence of moderate to strong behavioral effects, $\delta > 0.6$ (Supplementary Figure S2).
 One exception is the extreme (and unrealistic) case, in which all non-symptomatic transmission is caused by presymptomatic transmission;
 in this case, total infections and fatalities are maximized when all transmission is caused by presymptomatic transmission.
