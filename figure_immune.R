@@ -16,7 +16,7 @@ g1 <- ggplot(simulate_immune_i_summarize) +
                      limits=c(0, ymax),
                      expand=c(0, 0)) +
   scale_color_viridis_d("Protection", option="B", end=0.9) +
-  ggtitle("Protection against\ninfection") +
+  ggtitle("B. Protection against\ninfection") +
   theme(
     panel.grid = element_blank(),
     legend.position = "none"
@@ -32,7 +32,7 @@ g2 <- ggplot(simulate_immune_s_summarize) +
                      limits=c(0, ymax),
                      expand=c(0, 0)) +
   scale_color_viridis_d("Protection", option="B", end=0.9) +
-  ggtitle("Protection against\nsymptoms") +
+  ggtitle("C. Protection against\nsymptoms") +
   theme(
     panel.grid = element_blank(),
     legend.position = "none"
@@ -48,7 +48,7 @@ g3 <- ggplot(simulate_immune_d_summarize) +
                      limits=c(0, ymax),
                      expand=c(0, 0)) +
   scale_color_viridis_d(expression(epsilon), option="B", end=0.9) +
-  ggtitle("Protection against\ndeaths") +
+  ggtitle("D. Protection against\ndeaths") +
   theme(
     panel.grid = element_blank(),
     legend.position = "right"

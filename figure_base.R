@@ -21,6 +21,7 @@ g1 <- ggplot(simulate_base_max) +
                      limits=c(0, 1),
                      expand=c(0, 0)) +
   scale_color_viridis_d(expression(delta)) +
+  ggtitle("B") +
   theme(
     panel.grid = element_blank(),
     legend.position = c(0.8, 0.4),
@@ -37,6 +38,7 @@ g2 <- ggplot(simulate_base_max) +
                      limits=c(0, 0.01),
                      expand=c(0, 0)) +
   scale_color_viridis_d(expression(delta)) +
+  ggtitle("C") +
   theme(
     panel.grid = element_blank(),
     legend.position = "none"
@@ -44,4 +46,4 @@ g2 <- ggplot(simulate_base_max) +
 
 gfinal <- ggarrange(g1, g2, nrow=1, draw=FALSE)
 
-saveGG(gfinal, width=8, height=3)
+saveGG(gfinal, width=8, height=3.2)

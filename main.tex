@@ -88,7 +88,7 @@
 \begin{flushleft}{
 	\Large
 	\textbf\newline{
-		Intermediate levels of asymptomatic transmission can lead to the worst population-level epidemic outcomes
+		Intermediate levels of asymptomatic transmission can lead to highest levels of epidemic fatalities
 	}
 }
 \newline
@@ -171,9 +171,9 @@ We evaluate the effects on population-level mortality of changing the asymptomat
 \includegraphics[width=\textwidth]{diagram_base.pdf}
 \caption{
 \textbf{Schematic diagram and simulations of a model with asymptomatic transmission and symptom-responsive transmission reduction.}
-(Top) $S$ represents susceptible individuals; $E$ represents exposed individuals; $I_a$ represents asymptomatically infected individuals; $I_s$ represents symptomatically infected individuals; $R$ represents recovered individuals; and $D$ represents deceased individuals. See Methods for model details.
-(Bottom left) Total infections as a function of the proportion of asymptomatic infections $p$ across a wide range scenarios for $\delta$.
-(Bottom right) Total deaths as a function of the proportion of asymptomatic infections $p$ across a wide range scenarios for $\delta$.
+(A) $S$ represents susceptible individuals; $E$ represents exposed individuals; $I_a$ represents asymptomatically infected individuals; $I_s$ represents symptomatically infected individuals; $R$ represents recovered individuals; and $D$ represents deceased individuals. See Methods for model details.
+(B) Total infections as a function of the proportion of asymptomatic infections $p$ across a wide range scenarios for $\delta$.
+(C) Total deaths as a function of the proportion of asymptomatic infections $p$ across a wide range scenarios for $\delta$.
 We simulate the model for 365 days, assuming $\beta_s = 0.8/\mathrm{day}$, $\beta_a = 0.75 \beta_s$, $\mu=0.5/\mathrm{day}$, $\gamma_s=\gamma_a=0.2/\mathrm{day}$, and $f=0.01$.
 We assume that $10^{-4}$ proportion of individuals are initially infected.
 }
@@ -227,10 +227,10 @@ We assume a relatively strong behavioral effect $\delta=0.8$ for illustration.
 \includegraphics[width=\textwidth]{diagram_immune.pdf}
 \caption{
 \textbf{Schematic diagram and simulations of a model with symptom-responsive transmission reduction and immunity.}
-(Top) The subscript $p$ represents protected individuals. 
+(A) The subscript $p$ represents protected individuals. 
 Immunity may provide protection against infection, symptoms, or deaths.
 The dynamics of immunologically naive individuals are described in \fref{base}.
-(Bottom) Total deaths as a function of the proportion of asymptomatic infections $p$ across a wide range scenarios for protection against infection $\epsilon_i$, symptoms $\epsilon_s$, and deaths $\epsilon_d$.
+(B--D) Total deaths as a function of the proportion of asymptomatic infections $p$ across a wide range scenarios for protection against infection $\epsilon_i$ (B), symptoms $\epsilon_s$ (C), and deaths $\epsilon_d$ (D).
 We simulate the model for 365 days, assuming $\beta_s = 4/5/\mathrm{day}$, $\beta_a = 0.75 \beta_s$, $\mu=1/2/\mathrm{day}$, $\gamma_s=\gamma_a=1/5/\mathrm{day}$, $f=0.01$, and $\delta=0.8$.
 We assume that $10^{-4}$ proportion of individuals are initially infected.
 }
@@ -333,7 +333,7 @@ Under this parameterization, we have symptomatic and asymptomatic reproduction n
 
 We then extend the first model to include both presymptomatic and asymptomatic transmission:
 \begin{align}
-\dot{S} &= -\beta_a S I_a -(1-\delta) \beta_s S I_s \\
+\dot{S} &= -\beta_p I_p -\beta_a S I_a -(1-\delta) \beta_s S I_s \\
 \dot{E} &= \beta_a S I_a + (1-\delta) \beta_s S I_s - \mu E\\
 \dot{I}_p &= \mu E - \sigma I_p\\
 \dot{I}_a &= p \sigma I_p - \gamma_a I_a\\
@@ -345,7 +345,7 @@ For this model, the presymptomatic $\RR_p$, symptomatic $\RR_s$, and asymptomati
 these reproduction numbers represent the average number of secondary cases caused by an infected individual in each compartment.
 Then, the reproduction number of individuals who will eventually develop symptoms is equal to: $\RR_p + \RR_s$;
 similarly, the reproduction number of individuals who remain asymptomatic is equal to: $\RR_p + \RR_a$.
-Since proportion $p$ of all infections is asymptomatic, the basic reproduction number is given by the weighted average of these two reproduction numbers: 
+Since the proportion $p$ of all infections is asymptomatic, the basic reproduction number is given by the weighted average of these two reproduction numbers: 
 \begin{equation}
 \RR_0 = p(\RR_p + \RR_a) + (1-p) (\RR_p + \RR_s) = \RR_p + p \RR_a + (1-p) \RR_s.
 \end{equation}
@@ -365,6 +365,7 @@ More specifically:
 p &= \left(\frac{1}{\eta} - 1 \right) \frac{\RR_p}{\RR_a},
 \end{align}
 where $y = (1/\phi - 1)/\eta + (1/\eta - 1)/\rho$.
+In order to keep the mean infectious period fixed, we assume $1/\sigma=2\,\mathrm{days}$ and $1/\gamma_s=1/\gamma_a=3\,\mathrm{days}$.
 All other parameters are same as before.
 
 \subsubsection*{Epidemic models with asymptomatic infection and transmission in the presence of immunity}
@@ -398,11 +399,11 @@ Here, subscripts $p$ denote individuals who are immune and therefore are protect
 
 \begin{figure}[!ht]
 \begin{center}
-\includegraphics[width=0.75\textwidth]{diagram_sub.pdf}
+\includegraphics[width=0.8\textwidth]{diagram_sub.pdf}
 \caption{
 \textbf{Schematic diagram and simulations of a model with presymptomatic and asymptomatic transmission and symptom-responsive transmission reduction.}
-(Top) $S$ represents susceptible individuals; $E$ represents exposed individuals; $I_p$ represents presymptomatically infected individuals; $I_a$ represents symptomatically infected individuals; $I_s$ represents symptomatically infected individuals; $R$ represents recovered individuals; and $D$ represents deceased individuals. See Methods for model details.
-(Bottom) Total deaths as a function of the proportion of non-symptomatic transmission $\phi$ across a wide range scenarios for $\delta$ and proportion of non-symptomatic transmission caused by the presymptomatic transmission, $\eta$ (between 0\% and 100\%). 
+(A) $S$ represents susceptible individuals; $E$ represents exposed individuals; $I_p$ represents presymptomatically infected individuals; $I_a$ represents symptomatically infected individuals; $I_s$ represents symptomatically infected individuals; $R$ represents recovered individuals; and $D$ represents deceased individuals. See Methods for model details.
+(B) Total deaths as a function of the proportion of non-symptomatic transmission $\phi$ across a wide range scenarios for $\delta$ and proportion of non-symptomatic transmission caused by the presymptomatic transmission, $\eta$ (between 0\% and 100\%). 
 }
 \end{center}
 \end{figure}

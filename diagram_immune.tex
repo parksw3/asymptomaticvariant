@@ -5,13 +5,15 @@
 
 \begin{document}
 
-\begin{tikzpicture}[node distance=3.5cm,auto,>=latex',every node/.append style={align=center},int/.style={draw, minimum size=1cm},inverter/.style={rectangle,draw,inner sep=2pt,minimum size=6mm},]
+\begin{tikzpicture}[node distance=4cm,auto,>=latex',every node/.append style={align=center},int/.style={draw, minimum size=1cm},inverter/.style={rectangle,draw,inner sep=2pt,minimum size=6mm},]
+    \tikzstyle{every node}=[font=\large]
     \node [int, ultra thick] (S)             {$S_p$};
     \node [int, right=of S, ultra thick] (E)             {$E_p$};
     \node [int, above right=of E, ultra thick] (Ia)             {$I_{p,a}$};
     \node [int, below right=of E, ultra thick] (Is)             {$I_{p,s}$};
     \node [int, right=of Ia, ultra thick] (R)             {$R_p$};
     \node [int, right=of Is, ultra thick] (D)             {$D_p$};
+    \node [left=8cm of Ia] (A)             {\huge \textbf{A}};
     \path[->, ultra thick] (S) edge node [above] {${\color{red}(1-  \epsilon_i)} \lambda(t)$} (E);
     \path[->, ultra thick] (E) edge node [sloped, above] {$\big[1-{\color{red}(1-\epsilon_s)} (1-p)\big] \mu$} (Ia);
     \path[->, ultra thick] (E) edge node [sloped, above] {${\color{red}(1-\epsilon_s)} (1-p) \mu$} (Is);
@@ -21,6 +23,6 @@
     \node [right=1.5cm of S, ultra thick] (Ts)             {};
     \path[->, ultra thick, dashed] (Ia.west) edge [out=180, in=90] node [sloped, above] {$\beta_a$} ([yshift=5mm]Ts.north);
     \path[->, ultra thick, dashed] (Is.west) edge [out=180, in=-90] node [sloped, above] {$(1-\delta) \beta_s$} (Ts.south);
-    \node [below=8.5cm of S, anchor=west] (pic) {\includegraphics{figure_immune.ggp.pdf}};
+    \node [below=1cm of Is] (pic) {\includegraphics{figure_immune.ggp.pdf}};
 \end{tikzpicture}
 \end{document}

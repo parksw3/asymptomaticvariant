@@ -31,6 +31,7 @@ g1 <- ggplot(simulate_sub_max) +
                      expand=c(0, 0)) +
   scale_color_viridis_d(expression(delta)) +
   facet_wrap(~p_pre_ratio, labeller = label_parsed) +
+  ggtitle("B") +
   theme(
     panel.grid = element_blank(),
     strip.background = element_blank(),
