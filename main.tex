@@ -118,8 +118,7 @@ Joshua S. Weitz\textsuperscript{5,6,7}
 \end{flushleft}
 
 SARS-CoV-2 has had devastating effects at the population level.
-However, many individuals experienced mild cases, making it harder to estimate the magnitude of spread and fatality rate \citep{park2020time}. 
-\jd{This is an awkward place to cite ourselves (we do it again later) and it makes the sentence a bit awkward, too. Can we find a mainstream cite and say something more like “total number of infections”?}
+However, many individuals experienced mild cases, making it harder to estimate the magnitude of spread and fatality rate \citep{nogrady2020data}.
 The ratio of fatalities to documented cases (the case-fatality rate, CFR) is typically between 1\%--4\%, varying across population because of testing patterns, treatment practice, case definitions, and other factors \citep{rajgor2020many,VERITY2020669,yang2020early}.
 But many infections were never documented;
 the ratio of fatalities to total infections (the infection fatality rate, IFR) has been estimated to be closer to 0.5\%--1\% for pre-vaccinated populations whose demographics are similar to those of the United States \citep{levin2020assessing}. 
@@ -146,18 +145,17 @@ Data are publicly available in \cite{Kissler2020}.
 
 Early in the pandemic, a COVID-19 outbreak on the Diamond Princess Cruise Ship played a critical role in understanding the role of asymptomatic infections in the spread of SARS-CoV-2;
 the outbreak occurred among 3711 passengers and crew, of whom 634 individuals tested positive by 20 February 2020 \citep{mizumoto2020estimating}.
-\jd{Do we need this s.?} Early response work estimated that 17.9\% (95\% CI: 15.5\%--20.2\%) of confirmed infections on the Diamond Princess Cruise Ship were asymptomatic; but such estimates neglected undetected cases \citep{mizumoto2020estimating}.
-In contrast, re-analysis estimated that 75\% (95\% C: 70\%-78\%) of all infections on the cruise ship were asymptomatic (\fref{evidence}A) with about half of total infections undetected \cite{emery2020}.   
+It has been estimated that 75\% (95\% C: 70\%-78\%) of all infections on the cruise ship were asymptomatic (\fref{evidence}A) with about half of total infections undetected \citep{emery2020}, but there has been a considerable heterogeneity in the estimates of asymptomatic prevalence in other settings \citep{alene2021magnitude}.
 The relative transmission rate of asymptomatically infected individuals was not well constrained, but relatively low transmissibility (e.g., between 0\%-25\%) by asymptomatic individuals was ruled out becase it required unrealistically high transmissibility for symptomatically infected individuals (\fref{evidence}B).
 Modeling studies have typically assumed that transmissibility is lower for asymptomatic than for symptomatic individuals, but their assumptions have ranged from 10\%--100\% \citep{ferretti2020quantifying,lavezzo2020}.
-Similarities in viral load trajectories of asymptomatic and symptomatic individuals provide indirect support for the transmissibility of asymptomatically infected individuals (\fref{evidence}C, \cite{Kissler2020}); 
-however, differences between inferred total viral load from Ct values and infectious viral load add uncertainties to how well asymptomatic individuals can transmit relative to that of symptomatic individuals \jd{Is there a citation? Can this be clarified? Anything about the role of symptoms (coughing, sneezing) in potentially spreading disease?}.
+Similarities in viral load trajectories of asymptomatic and symptomatic individuals provide indirect support for the transmissibility of asymptomatically infected individuals (\fref{evidence}C, \citep{Kissler2020}); 
+however, differences between inferred total viral load from Ct values and infectious viral load add uncertainties to how well asymptomatic individuals can transmit relative to that of symptomatic individuals \citep{romero2021ct}.
 
 Despite quantitative uncertainties in asymptomatic transmissibility, it is clear that individuals infected asymptomatically with SARS-CoV-2 can still transmit to others. 
 This means that the presence of asymptomatic infections may have countervailing effects at the population level. 
 On one hand, an asymptomatic infection means that the individual infected avoids hospitalization and death. 
 On the other hand, asymptomatic infections are less likely to be detected \citep{fraser2004factors}, meaning that they are less likely to take precautions and relatively more likely to infect others;
-\jd{If this is about the possibility of \emph{transmission} via long COVID, we need to say so} asymptomatic SARS-CoV-2 infections present additional challenges due to the possibility of long COVID \citep{xie2022long}.
+asymptomatic SARS-CoV-2 infections present additional challenges to managing overall disease burden due to the possibility of long COVID \citep{xie2022long}.
 Altogether, the prevalence of asymptomatic infections can paradoxically make population-level outcomes worse than if SARS-CoV-2 was more dangerous at the individual level.
 
 To explore this idea, we propose a simple epidemic model,
@@ -175,8 +173,7 @@ We evaluate the effects on population-level mortality of changing the asymptomat
 (A) $S$ represents susceptible individuals; $E$ represents exposed individuals; $I_a$ represents asymptomatically infected individuals; $I_s$ represents symptomatically infected individuals; $R$ represents recovered individuals; and $D$ represents deceased individuals. See Methods for model details.
 (B) Total infections as a function of the proportion of asymptomatic infections $p$ across a wide range scenarios for $\delta$.
 (C) Total deaths as a function of the proportion of asymptomatic infections $p$ across a wide range scenarios for $\delta$.
-We simulate the model for 365 days, assuming $\beta_s = 0.8/\mathrm{day}$, $\beta_a = 0.75 \beta_s$, $\mu=0.5/\mathrm{day}$, $\gamma_s=\gamma_a=0.2/\mathrm{day}$, and $f=0.01$, and an initial exposed proportion of $10^{-4}$.
-\jd{Can we change $\mu$ to $\nu$ to follow convention? Don't feel strongly about $\nu$ but $\mu$ has an accepted meaning here.}
+We simulate the model for 365 days, assuming $\beta_s = 0.8/\mathrm{day}$, $\beta_a = 0.75 \beta_s$, $\nu=0.5/\mathrm{day}$, $\gamma_s=\gamma_a=0.2/\mathrm{day}$, and $f=0.01$, and an initial exposed proportion of $10^{-4}$.
 }
 \label{fig:base}
 \end{figure}
@@ -190,8 +187,7 @@ where $\RR_s = \beta_s/\gamma_s$ and $\RR_a = \beta_a/\gamma_a$ represent the re
 therefore, in the absence of the behavioral effect ($\delta=0$), the final size decreases with the asymptomatic proportion $p$ because more symptomatic infections leads to a higher basic reproduction number.
 This relationship changes as $\delta$ increases.
 In particular, when $\delta > 1-\RR_a/\RR_s$ (in this case, $\delta > 0.25)$, the basic reproduction number (and thus epidemic size) increases with $p$ because the effective symptomatic reproductive number (including behavioral response) is less than that the asymptomatic reproductive number.
-\jd{The ff.~is not quite correct: we need $\delta > 1-/\RR_s$ for $p_c>0$ (and we're also assuming $\RR_a>1$.}
-For $\delta$ in this range, we can find a critical level of asymptomatic proportion, $p_c$:
+For high values of $\delta$, we can find a critical level of asymptomatic proportion, $p_c$:
 \begin{equation}
     p_c = \frac{1 - (1-\delta) \RR_s}{\RR_a - (1-\delta) \RR_s}
 \end{equation}
@@ -200,7 +196,7 @@ such that $p>p_c$ is required for an outbreak (see threshold effects for large v
 When behavioral protection is high, the effect of asymptomatic proportion on fatalities shows countervailing effects of individual-level protection and population-level risk (\fref{base}C).
 For high values of $\delta$, the peak fatality occurs at intermediate levels of asymptomatic spread:
 although less individuals die per infection for higher values of $p$, the increase in total infections also leads to an increase in total fatalities.
-In contrast, when $\delta$ is small enough such that $\RR_s\geq\RR_a$, \jd{Note that this is the same as the $\delta > 0.25 $ criterion above} then total fatalities decrease with $p$ because because both the number of infections and the IFR ($(1-p)f$) decrease with increasing $p$.
+In contrast, when $\delta$ is small enough such that $(1-\delta) \RR_s \geq \RR_a$ (in this case, $\delta < 0.25$), then total fatalities decrease with $p$ because because both the number of infections and the IFR ($(1-p)f$) decrease with increasing $p$.
 
 High values of $\delta$ required for the nonlinear effects of asymptomaticity on deaths may seem unrealistic.
 For this particular model, it does not make biological sense for $\delta$ to be greater than the amount of post-symptomatic transmission, because pre-symptomatic transmission is implicitly included in the $I_s$ compartment.
@@ -214,7 +210,7 @@ For this model, we assume that $\delta$ decreases transmission only after sympto
 We then fix the reproduction number of symptomatic individuals and calculate fatalities at the population level as a function of the proportion of total non-symptomatic transmission and the proportion of non-symptomatic transmission that is caused by pre-symptomatic transmission.
 Using the generalized non-symptomatic transmission model, we find a wide variety of scenarios for which peak fatalities occur at intermediate levels of non-symptomatic transmission in the presence of moderate to strong behavioral effects, $\delta > 0.6$ (Supplementary Figure S2).
 One exception is the extreme (and unrealistic) case, in which all non-symptomatic transmission is caused by pre-symptomatic transmission;
-in this case, total infections and fatalities are maximized when all transmission is caused by pre-symptomatic transmission. \jd{What?? If all transmission is pre-symptomatic, then we get no fatalities in our model.}
+in this case, total infections and fatalities are maximized when all transmission is caused by pre-symptomatic transmission. \jd{What?? If all transmission is pre-symptomatic, then we get no fatalities in our model.} \swp{what do you mean? if all non-symptomatic transmission is caused by pre-symptomatic transmission, then everyone eventually develops symptoms...}
 Hereafter, we focus on asymptomatic infections for simplicity, but our conclusions have implications for the more general case of non-symptomatic transmission.
 \jd{This is continuing to seem tangled to me. Should we reconsider the approach?}
 
@@ -223,7 +219,7 @@ The dynamics of immunologically naive individuals are equivalent to our original
 The dynamics of protected individuals include three additional parameters, which characterize the amount of protection against infection $\epsilon_i$, symptoms (given infection) $\epsilon_s$, and deaths (given symptoms) $\epsilon_d$ (\fref{immune}).
 For simplicity, we assume that the population is split in half (50\% naive and 50\% protected) and mixes homogeneously. We also do not consider the separate effect of immunity on transmission (beyond the effect on infection). 
 In other words, we assume that asymptomatic infections in protected and unprotected people have the same reproduction numbers (and likewise for the symptomatic infections).
-In practice, both asymptomatic and symptomatic infections in protected people are less likely to transmit than their unprotected counterparts \citep{lipsitch2020understanding}: asymptomatic infections in protected people may indicate limited viral replication or even immune boosting, in which case an exposed individual may successfully fight off the pathogen early in infection before it can be transmitted; and symptomatic infections in protected people may reflect a strong immune response (rather than high viral load), in which case symptomaticity can be a poor proxy for transmission. \jd{Should these caveats bother us more? Is this part of our model misleading?}
+In practice, both asymptomatic and symptomatic infections in protected people are less likely to transmit than their unprotected counterparts \citep{lipsitch2020understanding}: asymptomatic infections in protected people may indicate limited viral replication or even immune boosting, in which case an exposed individual may successfully fight off the pathogen early in infection before it can be transmitted; and symptomatic infections in protected people may reflect a strong immune response (rather than high viral load), in which case symptomaticity can be a poor proxy for transmission. \jd{Should these caveats bother us more? Is this part of our model misleading?} \swp{I don't think they really bother us... transmission blocking should have qualitatively similar effects as infection blocking. If transmission rate is sufficiently reduced then we're good. Just like how we showed that protection against symptoms + infection is good.}
 We assume a relatively strong behavioral effect $\delta=0.8$ for illustration.
 
 \begin{figure}[!ht]
@@ -234,7 +230,7 @@ We assume a relatively strong behavioral effect $\delta=0.8$ for illustration.
 Immunity may provide protection against infection, symptoms, or deaths.
 The dynamics of immunologically naive individuals are described in \fref{base}.
 (B--D) Total deaths as a function of the proportion of asymptomatic infections $p$ across a wide range scenarios for protection against infection $\epsilon_i$ (B), symptoms $\epsilon_s$ (C), and deaths $\epsilon_d$ (D).
-We simulate the model for 365 days, assuming $\beta_s = 4/5/\mathrm{day}$, $\beta_a = 0.75 \beta_s$, $\mu=1/2/\mathrm{day}$, $\gamma_s=\gamma_a=1/5/\mathrm{day}$, $f=0.01$, and $\delta=0.8$.
+We simulate the model for 365 days, assuming $\beta_s = 4/5/\mathrm{day}$, $\beta_a = 0.75 \beta_s$, $\nu=1/2/\mathrm{day}$, $\gamma_s=\gamma_a=1/5/\mathrm{day}$, $f=0.01$, and $\delta=0.8$.
 We assume that $10^{-4}$ proportion of individuals are initially infected.
 }
 \label{fig:immune}
@@ -322,22 +318,22 @@ First, we consider a compartmental model with asymptomatic and symptomatic infec
 The model dynamics are as follows:
 \begin{align}
 \dot{S} &= -\beta_a S I_a -(1-\delta) \beta_s S I_s \\
-\dot{E} &= \beta_a S I_a + (1-\delta) \beta_s S I_s - \mu E\\
-\dot{I}_a &= p \mu E - \gamma_a I_a\\
-\dot{I}_s &= (1-p) \mu E -\gamma_s I_s\\
+\dot{E} &= \beta_a S I_a + (1-\delta) \beta_s S I_s - \nu E\\
+\dot{I}_a &= p \nu E - \gamma_a I_a\\
+\dot{I}_s &= (1-p) \nu E -\gamma_s I_s\\
 \dot{R} &= \gamma_a I_a + (1-f) \gamma_s I_s \\
 \dot{D} &= f \gamma_s I_s
 \end{align}
 where the transmission rate $\beta$ and recovery rate $\gamma$ can be potentially differ between asymptomatic and symptomatically infected individuals.  
 Here, $\delta$ denotes the reduction in transmissibility due to responsive measures taken by symptomatically infected individuals.
-Throughout the paper, we use parameters that are broadly consistent with the dynamics of the originating strain of SARS-CoV-2: $\beta_s = 0.8/\mathrm{day}$, $\beta_a = 0.75 \beta_s$, $1/\mu=2\,\mathrm{days}$, $1/\gamma_s=1/\gamma_a=5\,\mathrm{days}$, and $f=0.01$ \citep{park2020reconciling}.
+Throughout the paper, we use parameters that are broadly consistent with the dynamics of the originating strain of SARS-CoV-2: $\beta_s = 0.8/\mathrm{day}$, $\beta_a = 0.75 \beta_s$, $1/\nu=2\,\mathrm{days}$, $1/\gamma_s=1/\gamma_a=5\,\mathrm{days}$, and $f=0.01$ \citep{park2020reconciling}.
 Under this parameterization, we have symptomatic and asymptomatic reproduction numbers of $\RR_s = 4$ and $\RR_a = 3$.
 
 We then extend the first model to include both pre-symptomatic and asymptomatic transmission:
 \begin{align}
 \dot{S} &= -\beta_p I_p -\beta_a S I_a -(1-\delta) \beta_s S I_s \\
-\dot{E} &= \beta_a S I_a + (1-\delta) \beta_s S I_s - \mu E\\
-\dot{I}_p &= \mu E - \sigma I_p\\
+\dot{E} &= \beta_a S I_a + (1-\delta) \beta_s S I_s - \nu E\\
+\dot{I}_p &= \nu E - \sigma I_p\\
 \dot{I}_a &= p \sigma I_p - \gamma_a I_a\\
 \dot{I}_s &= (1-p) \sigma I_p -\gamma_s I_s\\
 \dot{R} &= \gamma_a I_a + (1-f) \gamma_s I_s \\
@@ -376,15 +372,15 @@ We then model the spread of infection in a partially immune population.
 The model dynamics are as follows:
 \begin{align}
 \dot{S} &= -\lambda (t) S \\
-\dot{E} &= \lambda (t) S - \mu E\\
-\dot{I}_a &= p \mu E - \gamma_a I_a\\
-\dot{I}_s &= (1-p) \mu E -\gamma_s I_s\\
+\dot{E} &= \lambda (t) S - \nu E\\
+\dot{I}_a &= p \nu E - \gamma_a I_a\\
+\dot{I}_s &= (1-p) \nu E -\gamma_s I_s\\
 \dot{R} &= \gamma_a I_a + (1-f) \gamma_s I_s \\
 \dot{D} &= f \gamma_s I_s\\
 \dot{S}_p &= - (1-\epsilon_i) \lambda (t) S_p \\
-\dot{E}_p &= (1-\epsilon_i) \lambda (t) S_p - \mu E_p\\
-\dot{I}_{p, a} &= (1 - (1-\epsilon_s) (1-p)) \mu E_p - \gamma_a I_{p,a}\\
-\dot{I}_{p, s} &= (1-\epsilon_s) (1-p) \mu E_p -\gamma_s I_{p,s}\\
+\dot{E}_p &= (1-\epsilon_i) \lambda (t) S_p - \nu E_p\\
+\dot{I}_{p, a} &= (1 - (1-\epsilon_s) (1-p)) \nu E_p - \gamma_a I_{p,a}\\
+\dot{I}_{p, s} &= (1-\epsilon_s) (1-p) \nu E_p -\gamma_s I_{p,s}\\
 \dot{R}_p &= \gamma_a I_{p,a} + (1-(1-\epsilon_d) f) \gamma_s I_{p,s} \\
 \dot{D}_p &= (1-\epsilon_d) f \gamma_s I_{p,s}
 \end{align}
