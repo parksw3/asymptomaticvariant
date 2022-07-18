@@ -1,6 +1,6 @@
 ## This is a new, repo Makefile for asymptomatic variant 2022 May 17 (Tue)
 
-all: main.pdf
+all: main.pdf main.pdf.go
 -include target.mk
 
 # -include makestuff/perl.def
