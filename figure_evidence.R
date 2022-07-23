@@ -11,6 +11,13 @@ data <- read.csv("indiv_data.csv") %>%
                        labels=c("Asymptomatic", "Symptomatic"))
   )
 
+data_age <- data.frame(
+  age=c("0-9", "10-19", "20-29", "30-39", "40-49", "50-59", "60-69", "70+"),
+  mean=c(0.29, 0.21, 0.27, 0.33, 0.4, 0.49, 0.63, 0.69),
+  lwr=c(0.18, 0.12, 0.18, 0.24, 0.28, 0.37, 0.49, 0.57),
+  upr=c(0.44, 0.31, 0.38, 0.43, 0.52, 0.6, 0.76, 0.82)
+)
+
 ## posterior from diamond
 posterior <- readRDS("primary.rds")
 
@@ -60,6 +67,17 @@ g3 <- ggplot(data) +
     panel.grid = element_blank()
   )
 
-gfinal <- arrangeGrob(gcomb1, g3, nrow=1)
+g4 <- ggplot(data_age) +
+  geom_point(aes(age, 1-mean)) +
+  geom_line(aes(age, 1-mean, group=1), lty=2) +
+  geom_errorbar(aes(age, ymin=1-lwr, ymax=1-upr), width=0.2) +
+  scale_x_discrete("Age") +
+  scale_y_continuous("Inferred proportion of infections that are subclinical") +
+  ggtitle("D. Surveillance data from 6 countries") +
+  theme(
+    panel.grid = element_blank()
+  )
 
-saveGG(gfinal, width=8, height=6)
+gfinal <- arrangeGrob(gcomb1, g3, g4, nrow=1)
+
+saveGG(gfinal, width=12, height=6)
