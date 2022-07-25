@@ -122,17 +122,17 @@ Joshua S. Weitz\textsuperscript{6,7,8}
 \section*{Abstract}
 
 Asymptomatic infections have hampered the ability to characterize and prevent the transmission of SARS-CoV-2 throughout the ongoing pandemic.
-Even though asymptomatic infections reduce severity at the individual level, they can still make population-level outcomes worse if asymptomatic individuals transmit more because they are unaware that they are infected.
+Even though asymptomatic infections reduce severity at the individual level, they can make population-level outcomes worse if asymptomatic individuals transmit more than symptomatic individuals because asymptomatic individuals are unaware that they are infected.
 Here, we show that intermediate levels of asymptomatic infection lead to the highest levels of epidemic fatalities when this increase in transmission, due either to individual behavior or mitigation efforts, is strong. 
-We generalize this result to include presymptomatic transmission, and show that in this case as well intermediate levels of non-symptomatic transmission can lead to the highest levels of fatalities.
-Finally, we extend our framework to illustrate the importance of immunity profile in determining epidemic trajectories of future variants. 
+We generalize this result to include presymptomatic transmission, showing how intermediate levels of non-symptomatic transmission can lead to the highest levels of fatalities.
+Finally, we extend our framework to illustrate how the intersection of asymptomatic spread and immunity profiles determine epidemic trajectories of future variants. 
 
 \pagebreak
 
 SARS-CoV-2 has had devastating effects at the population level.
 However, many individuals experienced mild cases, making it harder to estimate the magnitude of spread and fatality rate \citep{nogrady2020data}.
 The ratio of fatalities to documented cases (the case-fatality rate, CFR) is typically between 1\%--4\%, varying across population because of testing patterns, treatment practice, case definitions, and other factors \citep{rajgor2020many,VERITY2020669,yang2020early}.
-But many infections were never documented;
+But many infections are never documented;
 the ratio of fatalities to total infections (the infection fatality rate, IFR) has been estimated to be closer to 0.5\%--1\% for pre-vaccinated populations whose demographics are similar to those of the United States \citep{levin2020assessing}. 
 This means that more than 99\% of individuals infected with COVID-19 will survive. 
 Moreover, at least half of the infections are sufficiently mild that they could be classified as subclinical or even asymptomatic. 
@@ -171,7 +171,7 @@ For now, we primarily focus on a homogeneous population and return to the age ef
 Despite quantitative uncertainties in asymptomatic transmissibility, it is clear that individuals infected asymptomatically with SARS-CoV-2 can still transmit to others. 
 This means that the presence of asymptomatic infections may have countervailing effects at the population level. 
 On one hand, an asymptomatic infection means that the individual infected avoids hospitalization and death. 
-On the other hand, asymptomatic infections are less likely to be detected \citep{fraser2004factors}, meaning that they are less likely to take precautions and relatively more likely to infect others;
+On the other hand, asymptomatic infections are less likely to be detected \citep{fraser2004factors}, meaning that asymptomatic individuals are less likely to take precautions and relatively more likely to infect others;
 asymptomatic SARS-CoV-2 infections present additional challenges to managing overall disease burden due to the possibility of long COVID \citep{xie2022long}.
 Altogether, the prevalence of asymptomatic infections could paradoxically make population-level outcomes worse than if SARS-CoV-2 was more dangerous at the individual level.
 
@@ -255,7 +255,7 @@ We assume that $10^{-4}$ proportion of individuals are initially infected.
 
 We consider each protection effect---$\epsilon_i$, $\epsilon_s$, and $\epsilon_d$---separately and consider joint effects later on.
 The impact of protection against infection $\epsilon_i$ is analogous to changing $\RR_0$ in the original model: as immunity provides stronger protection against infection (higher $\epsilon_i$), the number of deaths decreases and a higher asymptomatic fraction $p$ is required for the infection to spread (\fref{immune}B).
-We note that protection against infection scales the fatality curve nonlinearly, reflecting the nonlinear relationship between $\RR_0$ and the final size.
+We note that protection against infection scales the fatality curve nonlinearly, reflecting the nonlinear relationship between $\RR_0$ and the final size of the outbreak.
 The impact of protection against symptoms $\epsilon_s$ is equivalent to changing the asymptomatic fraction $p$ for the protected population because protected individuals are less likely to develop symptoms:
 therefore, the peaks of the fatality curves move to lower values of $p$ as we increase the degree of protection $\epsilon_s$ (\fref{immune}C).
 Therefore, for low values of $p$, protection against symptoms can increase the total number of fatalities at the population level by increasing the proportion (and number) of asymptomatically infected individuals, who can readily transmit infections to other individuals.
@@ -279,7 +279,7 @@ Fatality curves for the second wave are calculated by first simulating the first
 
 Finally, we use our framework to understand the impact of behavioral effects on invading variants (\fref{variant}).
 In doing so, we first simulate the dynamics of a wildtype variant for 1 year using our base model using identical parameters as in \fref{base}.
-We then simulate a new variant invading a partially immune population using our extended model (\fref{immune}), where the immunity is solely derived from natural infections caused by the wildtype variant in the first year.
+We then simulate a new variant invading a partially immune population using our extended model (\fref{immune}A), where the immunity is solely derived from natural infections caused by the wildtype variant in the first year.
 We consider two types of variants (which are simulated separately): one with the same severity $p$ (variant 1, orange) and a milder one with higher $p$ (variant 2, purple).
 
 First, we consider a scenario in which immunity only provides protection against symptoms, $\epsilon_s = 0.4$ (\fref{variant}A--C).
@@ -290,7 +290,8 @@ In general, when $\delta$ is large, invading variants with similar asymptomatici
 
 Next, we consider a more realistic scenario in which immunity provides protection against both symptoms, $\epsilon_s = 0.4$, and infection, $\epsilon_i = 0.4$ (\fref{variant}D--F).
 In this case, cross protection against infection has a large effect on the more severe (orange) variant, causing its peak infection prevalence (\fref{variant}E) and fatality (\fref{variant}F) to be lower than that of the original, wildtype variant.
-Across a wide range of asymptomatic proportion $p$, we find that this immunity profile is sufficient to prevent worse outcomes at the population level.
+Across a wide range of asymptomatic proportion $p$, we find that this immunity profile is sufficient to prevent worse outcomes at the population level;
+we note that the second wave of deaths is still high (and having higher peaks in some cases) even if the overall deaths are lower.
 
 The outcomes in our simulations of invading variants resemble the dynamics of the SARS-CoV-2 Omicron variant.
 Despite moderate levels of vaccine effectiveness against symptomatic and reduced levels of severe cases caused by the Omicron variant, especially after booster shots \citep{andres2022omicron}, both vaccine- and infection-derived immunity provided limited protection against infections \citep{pearson2021omicron}.
@@ -301,7 +302,7 @@ There are several limitations to our analysis.
 First, while we are able to generalize the model to include both pre-symptomatic and asymptomatic transmission, behavioral and intervention effects must be relatively large in order for the fatality to peak at intermediate levels of asymptomaticity (typically requiring a reduction in transmission rate of 60\% or more for most of our chosen parameter sets).
 Second, the model framework is able to incorporate the impacts of immunity of infection, symptoms, and severity,
 but we neglected the effects of immunity on transmission, which also has important effects on disease dynamics \citep{saad2020immune}.
-In particular, if immunity provides stronger protection against transmission among asymptomatically infected individuals (than among symptomatically infected individuals), asymptomatic infections will not necessarily make population-level outcomes worse. 
+In particular, if immunity provides stronger protection against transmission among immune individuals, population-level outcomes will be better than what our model predicts 
 Estimating protection against different endpoints (e.g., infection, symptom, death, and transmission) can help narrow this uncertainty.
 Finally, we assumed that asymptomatic and symptomatic individuals are infected for the same amount of time.
 Analysis of viral load trajectories suggests that asymptomatic individuals may clear infections faster \citep{Kissler2020};
@@ -311,13 +312,13 @@ nonetheless, we expect that predictions on the final size of the epidemic and to
 
 Even though we assumed a homogeneous population throughout, our analysis also has important implications for age-dependent heterogeneity in asymptomaticity.
 For example, vaccinations and intervention measures primarily targeting older individuals can prevent severe infections and make their individual-level outcomes better.
-However, asymptomatically infected individuals, especially among the younger population with high contact rates, can still transmit to other, potentially making the population-level outcomes worse than they would be if intervention measures were distributed differently.
+However, asymptomatically infected individuals, especially among younger individuals with high contact rates, can still transmit to other, older individuals, potentially making the population-level outcomes worse than they would be if intervention measures were distributed differently.
 We note that other factors, such as the efficacy of a vaccine and types of immunity provided by the vaccine, also play critical roles in making these decisions---in many cases, protecting the most vulnerable will be the optimal decision to minimize deaths \citep{moore2021modelling}.
 
-In summary, using a series of simplified models, we have shown that asymptomatic infections (or, more generally, non-symptomatic transmission) can represent a double-edged sword by providing a better outcome for many individuals while facilitating onward transmission that leads to a worse outcome for the population as a whole.
-Extending our framework further shows that the immunity profile plays a critical role in determining the dynamics of future variant. 
+In summary, using a series of simplified models, we have shown that asymptomatic infections (or, more generally, non-symptomatic transmission) can represent a double-edged sword leading to a better outcome for many individuals while facilitating onward transmission that leads to a worse outcome for the population as a whole.
+Extending our framework further shows that immunity profile (i.e., reduction of infection, symptoms, and/or severity due to immunity) plays a critical role in determining the dynamics of future variants. 
 For example, while protection against symptoms unaccompanied by protection against transmission protects health at the individual level, it can lead to more infections, and potentially more deaths, at the population level.
-Similar concern was raised in prioritizing vaccine choices that could reduce severe outcomes vs. others that could reduce transmission \citep{koelle2022changing}.
+A similar concern was raised in prioritizing vaccine choices that could reduce severe outcomes vs. others that could reduce transmission \citep{koelle2022changing}.
 
 SARS-CoV-2 has proven hard to control in large part because transmission is often decoupled from symptoms. 
 % Mitigation efforts have often prioritized responding to symptoms---including symptom-based testing, fever checks, mask-wearing for infectious individuals---a different approach that strives to reduce the chance of asymptomatic transmission while increasing treatment of symptomatically infected individuals could both reduce infection risk at the source and the overall rates of severe outcomes for the population as a whole.
@@ -348,7 +349,7 @@ The model dynamics are as follows:
 \end{align}
 where the transmission rate $\beta$ and recovery rate $\gamma$ can be potentially differ between asymptomatic and symptomatically infected individuals.  
 Here, $\delta$ denotes the reduction in transmissibility due to responsive measures taken by symptomatically infected individuals.
-Throughout the paper, we use parameters that are broadly consistent with the dynamics of the originating strain of SARS-CoV-2: $\beta_s = 0.8/\mathrm{day}$, $\beta_a = 0.75 \beta_s$, $1/\nu=2\,\mathrm{days}$, $1/\gamma_s=1/\gamma_a=5\,\mathrm{days}$, and $f=0.01$ \citep{park2020reconciling}.
+Throughout the paper, we use parameters that are broadly consistent with the dynamics of the originating strain of SARS-CoV-2: $\beta_s = 0.8/\mathrm{day}$, $\beta_a = 0.75 \beta_s$, $1/\nu=2\ \mathrm{days}$, $1/\gamma_s=1/\gamma_a=5\ \mathrm{days}$, and $f=0.01$ \citep{park2020reconciling}.
 Under this parameterization, we have symptomatic and asymptomatic reproduction numbers of $\RR_s = 4$ and $\RR_a = 3$.
 
 We then extend the first model to include both pre-symptomatic and asymptomatic transmission:
@@ -385,7 +386,7 @@ More specifically:
 p &= \left(\frac{1}{\eta} - 1 \right) \frac{\RR_p}{\RR_a},
 \end{align}
 where $y = (1/\phi - 1)/\eta + (1/\eta - 1)/\rho$.
-In order to keep the mean infectious period fixed, we assume $1/\sigma=2\,\mathrm{days}$ and $1/\gamma_s=1/\gamma_a=3\,\mathrm{days}$.
+In order to keep the mean infectious period fixed, we assume $1/\sigma=2\ \mathrm{days}$ and $1/\gamma_s=1/\gamma_a=3\ \mathrm{days}$.
 All other parameters are same as before.
 
 \subsubsection*{Epidemic models with asymptomatic infection and transmission in the presence of immunity}
