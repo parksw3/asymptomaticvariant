@@ -151,7 +151,7 @@ Both estimates are publicly available with further details in \cite{emery2020}.
 Points represent each Ct measurement.
 Lines and shaded areas represent the smooth trajectories estimated via LOESS and the associated 95\% confidence intervals.
 Data are publicly available in \cite{Kissler2020}.
-(D) Inferred proportion of infections that are subclinical for each age group using case data from six countries (China, Italy, Japan, Singapore, South Korea, and Canada) \cite{davies2020}.
+(D) Inferred proportion of infections that are subclinical for each age group using surveillance data from six countries (China, Italy, Japan, Singapore, South Korea, and Canada) \cite{davies2020}.
 }
 \label{fig:evidence}
 \end{figure}
@@ -159,14 +159,14 @@ Data are publicly available in \cite{Kissler2020}.
 Early in the pandemic, a COVID-19 outbreak on the Diamond Princess Cruise Ship played a critical role in understanding the role of asymptomatic infections in the spread of SARS-CoV-2;
 the outbreak occurred among 3711 passengers and crew, of whom 634 individuals tested positive by 20 February 2020 \citep{mizumoto2020estimating}.
 It has been estimated that 75\% (95\% C: 70\%-78\%) of all infections on the cruise ship were asymptomatic (\fref{evidence}A) with about half of total infections undetected \citep{emery2020}, but there has been a considerable heterogeneity in the estimates of asymptomatic prevalence in other settings \citep{alene2021magnitude}.
-The relative transmission rate of asymptomatically infected individuals was not well constrained, but low relative transmission rate (below 25\%) by asymptomatic individuals was ruled out because it required unrealistically high transmissibility for symptomatically infected individuals (\fref{evidence}B).
+The relative transmission rate of asymptomatic individuals was not well constrained, but low relative transmission rate (below 25\%) by asymptomatic individuals was ruled out because it required unrealistically high transmissibility for symptomatic individuals (\fref{evidence}B).
 Modeling studies have typically assumed that transmissibility is lower for asymptomatic than for symptomatic individuals; assumptions have ranged from 10\%--100\% \citep{ferretti2020quantifying,lavezzo2020}.
-Similarities in viral load trajectories of asymptomatic and symptomatic individuals provide indirect support for the transmissibility of asymptomatically infected individuals (\fref{evidence}C, \citep{Kissler2020}); 
+Similarities in viral load trajectories of asymptomatic and symptomatic individuals provide indirect support for the transmissibility of asymptomatic individuals (\fref{evidence}C, \citep{Kissler2020}); 
 however, differences between inferred total viral load from Ct values and infectious viral load add uncertainties to how well asymptomatic individuals can transmit relative to that of symptomatic individuals \citep{romero2021ct}.
 
 We note also that asymptomaticity is expected to be more heterogeneous in real outbreaks.
-For example, during the early pandemic, Davies \textit{et al.}'s analyses of surveillance data across six countries revealed that older individuals are less likely to have subclinical infections (\fref{evidence}D), providing indirect evidence for heterogeneity in asymptomaticity \cite{davies2020};
-differences in contact rates between age classes further contribute to the heterogeneity in asymptomatic transmissibility.
+For example, during the early pandemic, Davies \textit{et al.}'s analyses of surveillance data across six countries revealed that older individuals are less likely to have subclinical infections (\fref{evidence}D), providing indirect evidence for heterogeneity in asymptomaticity \cite{davies2020}.
+Differences in contact rates between age classes further contribute to the heterogeneity in asymptomatic transmissibility.
 For now, we primarily focus on a homogeneous population and return to the age effect in the discussion.
 
 Despite quantitative uncertainties in asymptomatic transmissibility, it is clear that individuals infected asymptomatically with SARS-CoV-2 can still transmit to others. 
@@ -177,18 +177,18 @@ asymptomatic SARS-CoV-2 infections present additional challenges to managing ove
 Altogether, the prevalence of asymptomatic infections could paradoxically make population-level outcomes worse than if SARS-CoV-2 was more dangerous at the individual level.
 
 To explore this idea, we propose a simple epidemic model,
-in which infected individuals can be asymptomatically or symptomatically infected, with probabilities $p$ and $1-p$, respectively (\fref{base}A).  
-Asymptomatically infected individuals always recover, whereas a fraction $f$ of symptomatically infected individuals die.
-Asymptomatically and symptomatically infected individuals can also have different infection characteristics, including their transmission rates ($\beta_a$ and $\beta_s$) and recovery rates ($\gamma_a$ and $\gamma_s$).
-Our key assumption is that symptomatically infected individuals take greater precautions than do asymptomatically infected individuals (e.g., via reducing contacts or increased mask-wearing) and therefore reduce their transmission rate by a fraction $\delta$;
-we note that the parameter $\delta$ may also capture intervention measures that target symptomatically infected individuals, such as symptom-based isolation. 
-For our main simulations, we assume that asymptomatically infected individuals have a lower reproduction number---this is modeled by assuming lower transmission rates for asymptomatically infected individuals ($\beta_a = 0.75 \beta_s$) and equal recovery rates ($\gamma_a = \gamma_s$).
+in which infected individuals can be asymptomatic or symptomatic, with probabilities $p$ and $1-p$, respectively (\fref{base}A).  
+Asymptomatic individuals always recover, whereas a fraction $f$ of symptomatic individuals die.
+Asymptomatic and symptomatic individuals can also have different infection characteristics, including their transmission rates ($\beta_a$ and $\beta_s$) and recovery rates ($\gamma_a$ and $\gamma_s$).
+Our key assumption is that symptomatic individuals take greater precautions than do asymptomatic individuals (e.g., via reducing contacts or increased mask-wearing) and therefore reduce their transmission rate by a fraction $\delta$;
+we note that the parameter $\delta$ may also capture intervention measures that target symptomatic individuals, such as symptom-based isolation. 
+For our main simulations, we assume that asymptomatic individuals have a lower reproduction number---this is modeled by assuming lower transmission rates for asymptomatic individuals ($\beta_a = 0.75 \beta_s$) and equal recovery rates ($\gamma_a = \gamma_s$).
 We evaluate the effects on population-level mortality of changing the asymptomatic proportion $p$ while holding the fatality rate for \emph{symptomatic} cases, $f$, constant (the IFR $(1-p)f$ thus decreases as $p$ increases).
 \begin{figure}[!ht]
 \includegraphics[width=\textwidth]{diagram_base.pdf}
 \caption{
 \textbf{Schematic diagram and simulations of a model with asymptomatic transmission and symptom-responsive transmission reduction.}
-(A) $S$ represents susceptible individuals; $E$ represents exposed individuals; $I_a$ represents asymptomatically infected individuals; $I_s$ represents symptomatically infected individuals; $R$ represents recovered individuals; and $D$ represents deceased individuals. See Methods for model details.
+(A) $S$ represents susceptible individuals; $E$ represents exposed individuals; $I_a$ represents asymptomatic individuals; $I_s$ represents symptomatic individuals; $R$ represents recovered individuals; and $D$ represents deceased individuals. See Methods for model details.
 (B) Total infections as a function of the proportion of asymptomatic infections $p$ across a wide range scenarios for $\delta$.
 (C) Total deaths as a function of the proportion of asymptomatic infections $p$ across a wide range scenarios for $\delta$.
 We simulate the model for 365 days, assuming $\beta_s = 0.8/\mathrm{day}$, $\beta_a = 0.75 \beta_s$, $\nu=0.5/\mathrm{day}$, $\gamma_s=\gamma_a=0.2/\mathrm{day}$, and $f=0.01$, and an initial exposed proportion of $10^{-4}$.
@@ -259,7 +259,7 @@ The impact of protection against infection $\epsilon_i$ is analogous to changing
 We note that protection against infection scales the fatality curve nonlinearly, reflecting the nonlinear relationship between $\RR_0$ and the final size of the outbreak.
 The impact of protection against symptoms $\epsilon_s$ is equivalent to changing the asymptomatic fraction $p$ for the protected population because protected individuals are less likely to develop symptoms:
 therefore, the peaks of the fatality curves move to lower values of $p$ as we increase the degree of protection $\epsilon_s$ (\fref{immune}C).
-Therefore, for low values of $p$, protection against symptoms can increase the total number of fatalities at the population level by increasing the proportion (and number) of asymptomatically infected individuals, who can readily transmit infections to other individuals.
+Therefore, for low values of $p$, protection against symptoms can increase the total number of fatalities at the population level by increasing the proportion (and number) of asymptomatic individuals, who can readily transmit infections to other individuals.
 This also means that the critical level of asymptomatic proportion decreases, allowing more dangerous infections (with lower $p$) to invade, which would not have been able to spread in an otherwise immunologically naive population.
 We note that the equivalence between protection against symptoms $\epsilon_s$ and fraction asymptomatic $p$ relies on our assumption that immunity does not provide protection against transmission.
 Protection against deaths $\epsilon_d$ directly modulates the fatality rate for symptomatic cases and therefore linearly scales the fatality curves (\fref{immune}D).
@@ -313,7 +313,7 @@ nonetheless, we expect that predictions on the final size of the epidemic and to
 
 Even though we assumed a homogeneous population throughout, our analysis also has important implications for age-dependent heterogeneity in asymptomaticity.
 For example, vaccinations and intervention measures primarily targeting older individuals can prevent severe infections and make individual-level outcomes better.
-However, asymptomatically infected individuals, especially younger individuals with high contact rates, can still transmit to other, older individuals, potentially making population-level outcomes worse than they would be if intervention measures were distributed differently.
+However, asymptomaticindividuals, especially younger individuals with high contact rates, can still transmit to other, older individuals, potentially making population-level outcomes worse than they would be if intervention measures were distributed differently.
 We note that other factors, such as the efficacy of a vaccine and types of immunity provided by the vaccine, also play critical roles in making these decisions---in many cases, protecting the most vulnerable will be the optimal decision to minimize deaths \citep{moore2021modelling}.
 
 In summary, using a series of simplified models, we have shown that asymptomatic infections (or, more generally, non-symptomatic transmission) can represent a double-edged sword leading to a better outcome for many individuals while facilitating onward transmission that leads to a worse outcome for the population as a whole.
@@ -348,8 +348,8 @@ The model dynamics are as follows:
 \dot{R} &= \gamma_a I_a + (1-f) \gamma_s I_s \\
 \dot{D} &= f \gamma_s I_s
 \end{align}
-where the transmission rate $\beta$ and recovery rate $\gamma$ can be potentially differ between asymptomatic and symptomatically infected individuals.  
-Here, $\delta$ denotes the reduction in transmissibility due to responsive measures taken by symptomatically infected individuals.
+where the transmission rate $\beta$ and recovery rate $\gamma$ can be potentially differ between asymptomatic and symptomatic individuals.  
+Here, $\delta$ denotes the reduction in transmissibility due to responsive measures taken by symptomatic individuals.
 Throughout the paper, we use parameters that are broadly consistent with the dynamics of the originating strain of SARS-CoV-2: $\beta_s = 0.8/\mathrm{day}$, $\beta_a = 0.75 \beta_s$, $1/\nu=2\ \mathrm{days}$, $1/\gamma_s=1/\gamma_a=5\ \mathrm{days}$, and $f=0.01$ \citep{park2020reconciling}.
 Under this parameterization, we have symptomatic and asymptomatic reproduction numbers of $\RR_s = 4$ and $\RR_a = 3$.
 
@@ -424,7 +424,7 @@ Here, subscripts $p$ denote individuals who are immune and therefore are protect
 \includegraphics[width=0.8\textwidth]{diagram_sub.pdf}
 \caption{
 \textbf{Schematic diagram and simulations of a model with pre-symptomatic and asymptomatic transmission and symptom-responsive transmission reduction.}
-(A) $S$ represents susceptible individuals; $E$ represents exposed individuals; $I_p$ represents pre-symptomatically infected individuals; $I_a$ represents symptomatically infected individuals; $I_s$ represents symptomatically infected individuals; $R$ represents recovered individuals; and $D$ represents deceased individuals. See Methods for model details.
+(A) $S$ represents susceptible individuals; $E$ represents exposed individuals; $I_p$ represents pre-symptomatic individuals; $I_a$ represents symptomatic individuals; $I_s$ represents symptomatic individuals; $R$ represents recovered individuals; and $D$ represents deceased individuals. See Methods for model details.
 (B) Total deaths as a function of the proportion of non-symptomatic transmission $\phi$ across a wide range scenarios for $\delta$ and proportion of non-symptomatic transmission caused by the pre-symptomatic transmission, $\eta$ (between 0\% and 100\%). 
 }
 \end{center}
