@@ -87,7 +87,7 @@
 \begin{flushleft}{
 	\Large
 	\textbf\newline{
-		Intermediate levels of asymptomatic transmission can lead to the highest levels of epidemic fatalities
+		Intermediate levels of asymptomatic transmission lead to the highest levels of fatalities \swp{89/96 characters}
 	}
 }
 \newline
@@ -120,13 +120,21 @@ Joshua S. Weitz\textsuperscript{6,7,8,*}
 \bigskip
 \end{flushleft}
 
+\section*{Short title}
+
+Asymptomatic transmission and fatalities \swp{40/40 characters}
+
+\section*{One-sentence summary}
+
+Asymptomatic infections improve individual-level outcomes but increase overall transmission, thereby causing more deaths. \swp{121/125 characters}
+
 \section*{Abstract}
 
-Asymptomatic infections have hampered the ability to characterize and prevent the transmission of SARS-CoV-2 throughout the ongoing pandemic.
-Even though asymptomatic infections reduce severity at the individual level, they can make population-level outcomes worse if asymptomatic individuals---unaware they are infected---transmit more than symptomatic individuals.
+Asymptomatic infections have hampered the ability to characterize and prevent the transmission of SARS-CoV-2 throughout the pandemic.
+Although asymptomatic infections reduce severity at the individual level, they can make population-level outcomes worse if asymptomatic individuals---unaware they are infected---transmit more than symptomatic individuals.
 Using an epidemic model, we show that intermediate levels of asymptomatic infection lead to the highest levels of epidemic fatalities when the increase in asymptomatic transmission, due either to individual behavior or mitigation efforts, is strong. 
-We generalize this result to include presymptomatic transmission, showing how intermediate levels of non-symptomatic transmission can lead to the highest levels of fatalities.
-Finally, we extend our framework to illustrate how the intersection of asymptomatic spread and immunity profiles determine epidemic trajectories, including population-level severity, of future variants. 
+We generalize this result to include presymptomatic transmission, showing how intermediate levels of non-symptomatic transmission lead to the highest levels of fatalities.
+Finally, we extend our framework to illustrate how the intersection of asymptomatic spread and immunity profiles determine epidemic trajectories, including population-level severity, of future variants.  \swp{125/125 words}
 
 \pagebreak
 
@@ -193,7 +201,7 @@ We evaluate the effects on population-level mortality of changing the asymptomat
 (B) Total infections as a function of the proportion of asymptomatic infections $p$ across a wide range scenarios for $\delta$.
 (C) Total deaths as a function of the proportion of asymptomatic infections $p$ across a wide range scenarios for $\delta$.
 We simulate the model for 365 days, assuming $\beta_s = 0.8/\mathrm{day}$, $\beta_a = 0.75 \beta_s$, $\nu=0.5/\mathrm{day}$, $\gamma_s=\gamma_a=0.2/\mathrm{day}$, and $f=0.01$, and an initial exposed proportion of $10^{-4}$.
-See Supplementary Text for model details and Supplementary Table S1 for parameter descriptions and values.
+See Materials and Methods for model details and Supplementary Table S1 for parameter descriptions and values.
 }
 \label{fig:base}
 \end{figure}
@@ -227,7 +235,7 @@ There are two implications of this updated estimate---first, a low proportion of
 We therefore extend our model to consider the effects of generalized \textit{non-symptomatic} transmission, which includes both pre-symptomatic and asymptomatic transmission, to ask the following question:
 does an intermediate amount of non-symptomatic transmission lead to a peak in fatalities?
 For this model, we assume that $\delta$ decreases transmission only after symptom onset.
-We then fix the reproduction number of symptomatic individuals and calculate fatalities at the population level as a function of the proportion of total non-symptomatic transmission and the proportion of non-symptomatic transmission that is caused by pre-symptomatic transmission (see Supplementary Text for model details and Supplementary Table S2 for parameter descriptions and values).
+We then fix the reproduction number of symptomatic individuals and calculate fatalities at the population level as a function of the proportion of total non-symptomatic transmission and the proportion of non-symptomatic transmission that is caused by pre-symptomatic transmission (see Materials and Methods for model details and Supplementary Table S2 for parameter descriptions and values).
 Using the generalized non-symptomatic transmission model, we find a wide variety of scenarios for which peak fatalities occur at intermediate levels of non-symptomatic transmission in the presence of moderate to strong behavioral effects, $\delta > 0.6$ (Supplementary Figure S1).
 One exception is the extreme (and unrealistic) case, in which all non-symptomatic transmission is caused by pre-symptomatic transmission (i.e., there are no asymptomatic cases);
 in this case, total infections and fatalities are maximized when all transmission is caused by pre-symptomatic transmission. 
@@ -252,7 +260,7 @@ The dynamics of immunologically naive individuals are described in \fref{base}.
 (B--D) Total deaths as a function of the proportion of asymptomatic infections $p$ across a wide range scenarios for protection against infection $\epsilon_i$ (B), symptoms $\epsilon_s$ (C), and deaths $\epsilon_d$ (D).
 We simulate the model for 365 days, assuming $\beta_s = 4/5/\mathrm{day}$, $\beta_a = 0.75 \beta_s$, $\nu=1/2/\mathrm{day}$, $\gamma_s=\gamma_a=1/5/\mathrm{day}$, $f=0.01$, and $\delta=0.8$.
 We assume that $10^{-4}$ proportion of individuals are initially infected.
-See Supplementary Text for model details and Supplementary Table S3 for parameter descriptions and values.
+See Materials and Methods for model details and Supplementary Table S3 for parameter descriptions and values.
 }
 \label{fig:immune}
 \end{figure}
@@ -343,7 +351,7 @@ All data and code are stored in a publicly available GitHub repository (\url{htt
 
 \pagebreak
 
-\section*{Supplementary Text}
+\section*{Materials and Methods}
 \setcounter{figure}{0}
 \renewcommand{\thefigure}{S\arabic{figure}}
 \renewcommand{\thetable}{S\arabic{table}}
@@ -464,11 +472,11 @@ Here, subscripts $p$ denote individuals who are immune and therefore are protect
     \begin{tabular}{c|l|c} % <-- Alignments: 1st column left, 2nd middle and 3rd right, with vertical lines in between
       \textbf{Parameter} & \textbf{Description} & \textbf{Assumed values}\\
       \hline
-      $\beta_s$ & Symptomatic transmission rate & See Supplementary Text\\
+      $\beta_s$ & Symptomatic transmission rate & See Materials and Methods\\
       \hline
-      $\beta_a$ & Asymptomatic transmission rate & See Supplementary Text \\
+      $\beta_a$ & Asymptomatic transmission rate & See Materials and Methods \\
       \hline
-      $\beta_p$ & Presymptomatic transmission rate & See Supplementary Text \\
+      $\beta_p$ & Presymptomatic transmission rate & See Materials and Methods \\
       \hline
       $1/\nu$ & Mean latent period & $2\ \mathrm{days}$\\
       \hline
@@ -534,7 +542,7 @@ Here, subscripts $p$ denote individuals who are immune and therefore are protect
 \textbf{Schematic diagram and simulations of a model with pre-symptomatic and asymptomatic transmission and symptom-responsive transmission reduction.}
 (A) $S$ represents susceptible individuals; $E$ represents exposed individuals; $I_p$ represents pre-symptomatic individuals; $I_a$ represents symptomatic individuals; $I_s$ represents symptomatic individuals; $R$ represents recovered individuals; and $D$ represents deceased individuals. See Methods for model details.
 (B) Total deaths as a function of the proportion of non-symptomatic transmission $\phi$ across a wide range scenarios for $\delta$ and proportion of non-symptomatic transmission caused by the pre-symptomatic transmission, $\eta$ (between 0\% and 100\%). 
-See Supplementary Text for model details and Supplementary Table S2 for parameter descriptions and values.
+See Materials and Methods for model details and Supplementary Table S2 for parameter descriptions and values.
 }
 \end{center}
 \end{figure}
