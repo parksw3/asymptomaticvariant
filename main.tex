@@ -172,7 +172,7 @@ For now, we primarily focus on a homogeneous population and return to the age ef
 Despite quantitative uncertainties in asymptomatic transmissibility, individuals infected asymptomatically with SARS-CoV-2 can still transmit to others. 
 This means that the presence of asymptomatic infections may have countervailing effects at the population level. 
 On one hand, an asymptomatic infection means that the individual infected avoids hospitalization and death. 
-On the other hand, asymptomatic infections are less likely to be detected \citep{fraser2004factors}, meaning that asymptomatic individuals are less likely to take precautions and relatively more likely to infect others;
+On the other hand, asymptomatic infections are less likely to be detected \citep{fraser2004factors,moghadas2020implications}, meaning that asymptomatic individuals are less likely to take precautions and relatively more likely to infect others;
 asymptomatic SARS-CoV-2 infections present additional challenges to managing overall disease burden due to the possibility of long COVID \citep{xie2022long}.
 Altogether, the prevalence of asymptomatic infections could paradoxically make population-level outcomes worse than if SARS-CoV-2 was more dangerous at the individual level.
 
@@ -305,7 +305,7 @@ Moreover, even though the Omicron variant is probably milder than the Delta vari
 There are several limitations to our analysis.
 First, while we are able to generalize the model to include both pre-symptomatic and asymptomatic transmission, behavioral and intervention effects must be relatively large in order for the fatality to peak at intermediate levels of asymptomaticity (typically requiring a reduction in transmission rate of 60\% or more for most of our chosen parameter sets).
 Second, the model framework is able to incorporate the impacts of immunity of infection, symptoms, and severity,
-but we neglected the effects of immunity on transmission, which also has important effects on disease dynamics \citep{saad2020immune}.
+but we neglected the effects of immunity on transmission, which also has important effects on disease dynamics \citep{saad2020immune,gallagher2021indirect}.
 In particular, if immunity provides stronger protection against transmission among immune individuals, population-level outcomes will be better than what our model predicts.
 Estimating protection against different endpoints (e.g., infection, symptom, death, and transmission) can help narrow this uncertainty.
 Finally, we assumed that asymptomatic and symptomatic individuals are infected for the same amount of time.
@@ -320,7 +320,8 @@ However, asymptomatic individuals, especially younger individuals with high cont
 We note that other factors, such as the efficacy of a vaccine and types of immunity provided by the vaccine, also play critical roles in making these decisions---in many cases, protecting the most vulnerable will be the optimal decision to minimize deaths \citep{moore2021modelling}.
 
 In summary, using a series of simplified models, we have shown that asymptomatic infections (or, more generally, non-symptomatic transmission) can represent a double-edged sword leading to a better outcome for many individuals while facilitating onward transmission that leads to a worse outcome for the population as a whole.
-Extending our framework further shows that immunity profile (i.e., reduction of infection, symptoms, and/or severity due to immunity) plays a critical role in determining the dynamics of future variants. 
+Extending our framework further shows that immunity profile (i.e., reduction of infection, symptoms, and/or severity due to immunity) plays a critical role in determining the dynamics of future variants;
+these results extend previous work on post-pandemic trajectories that focus primarily on cross-immunity \citep{kissler2020projecting,lavine2021immunological}.
 For example, while protection against symptoms unaccompanied by protection against transmission protects health at the individual level, it can lead to more infections, and potentially more deaths, at the population level.
 A similar concern was raised in prioritizing vaccine choices that could reduce severe outcomes vs. others that could reduce transmission \citep{koelle2022changing}.
 
