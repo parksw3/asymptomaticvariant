@@ -120,23 +120,26 @@ Joshua S. Weitz\textsuperscript{6,7,8,*}
 \bigskip
 \end{flushleft}
 
-\section*{Short title}
-
-Asymptomatic transmission and fatalities
-
-\section*{One-sentence summary}
-
-Asymptomatic infections improve individual-level outcomes but increase overall transmission, thereby causing more deaths.
-
 \section*{Abstract}
 
 Asymptomatic infections have hampered the ability to characterize and prevent the transmission of SARS-CoV-2 throughout the pandemic.
 Although asymptomatic infections reduce severity at the individual level, they can make population-level outcomes worse if asymptomatic individuals---unaware they are infected---transmit more than symptomatic individuals.
-Using an epidemic model, we show that intermediate levels of asymptomatic infection lead to the highest levels of epidemic fatalities when the increase in asymptomatic transmission, due either to individual behavior or mitigation efforts, is strong. 
+Using an epidemic model, we show that intermediate levels of asymptomatic infection lead to the highest levels of epidemic fatalities when the decrease in symptomatic transmission, due either to individual behavior or mitigation efforts, is strong. 
 We generalize this result to include presymptomatic transmission, showing how intermediate levels of non-symptomatic transmission lead to the highest levels of fatalities.
 Finally, we extend our framework to illustrate how the intersection of asymptomatic spread and immunity profiles determine epidemic trajectories, including population-level severity, of future variants.
+In particular, when immunity provides protection against symptoms, but not against infections or deaths, epidemic trajectories can have faster infection growth rates and higher peak, which in turn can lead to more deaths.
+Nonetheless, even a modest protection against infection can mitigate the population-level effects of asymptomatic spread .
+
+\section*{Significance}
+
+Asymptomatically infected individuals may avoid severe outcomes but can still transmit to others, who can then develop symptoms and experience severe outcomes.
+Here, we explore the population-level effects of asymptomatic spread in the presence of strong transmission reduction among symptomatic individuals from behavioral and intervention efforts.
+In this case, the number of infections increases with asymptomatic prevalence, whereas epidemic fatalities peak at intermediate levels of asymptomatic prevalence.
+We integrate our findings to understanding the effects of interplay between behavior and immunity on disease spread and shed light on the dynamics of future variants.
 
 \pagebreak
+
+\section*{Introduction}
 
 SARS-CoV-2 has had devastating effects at the population level.
 However, many individuals experienced mild cases, making it harder to estimate the magnitude of spread and fatality rate \cite{nogrady2020data}.
@@ -182,17 +185,22 @@ This means that the presence of asymptomatic infections may have countervailing 
 On one hand, an asymptomatic infection means that the individual infected avoids hospitalization and death. 
 On the other hand, asymptomatic infections are less likely to be detected \cite{fraser2004factors,moghadas2020implications}, meaning that asymptomatic individuals are less likely to take precautions and relatively more likely to infect others;
 asymptomatic SARS-CoV-2 infections present additional challenges to managing overall disease burden due to the possibility of long COVID \cite{xie2022long}.
-Altogether, the prevalence of asymptomatic infections could paradoxically make population-level outcomes worse than if SARS-CoV-2 was more dangerous at the individual level.
 
-To explore this idea, we propose an epidemic model,
-in which infected individuals can be asymptomatic or symptomatic, with probabilities $p$ and $1-p$, respectively (\fref{base}A).  
+In this manuscript, we explore the effects of asymptomatic infection and transmission on disease severity at the population level.
+In doing so, we assume that symptomatic individuals can reduce their transmission, reflecting changes in behavior (e.g., self-isolation after symptom onset) or nonpharmaceutical intervention measures.
+Under this assumption, we show that the prevalence of asymptomatic infections could paradoxically make population-level outcomes worse than if SARS-CoV-2 was more dangerous at the individual level.
+We further extend our framework to understand the interaction between immunity against symptomatic infections on the dynamics of emerging variants.
+
+\section*{Results and Discussion}
+
+We propose an epidemic model, in which infected individuals can be asymptomatic or symptomatic, with probabilities $p$ and $1-p$, respectively (\fref{base}A).  
 Asymptomatic individuals always recover, whereas a fraction $f$ of symptomatic individuals die.
 Asymptomatic and symptomatic individuals can also have different infection characteristics, including their transmission rates ($\beta_a$ and $\beta_s$) and removal rates ($\gamma_a$ and $\gamma_s$).
 Our key assumption is that symptomatic individuals take greater precautions than do asymptomatic individuals (e.g., via reducing contacts or increased mask-wearing) and therefore reduce their transmission rate by a fraction $\delta$;
 the parameter $\delta$ may also capture intervention measures that target symptomatic individuals, such as symptom-based isolation. 
 We note that intervention measures that target asymptomatic infections would reduce the effective value of $\delta$---for example, frequent testing and isolation may effectively increase the removal rate $\gamma_a$ of asymptomatic individuals.
 For our main simulations, we assume that asymptomatic individuals have a lower reproduction number---this is modeled by assuming lower transmission rates for asymptomatic individuals ($\beta_a = 0.75 \beta_s$) and equal removal rates ($\gamma_a = \gamma_s$).
-We evaluate the effects on population-level mortality of changing the asymptomatic proportion $p$ while holding the fatality rate for \emph{symptomatic} cases, $f$, constant (the IFR $(1-p)f$ thus decreases as $p$ increases).
+We then evaluate the effects on population-level mortality of changing the asymptomatic proportion $p$ while holding the fatality rate for \emph{symptomatic} cases, $f$, constant (the IFR $(1-p)f$ thus decreases as $p$ increases).
 \begin{figure}[!ht]
 \includegraphics[width=\textwidth]{diagram_base.pdf}
 \caption{
@@ -206,7 +214,7 @@ See Materials and Methods for model details and Supplementary Table S1 for param
 \label{fig:base}
 \end{figure}
 
-\fref{base}B--C shows simulated epidemic outcomes using parameters similar to those of the originating strain of SARS-CoV-2, without any mitigation other than that individuals who are symptomatic reduce their transmission rate by $\delta$. 
+\fref{base}B--C shows simulated epidemic outcomes using parameters similar to those of the originating strain of SARS-CoV-2 (Table S1), without any mitigation other than that individuals who are symptomatic reduce their transmission rate by $\delta$. 
 For this model, the basic reproduction number is given by:
 \begin{equation}
 \RR_0 = (1-p) (1-\delta) \RR_s + p \RR_a,
@@ -236,7 +244,7 @@ We therefore extend our model to consider the effects of generalized \textit{non
 does an intermediate amount of non-symptomatic transmission lead to a peak in fatalities?
 For this model, we assume that $\delta$ decreases transmission only after symptom onset.
 We then fix the reproduction number of symptomatic individuals and calculate fatalities at the population level as a function of the proportion of total non-symptomatic transmission and the proportion of non-symptomatic transmission that is caused by pre-symptomatic transmission (see Materials and Methods for model details and Supplementary Table S2 for parameter descriptions and values).
-Using the generalized non-symptomatic transmission model, we find a wide variety of scenarios for which peak fatalities occur at intermediate levels of non-symptomatic transmission in the presence of moderate to strong behavioral effects, $\delta > 0.6$ (Supplementary Figure S1).
+Using the generalized non-symptomatic transmission model, we find a wide variety of scenarios for which peak fatalities occur at intermediate levels of non-symptomatic transmission in the presence of moderate to strong behavioral effects, $\delta > 0.6$ (Supplementary Figure S1; Table S2).
 One exception is the extreme (and unrealistic) case, in which all non-symptomatic transmission is caused by pre-symptomatic transmission (i.e., there are no asymptomatic cases);
 in this case, total infections and fatalities are maximized when all transmission is caused by pre-symptomatic transmission. 
 Hereafter, we focus on asymptomatic infections for simplicity, but our conclusions have implications for the more general case of non-symptomatic transmission.
@@ -248,7 +256,7 @@ The dynamics of protected individuals include three additional parameters, which
 For simplicity, we assume that the population is split in half (50\% naive and 50\% protected) and mixes homogeneously. We also do not consider the separate effect of immunity on transmission (beyond the effect on infection). 
 In other words, we assume that asymptomatic infections in protected and unprotected people have the same reproduction numbers (and likewise for the symptomatic infections).
 In practice, both asymptomatic and symptomatic infections in protected people are less likely to transmit than their unprotected counterparts \cite{lipsitch2020understanding}: asymptomatic infections in protected people may indicate limited viral replication or even immune boosting, in which case an exposed individual may successfully fight off the pathogen early in infection before it can be transmitted; and symptomatic infections in protected people may reflect a strong immune response (rather than high viral load), in which case symptomaticity can be a poor proxy for transmission.
-We assume a relatively strong behavioral effect $\delta=0.8$ for illustration.
+We assume a relatively strong behavioral effect $\delta=0.8$ for illustration (Table S3).
 
 \begin{figure}[!ht]
 \includegraphics[width=\textwidth]{diagram_immune.pdf}
@@ -340,21 +348,7 @@ Given the link between age and asymptomatic infections \cite{davies2020}, interv
 Mass vaccination is also expected to be important especially if future vaccines induce more transmission blocking.
 As more variants continue to emerge, monitoring the impacts of preexisting immunity (whether through vaccination and/or infections  \cite{lopman2021framework}) on preventing infections, and not just disease, will be critical to controlling the course of the pandemic.
 
-\section*{Acknowledgements}
-
-JSW acknowledges support from the Chaire Blaise Pascal Program of the Île-de-France region.
-The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript. 
-
-\section*{Data availability}
-
-All data and code are stored in a publicly available GitHub repository (\url{https://github.com/parksw3/asymptomaticvariant}).
-
-\pagebreak
-
 \section*{Materials and Methods}
-\setcounter{figure}{0}
-\renewcommand{\thefigure}{S\arabic{figure}}
-\renewcommand{\thetable}{S\arabic{table}}
 
 \subsection*{Epidemic models with asymptomatic infection and transmission in the absence of immunity}
 
@@ -407,8 +401,7 @@ More specifically:
 p &= \left(\frac{1}{\eta} - 1 \right) \frac{\RR_p}{\RR_a},
 \end{align}
 where $y = (1/\phi - 1)/\eta + (1/\eta - 1)/\rho$.
-In order to keep the mean infectious period fixed, we assume $1/\sigma=2\ \mathrm{days}$ and $1/\gamma_s=1/\gamma_a=3\ \mathrm{days}$.
-All other parameters are same as before.
+In order to keep the mean infectious period fixed, we assume $1/\sigma=2\ \mathrm{days}$ and $1/\gamma_s=1/\gamma_a=3\ \mathrm{days}$. All other parameters are same as before.
 
 \subsection*{Epidemic models with asymptomatic infection and transmission in the presence of immunity}
 
@@ -428,12 +421,27 @@ The model dynamics are as follows:
 \dot{R}_p &= \gamma_a I_{p,a} + (1-(1-\epsilon_d) f) \gamma_s I_{p,s} \\
 \dot{D}_p &= (1-\epsilon_d) f \gamma_s I_{p,s}
 \end{align}
-where $0\leq \epsilon \leq 1$ represents the degree of protection against infection, symptoms and death. 
+where $0\leq \epsilon_i, \epsilon_s, \epsilon_d \leq 1$ represents the degree of protection against infection, symptoms and death, respectively. 
 The force of infection $\lambda(t)$ is given by:
 \begin{equation}
 \lambda(t) = \beta_a (I_a + I_{p,a}) + (1-\delta) \beta_s (I_s + I_{p,s}).
 \end{equation}
 Here, subscripts $p$ denote individuals who are immune and therefore are protected.
+
+\section*{Acknowledgements}
+
+JSW acknowledges support from the Chaire Blaise Pascal Program of the Île-de-France region.
+The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript. 
+
+\section*{Data availability}
+
+All data and code are stored in a publicly available GitHub repository (\url{https://github.com/parksw3/asymptomaticvariant}).
+
+\pagebreak
+
+\setcounter{figure}{0}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\thetable}{S\arabic{table}}
 
 \pagebreak
 
