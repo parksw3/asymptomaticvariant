@@ -125,16 +125,16 @@ Joshua S. Weitz\textsuperscript{6,7,8,*}
 Asymptomatic infections have hampered the ability to characterize and prevent the transmission of SARS-CoV-2 throughout the pandemic.
 Although asymptomatic infections reduce severity at the individual level, they can make population-level outcomes worse if asymptomatic individuals---unaware they are infected---transmit more than symptomatic individuals.
 Using an epidemic model, we show that intermediate levels of asymptomatic infection lead to the highest levels of epidemic fatalities when the decrease in symptomatic transmission, due either to individual behavior or mitigation efforts, is strong. 
-We generalize this result to include presymptomatic transmission, showing how intermediate levels of non-symptomatic transmission lead to the highest levels of fatalities.
+We generalize this result to include presymptomatic transmission, showing that intermediate levels of non-symptomatic transmission lead to the highest levels of fatalities.
 Finally, we extend our framework to illustrate how the intersection of asymptomatic spread and immunity profiles determine epidemic trajectories, including population-level severity, of future variants.
-In particular, when immunity provides protection against symptoms, but not against infections or deaths, epidemic trajectories can have faster infection growth rates and higher peak, which in turn can lead to more deaths.
-Nonetheless, even a modest protection against infection can mitigate the population-level effects of asymptomatic spread .
+In particular, when immunity provides protection against symptoms, but not against infections or deaths, epidemic trajectories can have faster growth rates and higher peaks, leading to more total deaths.
+Conversely, even modest levels of protection against infection can mitigate the population-level effects of asymptomatic spread.
 
 \section*{Significance}
 
-During an epidemic, asymptomatically infected individuals may avoid severe outcomes but can still transmit to others, potentially leading to severe outcomes and fatalities.
-This manuscript proposes and analyzes the population-level effects of asymptomatic spread in the presence of strong transmission reduction among symptomatic individuals due to behavioral change and interventions.
-Theory and simulations reveal that although the number of infections increases with asymptomatic prevalence, epidemic fatalities peak at intermediate levels of asymptomatic prevalence.
+During an epidemic, asymptomatically infected individuals may avoid severe outcomes but can still transmit to others, potentially leading to severe outcomes, including fatalities.
+This manuscript analyzes the population-level effects of asymptomatic spread in the presence of strong transmission reduction among symptomatic individuals due to behavioral change and interventions.
+Theory and simulations reveal that when reduction is strong the number of infections increases with asymptomatic frequency, while fatalities peak at intermediate levels.
 The same framework also shows how milder variants at the individual level can potentially lead to worse outcomes for the population---of relevance to ongoing efforts to explore the interplay between behaviour, immunity, and viral variants.
 
 \pagebreak
@@ -143,9 +143,9 @@ The same framework also shows how milder variants at the individual level can po
 
 SARS-CoV-2 has had devastating effects at the population level.
 However, many individuals experienced mild cases, making it harder to estimate the magnitude of spread and fatality rate \cite{nogrady2020data}.
-The ratio of fatalities to documented cases (the case-fatality rate, CFR) is typically between 1\%--4\%, varying across population because of testing patterns, treatment practice, case definitions, and other factors \cite{rajgor2020many,VERITY2020669,yang2020early}.
+The ratio of fatalities to documented \emph{cases} (the case-fatality rate, CFR) is typically between 1\%--4\%, varying across population because of testing patterns, treatment practice, case definitions, and other factors \cite{rajgor2020many,VERITY2020669,yang2020early}.
 But many infections are never documented;
-the ratio of fatalities to total infections (the infection fatality rate, IFR) has been estimated to be closer to 0.5\%--1\% for pre-vaccinated populations whose demographics are similar to those of the United States \cite{levin2020assessing}. 
+the ratio of fatalities to total \emph{infections} (the infection fatality rate, IFR) has been estimated to be closer to 0.5\%--1\% for pre-vaccinated populations whose demographics are similar to those of the United States \cite{levin2020assessing}. 
 This means that more than 99\% of individuals infected with COVID-19 will survive. 
 Moreover, at least half of the infections are sufficiently mild that they could be classified as subclinical or even asymptomatic. 
 
@@ -170,12 +170,13 @@ Data are publicly available in \cite{Kissler2020}.
 
 Early in the pandemic, a COVID-19 outbreak on the Diamond Princess cruise ship played a critical role in understanding the role of asymptomatic infections in the spread of SARS-CoV-2;
 the outbreak occurred among 3711 passengers and crew, of whom 634 individuals tested positive by 20 February 2020 \cite{mizumoto2020estimating}.
-It has been estimated that 75\% (95\% C: 70\%-78\%) of all infections on the cruise ship were asymptomatic (\fref{evidence}A) with about half of total infections undetected \cite{emery2020}.
-The relative transmission rate of asymptomatic individuals aboard the Diamond Princess was not well constrained, but low relative transmission rate (below 25\%) by asymptomatic individuals was ruled out because it required unrealistically high transmissibility for symptomatic individuals (\fref{evidence}B).
+It has been estimated that 75\% (95\% CI: 70\%-78\%) of all infections on the cruise ship were asymptomatic (\fref{evidence}A) with about half of total infections undetected \cite{emery2020}.
+The relative transmission rate of asymptomatic individuals aboard the Diamond Princess was not well constrained by the analysis, but low relative transmission rate (below 25\%) by asymptomatic individuals was ruled out because it required unrealistically high transmissibility for symptomatic individuals (\fref{evidence}B).
+
 Modeling studies have typically assumed that transmissibility is lower for asymptomatic than for symptomatic individuals; assumptions have ranged from 10\%--100\% \cite{ferretti2020quantifying,lavezzo2020}.
 Similarities in viral load trajectories of asymptomatic and symptomatic individuals provide indirect support for the transmissibility of asymptomatic individuals (\fref{evidence}C, \cite{Kissler2020}); 
-however, differences between inferred total viral load from Ct values and infectious viral load add uncertainties to how well asymptomatic individuals can transmit relative to that of symptomatic individuals \cite{romero2021ct}.
-We note also that asymptomaticity is expected to be more heterogeneous in a diversity of outbreak settings \cite{alene2021magnitude}.
+however, differences between inferred \emph{total} viral load from Ct values and \emph{infectious} viral load add uncertainty \cite{romero2021ct}.
+We note also that asymptomaticity can change across outbreak settings \cite{alene2021magnitude}.
 For example, during the early pandemic, Davies \textit{et al.}'s analyses of surveillance data across six countries revealed that older individuals were less likely to have subclinical infections (\fref{evidence}D), providing indirect evidence for heterogeneity in asymptomaticity \cite{davies2020}.
 Differences in contact rates between age classes further contribute to the heterogeneity in asymptomatic transmissibility.
 For now, we primarily focus on a homogeneous population and return to the age effect in discussing our model-based findings.
