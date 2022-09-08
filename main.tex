@@ -134,7 +134,7 @@ Conversely, even modest levels of protection against infection can mitigate the 
 
 During an epidemic, asymptomatically infected individuals may avoid severe outcomes but can still transmit to others, potentially leading to severe outcomes, including fatalities.
 This manuscript analyzes the population-level effects of asymptomatic spread in the presence of strong transmission reduction among symptomatic individuals due to behavioral change and interventions.
-Theory and simulations reveal that when reduction is strong the number of infections increases with asymptomatic frequency, while fatalities peak at intermediate levels.
+Theory and simulations reveal that when reduction is strong the number of infections increases with asymptomatic proportion, while fatalities peak at intermediate levels.
 The same framework also shows how milder variants at the individual level can potentially lead to worse outcomes for the population---of relevance to ongoing efforts to explore the interplay between behaviour, immunity, and viral variants.
 
 \pagebreak
@@ -155,13 +155,14 @@ Moreover, at least half of the infections are sufficiently mild that they could 
 \textbf{Asymptomatic transmissibility of SARS-CoV-2.}
 (A) Posterior estimates of the proportion of asymptomatic infections from the Diamond Princess cruise ship \cite{emery2020}.
 (B) Posterior estimates of the ratio $\theta_a$ of the transmission rates between asymptomatic and symptomatic individuals from the Diamond Princess Cruise Ship \cite{emery2020}.
-Bar charts represent the posterior distributions.
+%% Bar charts represent the posterior distributions.
 Symptomatic individuals were assumed to transmit at rate $\beta(t)$ for an average of 2.9 days, followed by a pre-symptomatic stage with an average of 2.1 days. 
 Asymptomatic individuals were assumed to transmit at rate $\theta_a \beta(t)$ for an average of 5 days.
 Both estimates are publicly available with further details in \cite{emery2020}.
 (C) Viral load trajectory data from players, staff, and vendors of the National Basketball Association (NBA).
 Points represent each Ct measurement.
-Lines and shaded areas represent the smooth trajectories estimated via LOESS and the associated 95\% confidence intervals.
+Lines and shaded areas show LOESS fits.
+\jd{I don't really like calling them CIs. Maybe say default loess fits from R or something.}
 Data are publicly available in \cite{Kissler2020}.
 (D) Inferred proportion of infections that are subclinical for each age group using surveillance data from six countries (China, Italy, Japan, Singapore, South Korea, and Canada) \cite{davies2020}.
 }
@@ -189,8 +190,8 @@ asymptomatic SARS-CoV-2 infections present additional challenges to managing ove
 
 In this manuscript, we explore the effects of asymptomatic infection and transmission on disease severity at the population level.
 In doing so, we assume that symptomatic individuals reduce their transmission, reflecting changes in behavior (e.g., self-isolation after symptom onset) and/or nonpharmaceutical intervention measures.
-Under this assumption, we show that the prevalence of asymptomatic infections could paradoxically make population-level outcomes worse than if SARS-CoV-2 was more dangerous at the individual level.
-We further extend our framework to understand the interaction between immunity against symptomatic infections on the dynamics of emerging variants and explore mechanisms by which milder variants at the individual-level can nonetheless lead to similar or worse population-level outcomes.
+Under this assumption, we show that a high proportion of asymptomatic infections could paradoxically make population-level outcomes worse than if SARS-CoV-2 was more dangerous at the individual level.
+We further extend our framework to understand the interaction between immunity against symptomatic infections on the dynamics of emerging variants and explore mechanisms by which milder variants at the individual level can nonetheless lead to similar or worse population-level outcomes.
 
 \section*{Results and Discussion}
 

@@ -21,6 +21,9 @@ Ignore += asymptomaticvariant ## For testing instructions
 Sources += main.tex main.bib
 ## main.pdf: main.tex
 
+## main.tex.HEAD~1.oldfile
+## main_olddiff.pdf: main.tex
+
 ######################################################################
 
 Sources += $(wildcard *.R)
