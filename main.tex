@@ -132,10 +132,10 @@ Nonetheless, even a modest protection against infection can mitigate the populat
 
 \section*{Significance}
 
-Asymptomatically infected individuals may avoid severe outcomes but can still transmit to others, who can then develop symptoms and experience severe outcomes.
-Here, we explore the population-level effects of asymptomatic spread in the presence of strong transmission reduction among symptomatic individuals from behavioral and intervention efforts.
-In this case, the number of infections increases with asymptomatic prevalence, whereas epidemic fatalities peak at intermediate levels of asymptomatic prevalence.
-We integrate our findings to understanding the effects of interplay between behavior and immunity on disease spread and shed light on the dynamics of future variants.
+During an epidemic, asymptomatically infected individuals may avoid severe outcomes but can still transmit to others, potentially leading to severe outcomes and fatalities.
+This manuscript proposes and analyzes the population-level effects of asymptomatic spread in the presence of strong transmission reduction among symptomatic individuals due to behavioral change and interventions.
+Theory and simulations reveal that although the number of infections increases with asymptomatic prevalence, epidemic fatalities peak at intermediate levels of asymptomatic prevalence.
+The same framework also shows how milder variants at the individual level can potentially lead to worse outcomes for the population---of relevance to ongoing efforts to explore the interplay between behaviour, immunity, and viral variants.
 
 \pagebreak
 
@@ -187,9 +187,9 @@ On the other hand, asymptomatic infections are less likely to be detected \cite{
 asymptomatic SARS-CoV-2 infections present additional challenges to managing overall disease burden due to the possibility of long COVID \cite{xie2022long}.
 
 In this manuscript, we explore the effects of asymptomatic infection and transmission on disease severity at the population level.
-In doing so, we assume that symptomatic individuals can reduce their transmission, reflecting changes in behavior (e.g., self-isolation after symptom onset) or nonpharmaceutical intervention measures.
+In doing so, we assume that symptomatic individuals reduce their transmission, reflecting changes in behavior (e.g., self-isolation after symptom onset) and/or nonpharmaceutical intervention measures.
 Under this assumption, we show that the prevalence of asymptomatic infections could paradoxically make population-level outcomes worse than if SARS-CoV-2 was more dangerous at the individual level.
-We further extend our framework to understand the interaction between immunity against symptomatic infections on the dynamics of emerging variants.
+We further extend our framework to understand the interaction between immunity against symptomatic infections on the dynamics of emerging variants and explore mechanisms by which milder variants at the individual-level can nonetheless lead to similar or worse population-level outcomes.
 
 \section*{Results and Discussion}
 
@@ -335,13 +335,13 @@ For example, vaccinations and intervention measures primarily targeting older in
 However, asymptomatic individuals, especially younger individuals with high contact rates, can still transmit to other, older individuals, potentially making population-level outcomes worse than they would be if intervention measures were distributed differently.
 We note that other factors, such as the efficacy of a vaccine and types of immunity provided by the vaccine, also play critical roles in making these decisions---in many cases, protecting the most vulnerable will be the optimal decision to minimize deaths \cite{moore2021modelling}.
 
-In summary, using a series of simplified models, we have shown that asymptomatic infections (or, more generally, non-symptomatic transmission) can represent a double-edged sword leading to a better outcome for many individuals while facilitating onward transmission that leads to a worse outcome for the population as a whole.
+Via theory and simulation analysis of a series of simplified models, we have shown that asymptomatic infections (or, more generally, non-symptomatic transmission) can represent a double-edged sword leading to a better outcome for many individuals while facilitating onward transmission that leads to a worse outcome for the population as a whole.
 Extending our framework further shows that immunity profile (i.e., reduction of infection, symptoms, and/or severity due to immunity) plays a critical role in determining the dynamics of future variants;
 these results extend previous work on post-pandemic trajectories that focus primarily on cross-immunity \cite{kissler2020projecting,lavine2021immunological}.
 For example, while protection against symptoms unaccompanied by protection against transmission protects health at the individual level, it can lead to more infections, and potentially more deaths, at the population level.
 A similar concern was raised in prioritizing vaccine choices that could reduce severe outcomes vs. others that could reduce transmission \cite{koelle2022changing}.
 
-SARS-CoV-2 has proven hard to control in large part because transmission is often decoupled from symptoms. 
+As is increasingly evident, SARS-CoV-2 has proven hard to control in large part because transmission is often decoupled from symptoms. 
 % Mitigation efforts have often prioritized responding to symptoms---including symptom-based testing, fever checks, mask-wearing for infectious individuals---a different approach that strives to reduce the chance of asymptomatic transmission while increasing treatment of symptomatically infected individuals could both reduce infection risk at the source and the overall rates of severe outcomes for the population as a whole.
 Our model reinforces the need for dual approaches---prioritizing the reduction of asymptomatic spread (e.g., via risk awareness campaigns \cite{Bavel2020,chande2020real,sinclair2021pairing}, asymptomatic testing programs \cite{mina2021covid,gibson2022surv,Ranoa2022}, mask-wearing indoors and in crowded environments \cite{jones2020two,prather2020reducing,howard2021ev}, and through improvements in ventilation \cite{allen2021indoor,wang2021airborne}) while improving the treatment of symptomatic cases, particularly amongst older individuals at highest risk for severe outcomes.
 Given the link between age and asymptomatic infections \cite{davies2020}, interventions may consider different approaches in strongly age-structured populations (e.g., schools or long-term care facilities).
@@ -352,8 +352,8 @@ As more variants continue to emerge, monitoring the impacts of preexisting immun
 
 \subsection*{Epidemic models with asymptomatic infection and transmission in the absence of immunity}
 
-First, we consider a compartmental model with asymptomatic and symptomatic infections in a homogeneously mixing population.
-The model dynamics are as follows:
+We consider a compartmental model with asymptomatic and symptomatic infections in a homogeneously mixing population.
+The basic model dynamics are as follows:
 \begin{align}
 \dot{S} &= -\beta_a S I_a -(1-\delta) \beta_s S I_s \\
 \dot{E} &= \beta_a S I_a + (1-\delta) \beta_s S I_s - \nu E\\
@@ -367,7 +367,7 @@ Here, $\delta$ denotes the reduction in transmissibility due to responsive measu
 Throughout the paper, we use parameters that are broadly consistent with the dynamics of the originating strain of SARS-CoV-2: $\beta_s = 0.8/\mathrm{day}$, $\beta_a = 0.75 \beta_s$, $1/\nu=2\ \mathrm{days}$, $1/\gamma_s=1/\gamma_a=5\ \mathrm{days}$, and $f=0.01$ \cite{park2020reconciling}.
 Under this parameterization, we have symptomatic and asymptomatic reproduction numbers of $\RR_s = 4$ and $\RR_a = 3$.
 
-We then extend the first model to include both pre-symptomatic and asymptomatic transmission:
+We then extend this model to include both pre-symptomatic and asymptomatic transmission:
 \begin{align}
 \dot{S} &= -\beta_p I_p -\beta_a S I_a -(1-\delta) \beta_s S I_s \\
 \dot{E} &= \beta_a S I_a + (1-\delta) \beta_s S I_s - \nu E\\
@@ -377,7 +377,7 @@ We then extend the first model to include both pre-symptomatic and asymptomatic 
 \dot{R} &= \gamma_a I_a + (1-f) \gamma_s I_s \\
 \dot{D} &= f \gamma_s I_s
 \end{align}
-For this model, the pre-symptomatic $\RR_p$, symptomatic $\RR_s$, and asymptomatic $\RR_a$ reproduction numbers are given by $\RR_p = \beta_p/\sigma$, $\RR_s=\beta_s/\gamma_s$, and $\RR_a=\beta_a/\gamma_a$ in the absence of the behavioral effect;
+For this generalized model, the pre-symptomatic $\RR_p$, symptomatic $\RR_s$, and asymptomatic $\RR_a$ reproduction numbers are given by $\RR_p = \beta_p/\sigma$, $\RR_s=\beta_s/\gamma_s$, and $\RR_a=\beta_a/\gamma_a$ in the absence of the behavioral effect;
 these reproduction numbers represent the average number of secondary cases caused by an infected individual in each compartment.
 Then, the reproduction number of individuals who will eventually develop symptoms is equal to: $\RR_p + \RR_s$;
 similarly, the reproduction number of individuals who remain asymptomatic is equal to: $\RR_p + \RR_a$.
@@ -405,8 +405,7 @@ In order to keep the mean infectious period fixed, we assume $1/\sigma=2\ \mathr
 
 \subsection*{Epidemic models with asymptomatic infection and transmission in the presence of immunity}
 
-We then model the spread of infection in a partially immune population.
-The model dynamics are as follows:
+We model the spread of infection in a partially immune population as follows:
 \begin{align}
 \dot{S} &= -\lambda (t) S \\
 \dot{E} &= \lambda (t) S - \nu E\\
@@ -426,7 +425,7 @@ The force of infection $\lambda(t)$ is given by:
 \begin{equation}
 \lambda(t) = \beta_a (I_a + I_{p,a}) + (1-\delta) \beta_s (I_s + I_{p,s}).
 \end{equation}
-Here, subscripts $p$ denote individuals who are immune and therefore are protected.
+Here, subscripts $p$ denote individuals who are immune and therefore are protected, and as before the subscripts $a$ and $s$ denote asymptomatic and symptomatic infections.
 
 \section*{Acknowledgements}
 
