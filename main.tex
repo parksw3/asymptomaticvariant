@@ -161,8 +161,7 @@ Asymptomatic individuals were assumed to transmit at rate $\theta_a \beta(t)$ fo
 Both estimates are publicly available with further details in \cite{emery2020}.
 (C) Viral load trajectory data from players, staff, and vendors of the National Basketball Association (NBA).
 Points represent each Ct measurement.
-Lines and shaded areas show LOESS fits.
-\jd{I don't really like calling them CIs. Maybe say default loess fits from R or something.}
+Lines and shaded areas show default LOESS fits from \texttt{ggplot2} \cite{ggplot2}.
 Data are publicly available in \cite{Kissler2020}.
 (D) Inferred proportion of infections that are subclinical for each age group using surveillance data from six countries (China, Italy, Japan, Singapore, South Korea, and Canada) \cite{davies2020}.
 }
@@ -236,7 +235,6 @@ When behavioral protection is high, the effect of asymptomatic proportion on fat
 For high values of $\delta$, the peak fatality occurs at intermediate levels of asymptomatic spread:
 although fewer individuals die per infection for higher values of $p$, the increase in total infections still leads to an increase in total fatalities.
 In contrast, when $\delta$ is small enough that $(1-\delta) \RR_s \geq \RR_a$ (in this case, $\delta < 0.25$), both the number of infections and the IFR ($(1-p)f$) decrease with increasing $p$.
-\jd{Got rid of a few words that might imply that this is necessary as well as sufficient for a decreasing curve.}
 
 We can ask whether the high values of $\delta$ required for the nonlinear effects of asymptomaticity on deaths are realistic.
 For this particular model, it does not make biological sense for $\delta$ to be greater than the amount of post-symptomatic transmission, because pre-symptomatic transmission is implicitly included in the $I_s$ compartment.
@@ -270,9 +268,8 @@ We assume a relatively strong behavioral effect $\delta=0.8$ for illustration (T
 Immunity may provide protection against infection, symptoms, or deaths.
 The dynamics of immunologically naive individuals are described in \fref{base}.
 (B--D) Total deaths as a function of the proportion of asymptomatic infections $p$ across a wide range scenarios for protection against infection $\epsilon_i$ (B), symptoms $\epsilon_s$ (C), and deaths $\epsilon_d$ (D).
-We simulate the model for 365 days, assuming $\beta_s = 4/5/\mathrm{day}$, $\beta_a = 0.75 \beta_s$, $\nu=1/2/\mathrm{day}$, $\gamma_s=\gamma_a=1/5/\mathrm{day}$, $f=0.01$, and $\delta=0.8$.
-\jd{Please change all fractions to decimals in above s.}
-The initial exposed proportion is $10^{-4}$.
+We simulate the model for 365 days, assuming $\beta_s = 0.8/\mathrm{day}$, $\beta_a = 0.75 \beta_s$, $\nu=0.5/\mathrm{day}$, $\gamma_s=\gamma_a=0.2/\mathrm{day}$, $f=0.01$, and $\delta=0.8$.
+The initial infected proportion is $10^{-4}$.
 See Materials and Methods for model details and Supplementary Table S3 for parameter descriptions and values.
 }
 \label{fig:immune}
@@ -295,8 +292,7 @@ Protection against deaths $\epsilon_d$ directly modulates the fatality rate for 
 (A, D) Asymptomaticity--fatality curves for the first (solid lines) and second waves (dashed lines).
 Points represent specific scenarios we assume for the first and second waves.
 Fatality curves for the first wave are calculated by simulating an epidemic for 1 year using parameters from \fref{base} with $\delta=0.8$.
-Fatality curves for the second wave are calculated by first simulating the first wave assuming $p=0.2$ for 1 year to calculate the proportion immune and then simulating the extended model presented in \fref{immune} for \emph{either} a milder ($p=0.8$) or a not-milder ($p=0.2$) variant.
-\jd{not-milder is not an actual sugggestion\ldots}
+Fatality curves for the second wave are calculated by first simulating the first wave assuming $p=0.2$ for 1 year to calculate the proportion immune and then simulating the extended model presented in \fref{immune} for \emph{either} a milder ($p=0.8$) or an equally severe ($p=0.2$) variant.
 (B, E) Dynamics of infection prevalence for the wildtype variant (black, solid line) and milder (purple) and similar (orange) invading variants (dashed lines).
 (C, F) Dynamics of daily deaths for the wildtype variant (black, solid line) and two possible invading variants (colored, dashed line).
 }
@@ -306,8 +302,7 @@ Fatality curves for the second wave are calculated by first simulating the first
 Finally, we use our framework to understand the impact of behavioral effects on invading variants (\fref{variant}).
 We first simulate the dynamics of a wildtype variant for 1 year using our base model with parameters as in \fref{base}.
 We then simulate a new variant invading a partially immune population using our extended model (\fref{immune}A), where the immunity is solely derived from natural infections caused by the wildtype variant in the first year.
-We consider two types of variants (which are simulated separately): one with the same severity $p$ (variant 1, orange) and a milder one with higher $p$ (variant 2, purple).
-\jd{The more severe variant has the same severity. There is no conceptual problem, but I'm worried about a reader-comprehension problem.}
+We consider two types of variants (which are simulated separately): one with the same severity $p$ as before (variant 1, orange) and a milder one with higher $p$ (variant 2, purple).
 
 First, we consider a scenario in which immunity only provides protection against symptoms, $\epsilon_s = 0.4$ (\fref{variant}A--C).
 In this case, protection against symptoms allows new variants to spread faster by increasing the amount of asymptomatic infections, resulting in larger outbreaks (\fref{variant}B).
