@@ -78,6 +78,19 @@ funs_pre.Rout: funs_pre.R
 	$(wrapR)	
 	
 ## Do supp simulations
+
+simulate_base_sens.Rout: simulate_base_sens.R funs.rda
+	$(pipeR)
+
+figure_base_sens.Rout: figure_base_sens.R simulate_base_sens.rds
+	$(pipeR)
+
+simulate_base_sens_fixR0.Rout: simulate_base_sens_fixR0.R funs.rda
+	$(pipeR)
+	
+figure_base_sens_fixR0.Rout: figure_base_sens_fixR0.R simulate_base_sens_fixR0.rds
+	$(pipeR)
+	
 simulate_pre.Rout: simulate_pre.R funs_pre.rda
 	$(pipeR)
 

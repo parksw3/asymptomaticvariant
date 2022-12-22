@@ -29,7 +29,7 @@ g1 <- ggplot(simulate_sub_max) +
   scale_y_continuous("Proportion deceased",
                      limits=c(0, 0.0103),
                      expand=c(0, 0)) +
-  scale_color_viridis_d(expression(delta)) +
+  scale_color_viridis_d(expression(delta[s])) +
   facet_wrap(~p_pre_ratio, labeller = label_parsed) +
   ggtitle("B") +
   theme(
