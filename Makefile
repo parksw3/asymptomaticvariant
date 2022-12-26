@@ -27,7 +27,9 @@ Sources += main.tex main.bib response.tex
 ## Comparison
 
 pnas_final: main.tex.322f6.oldfile
+	touch main.tex
 nexus1: main.tex.7230d.oldfile
+	touch main.tex
 
 ## main.ld.pdf: main.tex
 
