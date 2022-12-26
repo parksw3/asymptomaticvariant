@@ -16,13 +16,20 @@ Ignore += asymptomaticvariant ## For testing instructions
 
 ######################################################################
 
-## Main document (implicit rules)
+## Nexus documents 2022 Dec 26 (Mon)
 
-Sources += main.tex main.bib
+Sources += main.tex main.bib response.tex
 ## main.pdf: main.tex
+## response.pdf: response.tex
 
-## main.tex.HEAD~1.oldfile
-## main_olddiff.pdf: main.tex
+######################################################################
+
+## Comparison
+
+pnas_final: main.tex.322f6.oldfile
+nexus1: main.tex.7230d.oldfile
+
+## main.ld.pdf: main.tex
 
 ######################################################################
 
