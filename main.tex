@@ -168,12 +168,10 @@ Data are publicly available in \cite{Kissler2020}.
 \label{fig:evidence}
 \end{figure}
 
-Early in the pandemic, a COVID-19 outbreak on the Diamond Princess cruise ship played a critical role in understanding the role of asymptomatic infections in the spread of SARS-CoV-2;
-the outbreak occurred among 3711 passengers and crew, of whom 634 individuals tested positive by 20 February 2020 \cite{mizumoto2020estimating}.
+It is now well established that asymptomatic individuals can transmit SARS-CoV-2 infections \citep{gao2021role,johansson2021sars,subramanian2021quantifying,koelle2022changing,lizewski2022navy}, but asymptomatic cases are increasingly shaped by prior immunity (whether through infection, vaccination, or both).
+In contrast, early in the pandemic, a COVID-19 outbreak on the Diamond Princess cruise ship played a critical role in understanding the role of asymptomatic infections in the spread of SARS-CoV-2 from and to immunologically naive individuals; the outbreak occurred among 3711 passengers and crew, of whom 634 individuals tested positive by 20 February 2020 \cite{mizumoto2020estimating}.
 It has been estimated that 75\% (95\% CI: 70\%-78\%) of all infections on the cruise ship were asymptomatic (\fref{evidence}A) with about half of total infections undetected \cite{emery2020}.
 The relative transmission rate of asymptomatic individuals aboard the Diamond Princess was not well constrained by the analysis, but low relative transmission rate (below 25\%) by asymptomatic individuals was ruled out because it required unrealistically high transmissibility for symptomatic individuals (\fref{evidence}B).
-It is now well established that asymptomatic individuals can transmit SARS-CoV-2 infections \citep{gao2021role,johansson2021sars,subramanian2021quantifying,koelle2022changing,lizewski2022navy}, but the majority of asymptomatic cases are now driven by prior immunity.
-In contrast, the Diamond Princess data provide a unique perspective on the relative transmissibility from immunologically naive asymptomatic individuals.
 
 Modeling studies have typically assumed that transmissibility is lower for asymptomatic than for symptomatic individuals; assumptions have ranged from 10\%--100\% \cite{ferretti2020quantifying,lavezzo2020}.
 Similarities in viral load trajectories of asymptomatic and symptomatic individuals provide indirect support for the transmissibility of asymptomatic individuals (\fref{evidence}C, \cite{Kissler2020}); 
@@ -242,10 +240,9 @@ although fewer individuals die per infection for higher values of $p$, the incre
 In contrast, when $\delta$ is small enough that $(1-\delta) \RR_s \geq \RR_a$ (in this case, $\delta < 0.25$), both the number of infections and the IFR ($(1-p)f$) decrease with increasing $p$.
 We note that these results are robust to uncertainties in asymptomatic transmission rate.
 In Supplementary Figure S2, we perform the same analysis while varying the ratio between $\RR_s$ and $\RR_a$ between 0.25 and 1.
-In this case, qualitative predictions are robust when $\RR_a \geq 0.5 \RR_s$.
---- when $\RR_a = 0.25 \RR_s$ and $\delta$ is large, $\RR_0 < 1$ and the epidemic does not take off.
-In Supplementary Figure S3, we perform the same sensitivity analysis as Supplementary Figure S2 but now we fix $\RR_0 = 4$ when $p=0.5$ and $\delta=0$ to prevent the epidemic from dying out.
-In this case, we find that intermediate values of asymptomaticity lead to the highest epidemic fatalities at high $\delta$ values across all ranges of $\RR_a/\RR_s$ we consider.
+In this case, qualitative predictions are robust when $\RR_a \geq 0.5 \RR_s$
+--- when $\RR_a = 0.25 \RR_s$ and $\delta$ is large then $\RR_0 < 1$ and the epidemic does not take off.
+In Supplementary Figure S3, we perform the same sensitivity analysis as Supplementary Figure S2 while fixing x $\RR_0 = 4$ when $p=0.5$ and $\delta=0$ to prevent the epidemic from dying out. In this case, we find that intermediate values of asymptomaticity lead to the highest epidemic fatalities at high $\delta$ values across all ranges of $\RR_a/\RR_s$ we consider.
 
 We can ask whether the high values of $\delta$ required for the nonlinear effects of asymptomaticity on deaths are realistic.
 For this particular model, it does not make biological sense for $\delta$ to be greater than the amount of post-symptomatic transmission, because pre-symptomatic transmission is implicitly included in the $I_s$ compartment.
@@ -254,7 +251,7 @@ Instead, \cite{sender2021unmitigated} recently estimated that the proportion of 
 There are two implications of this updated estimate---first, a low proportion of pre-symptomatic transmission makes high $\delta$ values at least somewhat more likely during the initial pandemic phase; and second, substantial levels of behavioral effects ($\delta > 0$) may have been present early in the pandemic (to reduce the proportion of symptomatic transmission from 80\% to as low as 40\%).
 
 To further address the uncertainty in the values of $\delta$, we extend our model to include both pre-symptomatic and asymptomatic transmission.
-To do so, we reparameterize the model based on relative importance of \textit{non-symptomatic} transmission, rather than on the proportion of of asymptomatic cases.
+To do so, we reparameterize the model based on the relative importance of \textit{non-symptomatic} transmission, rather than on the proportion of asymptomatic cases.
 We then use $\delta_s$ to capture the decrease in transmission only after symptom onset---this means that $\delta_s$ is now independent of the amount of presymptomatic transmission.
 We then fix the reproduction number of symptomatic individuals and calculate fatalities at the population level as a function of the proportion of total non-symptomatic transmission and the proportion of non-symptomatic transmission that is caused by pre-symptomatic transmission (see Materials and Methods for model details and Supplementary Table S2 for parameter descriptions and values).
 
@@ -262,8 +259,8 @@ Using the generalized non-symptomatic transmission model, we find a wide variety
 For example, when 40\% of non-symptomatic transmission is caused by pre-symptomatic transmission, a 60\% reduction in transmission after symptom onset is sufficient to drive the nonlinear effect of non-symptomatic transmission on epidemic fatality (peaking at around 10\% non-symptomatic transmission).
 One exception is the extreme case in which all non-symptomatic transmission is caused by pre-symptomatic transmission (i.e., there is no asymptomatic transmission);
 in this case, total infections and fatalities are maximized when all transmission is caused by pre-symptomatic transmission. 
-While 60\% reduction in transmission after symptom onset ($\delta_s = 0.6$) is still high, it does not seem unrealistic.
-For example, \cite{kucharski2020effectiveness} estimated that up to 64\% reduction in transmission would be possible under self-isolation and -quarantine as well as manual contact tracing of all contacts (and as low as 47\% reduction using digital contact tracing without manual tracing).
+While 60\% reduction in transmission after symptom onset ($\delta_s = 0.6$) is still high, it is plausible given behavioural and policy responses.
+For example, \cite{kucharski2020effectiveness} estimated that up to $\sim$64\% reduction in transmission would be possible under self-isolation and self-quarantine as well as manual contact tracing (and as low as $\sim$47\% reduction using digital contact tracing without manual tracing).
 Given that the majority of isolation and tracing measures likely target symptomatic transmission, the amount of reduction in symptomatic transmission would be similar to these values, providing indirect support for the feasibility of high $\delta_s$ values. 
 Hereafter, we focus on asymptomatic infections for simplicity, but our conclusions have implications for the more general case of non-symptomatic transmission.
 We return to the discussion of values of $\delta$ later in the Discussion section.
@@ -357,11 +354,11 @@ We note that other factors, such as the efficacy of a vaccine and types of immun
 The main conclusion of our analysis relies on having high levels of transmission reduction among symptomatic individuals ($\delta$). 
 For the simple model, the value of $\delta$ is limited by the amount of presymptomatic transmission, which makes high $\delta$ values unrealistic for COVID-19.
 Therefore, we extended our model to include both presymptomatic and asymptomatic transmission to show that our results hold for a more general case: for high levels of transmission reduction after symptom onset ($\delta_s$), epidemic fatalities peak at intermediate values of non-symptomatic transmission.
-Based on early estimates for the contact tracing effectiveness \citep{kucharski2020effectiveness} we believe that high levels are $\delta_s$ are plausible, but a great deal of uncertainty remains. 
-Furthermore, values of $\delta$ (and likewise, $\delta_s$) likely change over the course of a real epidemic.
+Based on early estimates for the contact tracing effectiveness \citep{kucharski2020effectiveness} high levels are $\delta_s$ are plausible, but uncertainty remains. 
+Furthermore, values of $\delta$ (and likewise, $\delta_s$) likely change over the course of an epidemic.
 During the exponential growth phase, $\delta$ is likely low because there is limited awareness for the outbreak and intervention measures in place.
-As the number of cases increase, $\delta$ will also increase, reflecting changes in awareness-driven behavior and intensity of non-pharmaceutical interventions \citep{weitz2020awareness}.
-A detailed analysis is needed to better constrain the uncertainties around the values of $\delta$ and to understand the relevance of our work in realistic settings. 
+As the number of cases, hospitalizations, and fatalities increase, $\delta$ will also increase, reflecting changes in awareness-driven behavior and intensity of non-pharmaceutical interventions \citep{weitz2020awareness}.
+Further analysis is needed to constrain the uncertainty in $\delta$ and to apply the model framework in distinct disease, policy, and socioeconomic contexts. 
 
 Via theory and simulation analysis of a series of simplified models, we have shown that asymptomatic infections (or, more generally, non-symptomatic transmission) can under some conditions lead to a better outcome for many individuals while facilitating onward transmission that leads to a worse outcome for the population as a whole.
 Extending our framework further shows that immunity profile (i.e., reduction of infection, symptoms, and/or severity due to immunity) plays a critical role in determining the dynamics of future variants;
@@ -369,12 +366,12 @@ these results extend previous work on post-pandemic trajectories that focus prim
 For example, while protection against symptoms protects health at the individual level, it can lead to more infections, and potentially more deaths, at the population level.
 A similar concern was raised in prioritizing vaccine choices that could reduce severe outcomes vs. others that could reduce transmission \cite{koelle2022changing}.
 Our conclusions echo earlier findings by \cite{gandon2001imperfect}, who showed that vaccine-derived immunity against diseases can promote the evolution of more virulent strains in unvaccinated individuals.
-By allowing explicit parasite evolution, they also showed that total malaria mortality peaks at intermediate levels of vaccination; our analysis reveals that the differences in symptomatic and asymptomatic transmission behavior can give rise to the same effect even in the absence of evolution.  
+By allowing explicit parasite evolution, they also showed that total malaria mortality peaks at intermediate levels of vaccination; our analysis reveals that the differences in symptomatic and asymptomatic transmission behavior can give rise to a similar effect even in the absence of evolution.  
 
-Our work further illustrates the potential for asymptomatic infection and transmission to make population-level outcomes worse, but remains primarily theoretical.
-Applying these ideas to real outbreak scenarios will require narrowing down uncertainties in key parameters, such as the degree of symptom-responsive transmission reduction and immunity profiles.
-For example, we simulated unmitigated outbreaks with assumed parameters, but real epidemic dynamics, especially those of SARS-CoV-2, are more complex, reflecting changes in intervention efforts and the emergence of new variants.
-Calibrating the model to real outbreak data is therefore critical to understanding the role of asymptomatic transmission across different epidemic phases.
+Our work uses theoretical model to illustrate the potential for asymptomatic infection and transmission to make population-level outcomes worse.
+Applying these ideas to specific outbreak scenarios will require narrowing down uncertainties in key parameters, such as the degree of symptom-responsive transmission reduction and immunity profiles.
+For example, we simulated unmitigated outbreaks with fixed parameters but epidemic dynamics, especially those of SARS-CoV-2, are more complex, reflecting changes in intervention efforts and the emergence of new variants.
+Calibrating the model to outbreak data is therefore critical to understanding the role of asymptomatic transmission across different epidemic phases.
 We also showed that asymptomatic infections can have important implications for evolutionary dynamics, but their contributions in driving evolutionary dynamics of SARS-CoV-2 is yet unclear.
 Our study provides a starting point for exploring these questions in more detail.
 
@@ -383,7 +380,7 @@ As is increasingly evident, SARS-CoV-2 has proven hard to control in large part 
 Our model reinforces the need for dual approaches---prioritizing the reduction of asymptomatic spread (e.g., via risk awareness campaigns \cite{Bavel2020,chande2020real,sinclair2021pairing}, asymptomatic testing programs \cite{mina2021covid,gibson2022surv,Ranoa2022}, mask-wearing indoors and in crowded environments \cite{jones2020two,prather2020reducing,howard2021ev}, and through improvements in ventilation \cite{allen2021indoor,wang2021airborne}) while also improving the treatment of symptomatic cases, particularly amongst older individuals at highest risk for severe outcomes.
 Given the link between age and asymptomatic infections \cite{davies2020}, interventions may consider different approaches in strongly age-structured populations (e.g., schools or long-term care facilities).
 Mass vaccination is also expected to be important especially if future vaccines induce more transmission blocking.
-As more variants continue to emerge, monitoring the impacts of preexisting immunity (whether through vaccination and/or infections  \cite{lopman2021framework}) on preventing infections, and not just disease, will be critical to controlling the course of the pandemic.
+As more variants continue to emerge, monitoring the impacts of preexisting immunity (whether through vaccination and/or infections  \cite{lopman2021framework}) on preventing infections, and not just disease, will be critical to controlling the course of this and future pandemics.
 
 \section*{Materials and Methods}
 
