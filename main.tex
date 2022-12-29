@@ -243,7 +243,7 @@ In contrast, when $\delta$ is small enough that $(1-\delta) \RR_s \geq \RR_a$ (i
 We note that these results are robust to uncertainties in asymptomatic transmission rate.
 In Supplementary Figure S2, we perform the same analysis while varying the ratio between $\RR_s$ and $\RR_a$ between 0.25 and 1.
 In this case, qualitative predictions are robust when $\RR_a \geq 0.5 \RR_s$.
--- when $\RR_a = 0.25 \RR_s$ and $\delta$ is large, $\RR_0 < 1$ and the epidemic does not take off.
+--- when $\RR_a = 0.25 \RR_s$ and $\delta$ is large, $\RR_0 < 1$ and the epidemic does not take off.
 In Supplementary Figure S3, we perform the same sensitivity analysis as Supplementary Figure S2 but now we fix $\RR_0 = 4$ when $p=0.5$ and $\delta=0$ to prevent the epidemic from dying out.
 In this case, we find that intermediate values of asymptomaticity lead to the highest epidemic fatalities at high $\delta$ values across all ranges of $\RR_a/\RR_s$ we consider.
 
@@ -262,8 +262,7 @@ Using the generalized non-symptomatic transmission model, we find a wide variety
 For example, when 40\% of non-symptomatic transmission is caused by pre-symptomatic transmission, a 60\% reduction in transmission after symptom onset is sufficient to drive the nonlinear effect of non-symptomatic transmission on epidemic fatality (peaking at around 10\% non-symptomatic transmission).
 One exception is the extreme case in which all non-symptomatic transmission is caused by pre-symptomatic transmission (i.e., there is no asymptomatic transmission);
 in this case, total infections and fatalities are maximized when all transmission is caused by pre-symptomatic transmission. 
-While 60\% reduction in transmission after symptom onset ($\delta_s = 0.6$) is still high, it is likely \jd{in fact, tautologically} more feasible than reaching $\delta = 0.6$.
-\jd{I think we can just say something like “it does not seem unrealistic”.}
+While 60\% reduction in transmission after symptom onset ($\delta_s = 0.6$) is still high, it does not seem unrealistic.
 For example, \cite{kucharski2020effectiveness} estimated that up to 64\% reduction in transmission would be possible under self-isolation and -quarantine as well as manual contact tracing of all contacts (and as low as 47\% reduction using digital contact tracing without manual tracing).
 Given that the majority of isolation and tracing measures likely target symptomatic transmission, the amount of reduction in symptomatic transmission would be similar to these values, providing indirect support for the feasibility of high $\delta_s$ values. 
 Hereafter, we focus on asymptomatic infections for simplicity, but our conclusions have implications for the more general case of non-symptomatic transmission.
@@ -376,7 +375,7 @@ Our work further illustrates the potential for asymptomatic infection and transm
 Applying these ideas to real outbreak scenarios will require narrowing down uncertainties in key parameters, such as the degree of symptom-responsive transmission reduction and immunity profiles.
 For example, we simulated unmitigated outbreaks with assumed parameters, but real epidemic dynamics, especially those of SARS-CoV-2, are more complex, reflecting changes in intervention efforts and the emergence of new variants.
 Calibrating the model to real outbreak data is therefore critical to understanding the role of asymptomatic transmission across different epidemic phases.
-We also showed that asymptomatic infections can have important implications for evolutionary dynamics, but their contributions in driving \jd{What?: vaccination and} evolutionary dynamics of SARS-CoV-2 is yet unclear.
+We also showed that asymptomatic infections can have important implications for evolutionary dynamics, but their contributions in driving evolutionary dynamics of SARS-CoV-2 is yet unclear.
 Our study provides a starting point for exploring these questions in more detail.
 
 As is increasingly evident, SARS-CoV-2 has proven hard to control in large part because transmission is often decoupled from symptoms. 
