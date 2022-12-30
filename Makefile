@@ -30,6 +30,8 @@ pnas_final: main.tex.322f6.oldfile
 	touch main.tex
 nexus1: main.tex.7230d.oldfile
 	touch main.tex
+nexusjd: main.tex.7365a61.oldfile
+	touch main.tex
 
 ## main.ld.pdf: main.tex
 
