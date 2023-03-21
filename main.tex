@@ -343,7 +343,7 @@ Estimating protection against different endpoints (e.g., infection, symptom, dea
 Finally, we assumed that asymptomatic and symptomatic individuals are infected for the same amount of time.
 Analysis of viral load trajectories suggests that asymptomatic individuals may clear infections faster \cite{Kissler2020};
 however, asymptomatic individuals may still transmit for a longer period of time if symptomatic individuals self-isolate quickly after symptom onset.
-The individual-level differences in the asymptomatic and symptomatic transmission time scale can have important implications for the inferences and predictions of pathogen dynamics \cite{park2020time,harris2022time};
+The individual-level differences in the asymptomatic and symptomatic transmission time scale can have important implications for the inferences and predictions of pathogen dynamics \cite{park2020time,harris2023time};
 nonetheless, we expect that predictions on the final size of the epidemic and total fatalities will be robust to small differences in the transmission time scale between asymptomatic and symptomatic individuals.
 
 Even though we assumed a homogeneous population here, our analysis also has important implications for age-dependent heterogeneity in asymptomaticity (as shown in \fref{evidence}D).
@@ -397,11 +397,13 @@ The basic model dynamics are as follows:
 \dot{D} &= f \gamma_s I_s
 \end{align}
 where the transmission rate $\beta$ and removal rate $\gamma$ can be potentially differ between asymptomatic and symptomatic individuals.  
+Similar models have been previously used to study the dynamics of SARS-CoV-2 \citep{fox2020impact,lavezzo2020,harris2023time}.
 Here, $\delta$ denotes the reduction in transmissibility due to responsive measures taken by symptomatic individuals.
 Throughout the paper, we use parameters that are broadly consistent with the dynamics of the originating strain of SARS-CoV-2: $\beta_s = 0.8/\mathrm{day}$, $\beta_a = 0.75 \beta_s$, $1/\nu=2\ \mathrm{days}$, $1/\gamma_s=1/\gamma_a=5\ \mathrm{days}$, and $f=0.01$ \cite{park2020reconciling}.
 Under this parameterization, we have symptomatic and asymptomatic reproduction numbers of $\RR_s = 4$ and $\RR_a = 3$.
 
-We then extend this model to include both pre-symptomatic and asymptomatic transmission:
+We then extend this model to include both pre-symptomatic and asymptomatic transmission.
+This is done by adding a presymptomatic compartment before entering symptomatic or asymptomatic compartments \citep{lavezzo2020}.
 \begin{align}
 \dot{S} &= -\beta_p I_p -\beta_a S I_a -(1-\delta) \beta_s S I_s \\
 \dot{E} &= \beta_a S I_a + (1-\delta_s) \beta_s S I_s - \nu E\\
@@ -439,7 +441,11 @@ In order to keep the mean infectious period fixed, we assume $1/\sigma=2\ \mathr
 
 \subsection*{Epidemic models with asymptomatic infection and transmission in the presence of immunity}
 
-We model the spread of infection in a partially immune population as follows:
+We model the spread of infection in a partially immune population by assuming a leaky protection.
+The leaky assumption has been widely used throughout the SARS-CoV-2 pandemic \citep{saad2020immune}.
+Another option is to rely on the all-or-nothing assumption \citep{smith1984assessment,buckner2021dynamic,bubar2021model};
+for simplicity, we do not explore this option.
+Then, the model equations are given by:
 \begin{align}
 \dot{S} &= -\lambda (t) S \\
 \dot{E} &= \lambda (t) S - \nu E\\
