@@ -239,10 +239,10 @@ For high values of $\delta$, the peak fatality occurs at intermediate levels of 
 although fewer individuals die per infection for higher values of $p$, the increase in total infections still leads to an increase in total fatalities.
 In contrast, when $\delta$ is small enough that $(1-\delta) \RR_s \geq \RR_a$ (in this case, $\delta < 0.25$), both the number of infections and the IFR ($(1-p)f$) decrease with increasing $p$.
 We note that these results are robust to uncertainties in asymptomatic transmission rate.
-In Supplementary Figure S2, we perform the same analysis while varying the ratio between $\RR_a$ and $\RR_s$ between 0.25 and 1.
+In Supplementary Figure S1, we perform the same analysis while varying the ratio between $\RR_a$ and $\RR_s$ between 0.25 and 1.
 In this case, qualitative predictions are robust when $\RR_a \geq 0.5 \RR_s$
 --- when $\RR_a = 0.25 \RR_s$ and $\delta$ is large then $\RR_0 < 1$ and the epidemic does not take off.
-In Supplementary Figure S3, we perform the same sensitivity analysis as Supplementary Figure S2 while fixing $\RR_0 = 4$ when $p=0.5$ and $\delta=0$ to prevent the epidemic from dying out. In this case, we find that intermediate values of asymptomaticity lead to the highest epidemic fatalities at high $\delta$ values across all ranges of $\RR_a/\RR_s$ we consider.
+In Supplementary Figure S2, we perform the same sensitivity analysis as Supplementary Figure S1 while fixing $\RR_0 = 4$ when $p=0.5$ and $\delta=0$ to prevent the epidemic from dying out. In this case, we find that intermediate values of asymptomaticity lead to the highest epidemic fatalities at high $\delta$ values across all ranges of $\RR_a/\RR_s$ we consider.
 
 We can ask whether the high values of $\delta$ required for the nonlinear effects of asymptomaticity on deaths are realistic.
 For this particular model, it does not make biological sense for $\delta$ to be greater than the amount of post-symptomatic transmission, because pre-symptomatic transmission is implicitly included in the $I_s$ compartment.
@@ -478,6 +478,515 @@ All data and code are stored in a publicly available GitHub repository (\url{htt
 
 \pagebreak
 
-\bibliography{main}
+\begin{thebibliography}{10}
+
+\bibitem{nogrady2020data}
+Bianca Nogrady.
+\newblock What the data say about asymptomatic {COVID} infections.
+\newblock {\em Nature}, 587(7835):534--536, 2020.
+
+\bibitem{rajgor2020many}
+Dimple~D Rajgor, Meng~Har Lee, Sophia Archuleta, Natasha Bagdasarian, and
+  Swee~Chye Quek.
+\newblock {The many estimates of the COVID-19 case fatality rate}.
+\newblock {\em The Lancet Infectious Diseases}, 20(7):776--777, 2020.
+
+\bibitem{VERITY2020669}
+Robert Verity, Lucy~C Okell, Ilaria Dorigatti, Peter Winskill, Charles
+  Whittaker, Natsuko Imai, Gina Cuomo-Dannenburg, Hayley Thompson, Patrick G~T
+  Walker, Han Fu, Amy Dighe, Jamie~T Griffin, Marc Baguelin, Sangeeta Bhatia,
+  Adhiratha Boonyasiri, Anne Cori, Zulma Cucunubá, Rich FitzJohn, Katy
+  Gaythorpe, Will Green, Arran Hamlet, Wes Hinsley, Daniel Laydon, Gemma
+  Nedjati-Gilani, Steven Riley, Sabine {van Elsland}, Erik Volz, Haowei Wang,
+  Yuanrong Wang, Xiaoyue Xi, Christl~A Donnelly, Azra~C Ghani, and Neil~M
+  Ferguson.
+\newblock Estimates of the severity of coronavirus disease 2019: a model-based
+  analysis.
+\newblock {\em The Lancet Infectious Diseases}, 20(6):669--677, 2020.
+
+\bibitem{yang2020early}
+Shu Yang, Peihua Cao, Peipei Du, Ziting Wu, Zian Zhuang, Lin Yang, Xuan Yu,
+  Qi~Zhou, Xixi Feng, Xiaohui Wang, Weiguo Li, Enmei Liu, Ju~Chen, Yaolong
+  Chen, and {Daihai He on behalf of COVID-19 evidence and recommendations
+  working group}.
+\newblock {Early estimation of the case fatality rate of COVID-19 in mainland
+  China: a data-driven analysis}.
+\newblock {\em Annals of translational medicine}, 8(4), 2020.
+
+\bibitem{levin2020assessing}
+Andrew~T Levin, William~P Hanage, Nana Owusu-Boaitey, Kensington~B Cochran,
+  Seamus~P Walsh, and Gideon Meyerowitz-Katz.
+\newblock {Assessing the age specificity of infection fatality rates for
+  COVID-19: systematic review, meta-analysis, and public policy implications}.
+\newblock {\em European journal of epidemiology}, 35(12):1123--1138, 2020.
+
+\bibitem{emery2020}
+Jon~C Emery, Timothy~W Russell, Yang Liu, Joel Hellewell, Carl~AB Pearson,
+  CMMID COVID-19~Working Group, Gwenan~M Knight, Rosalind~M Eggo, Adam~J
+  Kucharski, Sebastian Funk, Stefan Flasche, and Rein~MGJ Houben.
+\newblock {The contribution of asymptomatic SARS-CoV-2 infections to
+  transmission on the Diamond Princess cruise ship}.
+\newblock {\em eLife}, 9:e58699, aug 2020.
+
+\bibitem{ggplot2}
+Hadley Wickham.
+\newblock {\em {ggplot2: Elegant Graphics for Data Analysis}}.
+\newblock Springer-Verlag New York, 2016.
+
+\bibitem{Kissler2020}
+Stephen~M. Kissler, Joseph~R. Fauver, Christina Mack, Scott~W. Olesen, Caroline
+  Tai, Kristin~Y. Shiue, Chaney~C. Kalinich, Sarah Jednak, Isabel~M. Ott,
+  Chantal~B.F. Vogels, Jay Wohlgemuth, James Weisberger, John DiFiori,
+  Deverick~J. Anderson, Jimmie Mancell, David~D. Ho, Nathan~D. Grubaugh, and
+  Yonatan~H. Grad.
+\newblock {Viral dynamics of acute SARS-CoV-2 infection}.
+\newblock {\em medRxiv}, 2021.
+
+\bibitem{davies2020}
+Nicholas~G. Davies, Petra Klepac, Yang Liu, Kiesha Prem, Mark Jit, Rosalind~M.
+  Eggo, and {CMMID COVID-19 working group}.
+\newblock {Age-dependent effects in the transmission and control of COVID-19
+  epidemics}.
+\newblock {\em Nature Medicine}, 26(8):1205--1211, 2020.
+
+\bibitem{gao2021role}
+Wenjing Gao, Jun Lv, Yuanjie Pang, and Li-Ming Li.
+\newblock {Role of asymptomatic and pre-symptomatic infections in COVID-19
+  pandemic}.
+\newblock {\em bmj}, 375, 2021.
+
+\bibitem{johansson2021sars}
+Michael~A Johansson, Talia~M Quandelacy, Sarah Kada, Pragati~Venkata Prasad,
+  Molly Steele, John~T Brooks, Rachel~B Slayton, Matthew Biggerstaff, and Jay~C
+  Butler.
+\newblock {SARS-CoV-2 transmission from people without COVID-19 symptoms}.
+\newblock {\em JAMA network open}, 4(1):e2035057--e2035057, 2021.
+
+\bibitem{subramanian2021quantifying}
+Rahul Subramanian, Qixin He, and Mercedes Pascual.
+\newblock {Quantifying asymptomatic infection and transmission of COVID-19 in
+  New York City using observed cases, serology, and testing capacity}.
+\newblock {\em Proceedings of the National Academy of Sciences},
+  118(9):e2019716118, 2021.
+
+\bibitem{koelle2022changing}
+Katia Koelle, Michael~A Martin, Rustom Antia, Ben Lopman, and Natalie~E Dean.
+\newblock {The changing epidemiology of SARS-CoV-2}.
+\newblock {\em Science}, 375(6585):1116--1121, 2022.
+
+\bibitem{lizewski2022navy}
+Rhonda~A. Lizewski, Rachel S.~G. Sealfon, Sang~Woo Park, Gregory~R. Smith,
+  Chad~K. Porter, Ana~S. Gonzalez-Reiche, Yongchao Ge, Clare~M. Miller, Carl~W.
+  Goforth, Hanna Pincas, Michael~S. Termini, Irene Ramos, Venugopalan~D. Nair,
+  Stephen~E. Lizewski, Hala Alshammary, Regina~Z. Cer, Hua~Wei Chen,
+  Mary-Catherine George, Catherine~E. Arnold, Lindsay~A. Glang, Kyle~A. Long,
+  Francisco Malagon, Jan~J. Marayag, Edgar Nunez, Gregory~K. Rice, Ernesto
+  Santa~Ana, Megan~A. Schilling, Darci~R. Smith, Victor~A. Sugiharto, Peifang
+  Sun, Adriana van~de Guchte, Zenab Khan, Jayeeta Dutta, Sindhu Vangeti,
+  Logan~J. Voegtly, Dawn~L. Weir, C.~Jessica~E. Metcalf, Olga~G. Troyanskaya,
+  Kimberly~A. Bishop-Lilly, Bryan~T. Grenfell, Harm van Bakel, Andrew~G.
+  Letizia, and Stuart~C. Sealfon.
+\newblock {SARS-CoV-2} outbreak dynamics in an isolated {US} military recruit
+  training center with rigorous prevention measures.
+\newblock {\em Epidemiology}, 33(6), 2022.
+
+\bibitem{mizumoto2020estimating}
+Kenji Mizumoto, Katsushi Kagaya, Alexander Zarebski, and Gerardo Chowell.
+\newblock {Estimating the asymptomatic proportion of coronavirus disease 2019
+  (COVID-19) cases on board the Diamond Princess cruise ship, Yokohama, Japan,
+  2020}.
+\newblock {\em Eurosurveillance}, 25(10):2000180, 2020.
+
+\bibitem{ferretti2020quantifying}
+Luca Ferretti, Chris Wymant, Michelle Kendall, Lele Zhao, Anel Nurtay, Lucie
+  Abeler-D{\"o}rner, Michael Parker, David Bonsall, and Christophe Fraser.
+\newblock {Quantifying SARS-CoV-2 transmission suggests epidemic control with
+  digital contact tracing}.
+\newblock {\em Science}, 368(6491):eabb6936, 2020.
+
+\bibitem{lavezzo2020}
+Enrico Lavezzo, Elisa Franchin, Constanze Ciavarella, Gina Cuomo-Dannenburg,
+  Luisa Barzon, Claudia Del~Vecchio, Lucia Rossi, Riccardo Manganelli, Arianna
+  Loregian, Nicol{\`o} Navarin, Davide Abate, Manuela Sciro, Stefano
+  Merigliano, Ettore De~Canale, Maria~Cristina Vanuzzo, Valeria Besutti,
+  Francesca Saluzzo, Francesco Onelia, Monia Pacenti, Saverio~G. Parisi,
+  Giovanni Carretta, Daniele Donato, Luciano Flor, Silvia Cocchio, Giulia Masi,
+  Alessandro Sperduti, Lorenzo Cattarino, Renato Salvador, Michele Nicoletti,
+  Federico Caldart, Gioele Castelli, Eleonora Nieddu, Beatrice Labella,
+  Ludovico Fava, Matteo Drigo, Katy A.~M. Gaythorpe, Alessandra~R. Brazzale,
+  Stefano Toppo, Marta Trevisan, Vincenzo Baldo, Christl~A. Donnelly, Neil~M.
+  Ferguson, Ilaria Dorigatti, Andrea Crisanti, Kylie E.~C. Ainslie, Marc
+  Baguelin, Samir Bhatt, Adhiratha Boonyasiri, Olivia Boyd, Helen~L. Coupland,
+  Zulma Cucunub{\'a}, Bimandra~A. Djafaara, Christl~A. Donnelly, Sabine~L. van
+  Elsland, Rich FitzJohn, Seth Flaxman, Katy A.~M. Gaythorpe, Will~D. Green,
+  Timothy Hallett, Arran Hamlet, David Haw, Natsuko Imai, Benjamin Jeffrey,
+  Edward Knock, Daniel~J. Laydon, Thomas Mellan, Swapnil Mishra, Gemma
+  Nedjati-Gilani, Pierre Nouvellet, Lucy~C. Okell, Kris~V. Parag, Steven Riley,
+  Hayley~A. Thompson, H.~Juliette~T. Unwin, Robert Verity, Michaela A.~C.
+  Vollmer, Patrick G.~T. Walker, Caroline~E. Walters, Haowei Wang, Yuanrong
+  Wang, Oliver~J. Watson, Charles Whittaker, Lilith~K. Whittles, Xiaoyue Xi,
+  Neil~M. Ferguson, and {Imperial College COVID-19 Response Team}.
+\newblock {Suppression of a SARS-CoV-2 outbreak in the Italian municipality of
+  Vo'}.
+\newblock {\em Nature}, 584(7821):425--429, 2020.
+
+\bibitem{romero2021ct}
+Mar{\'\i}a~Pilar Romero-G{\'o}mez, Silvia G{\'o}mez-Sebastian, Emilio
+  Cendejas-Bueno, Mar{\'\i}a~Dolores Montero-Vega, Jes{\'u}s Mingorance, and
+  Julio Garc{\'\i}a-Rodr{\'\i}guez.
+\newblock Ct value is not enough to discriminate patients harbouring infective
+  virus.
+\newblock {\em Journal of Infection}, 82(3):e35--e37, 2021.
+
+\bibitem{stadnytskyi2021breathing}
+V~Stadnytskyi, P~Anfinrud, and A~Bax.
+\newblock {Breathing, speaking, coughing or sneezing: What drives transmission
+  of SARS-CoV-2?}
+\newblock {\em Journal of Internal Medicine}, 290(5):1010--1027, 2021.
+
+\bibitem{alene2021magnitude}
+Muluneh Alene, Leltework Yismaw, Moges~Agazhe Assemie, Daniel~Bekele Ketema,
+  Belayneh Mengist, Bekalu Kassie, and Tilahun~Yemanu Birhan.
+\newblock {Magnitude of asymptomatic COVID-19 cases throughout the course of
+  infection: A systematic review and meta-analysis}.
+\newblock {\em PloS one}, 16(3):e0249090, 2021.
+
+\bibitem{fraser2004factors}
+Christophe Fraser, Steven Riley, Roy~M Anderson, and Neil~M Ferguson.
+\newblock Factors that make an infectious disease outbreak controllable.
+\newblock {\em Proceedings of the National Academy of Sciences},
+  101(16):6146--6151, 2004.
+
+\bibitem{moghadas2020implications}
+Seyed~M Moghadas, Meagan~C Fitzpatrick, Pratha Sah, Abhishek Pandey, Affan
+  Shoukat, Burton~H Singer, and Alison~P Galvani.
+\newblock {The implications of silent transmission for the control of COVID-19
+  outbreaks}.
+\newblock {\em Proceedings of the National Academy of Sciences},
+  117(30):17513--17515, 2020.
+
+\bibitem{xie2022long}
+Yan Xie, Evan Xu, Benjamin Bowe, and Ziyad Al-Aly.
+\newblock {Long-term cardiovascular outcomes of COVID-19}.
+\newblock {\em Nature medicine}, 28(3):583--590, 2022.
+
+\bibitem{he2020temporal}
+Xi~He, Eric H.~Y. Lau, Peng Wu, Xilong Deng, Jian Wang, Xinxin Hao, Yiu~Chung
+  Lau, Jessica~Y. Wong, Yujuan Guan, Xinghua Tan, Xiaoneng Mo, Yanqing Chen,
+  Baolin Liao, Weilie Chen, Fengyu Hu, Qing Zhang, Mingqiu Zhong, Yanrong Wu,
+  Lingzhai Zhao, Fuchun Zhang, Benjamin~J. Cowling, Fang Li, and Gabriel~M.
+  Leung.
+\newblock {Temporal dynamics in viral shedding and transmissibility of
+  COVID-19}.
+\newblock {\em Nature Medicine}, 26(5):672--675, 2020.
+
+\bibitem{sender2021unmitigated}
+Ron Sender, Yinon~M Bar-On, Sang~Woo Park, Elad Noor, Jonathan Dushoffd, and
+  Ron Milo.
+\newblock {The unmitigated profile of COVID-19 infectiousness}.
+\newblock {\em medRxiv}, 2021.
+
+\bibitem{kucharski2020effectiveness}
+Adam~J Kucharski, Petra Klepac, Andrew~JK Conlan, Stephen~M Kissler, Maria~L
+  Tang, Hannah Fry, Julia~R Gog, W~John Edmunds, and {CMMID COVID-19 working
+  group}.
+\newblock Effectiveness of isolation, testing, contact tracing, and physical
+  distancing on reducing transmission of sars-cov-2 in different settings: a
+  mathematical modelling study.
+\newblock {\em The Lancet Infectious Diseases}, 20(10):1151--1160, 2020.
+
+\bibitem{lipsitch2020understanding}
+Marc Lipsitch and Natalie~E Dean.
+\newblock Understanding {COVID-19} vaccine efficacy.
+\newblock {\em Science}, 370(6518):763--765, 2020.
+
+\bibitem{andres2022omicron}
+Nick Andrews, Julia Stowe, Freja Kirsebom, Samuel Toffa, Tim Rickeard, Eileen
+  Gallagher, Charlotte Gower, Meaghan Kall, Natalie Groves, Anne-Marie
+  O’Connell, David Simons, Paula~B. Blomquist, Asad Zaidi, Sophie Nash, Nurin
+  Iwani Binti Abdul~Aziz, Simon Thelwall, Gavin Dabrera, Richard Myers, Gayatri
+  Amirthalingam, Saheer Gharbia, Jeffrey~C. Barrett, Richard Elson, Shamez~N.
+  Ladhani, Neil Ferguson, Maria Zambon, Colin~N.J. Campbell, Kevin Brown, Susan
+  Hopkins, Meera Chand, Mary Ramsay, and Jamie Lopez~Bernal.
+\newblock Covid-19 vaccine effectiveness against the {Omicron (B.1.1.529)}
+  variant.
+\newblock {\em New England Journal of Medicine}, 386(16):1532--1546, 2022.
+
+\bibitem{pearson2021omicron}
+Carl A.~B. Pearson, Sheetal~P. Silal, Michael~W.Z. Li, Jonathan Dushoff,
+  Benjamin~M. Bolker, Sam Abbott, Cari van Schalkwyk, Nicholas~G. Davies,
+  Rosanna~C. Barnard, W.~John Edmunds, Jeremy Bingham, Gesine Meyer-Rath, Lise
+  Jamieson, Allison Glass, Nicole Wolter, Nevashan Govender, Wendy~S. Stevens,
+  Lesley Scott, Koleka Mlisana, Harry Moultrie, and Juliet R.~C. Pulliam.
+\newblock {Bounding the levels of transmissibility \& immune evasion of the
+  Omicron variant in South Africa}.
+\newblock {\em medRxiv}, 2021.
+
+\bibitem{sun2022omicron}
+Kaiyuan Sun, Stefano Tempia, Jackie Kleynhans, Anne~von Gottberg, Meredith~L
+  McMorrow, Nicole Wolter, Jinal~N. Bhiman, Jocelyn Moyes, Mignon~du Plessis,
+  Maimuna Carrim, Amelia Buys, Neil~A Martinson, Kathleen Kahn, Stephen
+  Tollman, Limakatso Lebina, Floidy Wafawanaka, Jacques~D. du~Toit,
+  Francesc~Xavier G{\'o}mez-Oliv{\'e}, Thulisa Mkhencele, C{\'e}cile Viboud,
+  Cheryl Cohen, and the PHIRST~group.
+\newblock {Persistence of SARS-CoV-2 immunity, Omicron{\textquoteright}s
+  footprints, and projections of epidemic resurgences in South African
+  population cohorts}.
+\newblock {\em medRxiv}, 2022.
+
+\bibitem{MENNI20221618}
+Cristina Menni, Ana~M Valdes, Lorenzo Polidori, Michela Antonelli, Satya
+  Penamakuri, Ana Nogal, Panayiotis Louca, Anna May, Jane~C Figueiredo,
+  Christina Hu, Erika Molteni, Liane Canas, Marc~F Österdahl, Marc Modat,
+  Carole~H Sudre, Ben Fox, Alexander Hammers, Jonathan Wolf, Joan Capdevila,
+  Andrew~T Chan, Sean~P David, Claire~J Steves, Sebastien Ourselin, and Tim~D
+  Spector.
+\newblock {Symptom prevalence, duration, and risk of hospital admission in
+  individuals infected with SARS-CoV-2 during periods of omicron and delta
+  variant dominance: a prospective observational study from the ZOE COVID
+  Study}.
+\newblock {\em The Lancet}, 399(10335):1618--1624, 2022.
+
+\bibitem{ulloa2022estimates}
+Ana~Cecilia Ulloa, Sarah~A Buchan, Nick Daneman, and Kevin~A Brown.
+\newblock {Estimates of SARS-CoV-2 omicron variant severity in Ontario,
+  Canada}.
+\newblock {\em Jama}, 327(13):1286--1288, 2022.
+
+\bibitem{Iacobuccio254}
+Gareth Iacobucci.
+\newblock Covid-19: unravelling the conundrum of {Omicron} and deaths.
+\newblock {\em BMJ}, 376, 2022.
+
+\bibitem{faust2022omicron}
+Jeremy~Samuel Faust, Chengan Du, Chenxue Liang, Katherine~Dickerson Mayes,
+  Benjamin Renton, Kristen Panthagani, and Harlan~M. Krumholz.
+\newblock {Excess Mortality in {Massachusetts} During the {Delta} and {Omicron}
+  Waves of {COVID-19}}.
+\newblock {\em JAMA}, 05 2022.
+
+\bibitem{sigal2022estimating}
+Alex Sigal, Ron Milo, and Waasila Jassat.
+\newblock {Estimating disease severity of Omicron and Delta SARS-CoV-2
+  infections}.
+\newblock {\em Nature Reviews Immunology}, pages 1--3, 2022.
+
+\bibitem{saad2020immune}
+Chadi~M Saad-Roy, Caroline~E Wagner, Rachel~E Baker, Sinead~E Morris, Jeremy
+  Farrar, Andrea~L Graham, Simon~A Levin, Michael~J Mina, C~Jessica~E Metcalf,
+  and Bryan~T Grenfell.
+\newblock {Immune life history, vaccination, and the dynamics of SARS-CoV-2
+  over the next 5 years}.
+\newblock {\em Science}, 370(6518):811--818, 2020.
+
+\bibitem{gallagher2021indirect}
+Molly~E Gallagher, Andrew~J Sieben, Kristin~N Nelson, Alicia~NM Kraay, Walter~A
+  Orenstein, Ben Lopman, Andreas Handel, and Katia Koelle.
+\newblock {Indirect benefits are a crucial consideration when evaluating
+  SARS-CoV-2 vaccine candidates}.
+\newblock {\em Nature medicine}, 27(1):4--5, 2021.
+
+\bibitem{park2020time}
+Sang~Woo Park, Daniel~M Cornforth, Jonathan Dushoff, and Joshua~S Weitz.
+\newblock {The time scale of asymptomatic transmission affects estimates of
+  epidemic potential in the COVID-19 outbreak}.
+\newblock {\em Epidemics}, 31:100392, 2020.
+
+\bibitem{harris2023time}
+Jeremy~D Harris, Sang~Woo Park, Jonathan Dushoff, and Joshua~S Weitz.
+\newblock How time-scale differences in asymptomatic and symptomatic
+  transmission shape sars-cov-2 outbreak dynamics.
+\newblock {\em Epidemics}, page 100664, 2023.
+
+\bibitem{moore2021modelling}
+Sam Moore, Edward~M Hill, Louise Dyson, Michael~J Tildesley, and Matt~J
+  Keeling.
+\newblock {Modelling optimal vaccination strategy for SARS-CoV-2 in the UK}.
+\newblock {\em PLoS computational biology}, 17(5):e1008849, 2021.
+
+\bibitem{weitz2020awareness}
+Joshua~S Weitz, Sang~Woo Park, Ceyhun Eksin, and Jonathan Dushoff.
+\newblock Awareness-driven behavior changes can shift the shape of epidemics
+  away from peaks and toward plateaus, shoulders, and oscillations.
+\newblock {\em Proceedings of the National Academy of Sciences},
+  117(51):32764--32771, 2020.
+
+\bibitem{kissler2020projecting}
+Stephen~M Kissler, Christine Tedijanto, Edward Goldstein, Yonatan~H Grad, and
+  Marc Lipsitch.
+\newblock {Projecting the transmission dynamics of SARS-CoV-2 through the
+  postpandemic period}.
+\newblock {\em Science}, 368(6493):860--868, 2020.
+
+\bibitem{lavine2021immunological}
+Jennie~S Lavine, Ottar~N Bjornstad, and Rustom Antia.
+\newblock {Immunological characteristics govern the transition of COVID-19 to
+  endemicity}.
+\newblock {\em Science}, 371(6530):741--745, 2021.
+
+\bibitem{gandon2001imperfect}
+Sylvain Gandon, Margaret~J Mackinnon, Sean Nee, and Andrew~F Read.
+\newblock Imperfect vaccines and the evolution of pathogen virulence.
+\newblock {\em Nature}, 414(6865):751--756, 2001.
+
+\bibitem{Bavel2020}
+Jay J.~Van Bavel, Katherine Baicker, Paulo~S. Boggio, Valerio Capraro,
+  Aleksandra Cichocka, Mina Cikara, Molly~J. Crockett, Alia~J. Crum, Karen~M.
+  Douglas, James~N. Druckman, John Drury, Oeindrila Dube, Naomi Ellemers,
+  Eli~J. Finkel, James~H. Fowler, Michele Gelfand, Shihui Han, S.~Alexander
+  Haslam, Jolanda Jetten, Shinobu Kitayama, Dean Mobbs, Lucy~E. Napper,
+  Dominic~J. Packer, Gordon Pennycook, Ellen Peters, Richard~E. Petty, David~G.
+  Rand, Stephen~D. Reicher, Simone Schnall, Azim Shariff, Linda~J. Skitka,
+  Sandra~Susan Smith, Cass~R. Sunstein, Nassim Tabri, Joshua~A. Tucker, Sander
+  van~der Linden, Paul~van Lange, Kim~A. Weeden, Michael J.~A. Wohl, Jamil
+  Zaki, Sean~R. Zion, and Robb Willer.
+\newblock {Using social and behavioural science to support COVID-19 pandemic
+  response}.
+\newblock {\em Nature Human Behaviour}, 4(5):460--471, 2020.
+
+\bibitem{chande2020real}
+Aroon Chande, Seolha Lee, Mallory Harris, Quan Nguyen, Stephen~J Beckett, Troy
+  Hilley, Clio Andris, and Joshua~S Weitz.
+\newblock {Real-time, interactive website for US-county-level COVID-19 event
+  risk assessment}.
+\newblock {\em Nature Human Behaviour}, 4(12):1313--1319, 2020.
+
+\bibitem{sinclair2021pairing}
+Alyssa~H Sinclair, Shabnam Hakimi, Matthew~L Stanley, R~Alison Adcock, and
+  Gregory~R Samanez-Larkin.
+\newblock Pairing facts with imagined consequences improves pandemic-related
+  risk perception.
+\newblock {\em Proceedings of the National Academy of Sciences},
+  118(32):e2100970118, 2021.
+
+\bibitem{mina2021covid}
+Michael~J Mina and Kristian~G Andersen.
+\newblock {COVID-19} testing: One size does not fit all.
+\newblock {\em Science}, 371(6525):126--127, 2021.
+
+\bibitem{gibson2022surv}
+Greg Gibson, Joshua~S. Weitz, Michael~P. Shannon, Benjamin Holton, Anton
+  Bryksin, Brian Liu, Madeline Sieglinger, Ashley~R. Coenen, Conan Zhao,
+  Stephen~J. Beckett, Sandra Bramblett, JulieAnne Williamson, Michael Farrell,
+  Alexander Ortiz, Chaouki~T. Abdallah, and Andr{\'e}s~J. Garc{\'\i}a.
+\newblock Surveillance-to-diagnostic testing program for asymptomatic
+  {SARS-CoV-2} infections on a large, urban campus in fall 2020.
+\newblock {\em Epidemiology}, 33(2), 2022.
+
+\bibitem{Ranoa2022}
+Diana Rose~E. Ranoa, Robin~L. Holland, Fadi~G. Alnaji, Kelsie~J. Green, Leyi
+  Wang, Richard~L. Fredrickson, Tong Wang, George~N. Wong, Johnny Uelmen,
+  Sergei Maslov, Zachary~J. Weiner, Alexei~V. Tkachenko, Hantao Zhang, Zhiru
+  Liu, Ahmed Ibrahim, Sanjay~J. Patel, John~M. Paul, Nickolas~P. Vance,
+  Joseph~G. Gulick, Sandeep~Puthanveetil Satheesan, Isaac~J. Galvan, Andrew
+  Miller, Joseph Grohens, Todd~J. Nelson, Mary~P. Stevens, P.~Mark Hennessy,
+  Robert~C. Parker, Edward Santos, Charles Brackett, Julie~D. Steinman,
+  Melvin~R. Fenner, Kirstin Dohrer, Michael DeLorenzo, Laura Wilhelm-Barr,
+  Brian~R. Brauer, Catherine Best-Popescu, Gary Durack, Nathan Wetter, David~M.
+  Kranz, Jessica Breitbarth, Charlie Simpson, Julie~A. Pryde, Robin~N. Kaler,
+  Chris Harris, Allison~C. Vance, Jodi~L. Silotto, Mark Johnson, Enrique~Andres
+  Valera, Patricia~K. Anton, Lowa Mwilambwe, Stephen~P. Bryan, Deborah~S.
+  Stone, Danita~B. Young, Wanda~E. Ward, John Lantz, John~A. Vozenilek, Rashid
+  Bashir, Jeffrey~S. Moore, Mayank Garg, Julian~C. Cooper, Gillian Snyder,
+  Michelle~H. Lore, Dustin~L. Yocum, Neal~J. Cohen, Jan~E. Novakofski,
+  Melanie~J. Loots, Randy~L. Ballard, Mark Band, Kayla~M. Banks, Joseph~D.
+  Barnes, Iuliana Bentea, Jessica Black, Jeremy Busch, Abigail Conte, Madison
+  Conte, Michael Curry, Jennifer Eardley, April Edwards, Therese Eggett, Judes
+  Fleurimont, Delaney Foster, Bruce~W. Fouke, Nicholas Gallagher, Nicole
+  Gastala, Scott~A. Genung, Declan Glueck, Brittani Gray, Andrew Greta,
+  Robert~M. Healy, Ashley Hetrick, Arianna~A. Holterman, Nahed Ismail, Ian
+  Jasenof, Patrick Kelly, Aaron Kielbasa, Teresa Kiesel, Lorenzo~M. Kindle,
+  Rhonda~L. Lipking, Yukari~C. Manabe, Jade Mayes, Reubin McGuffin, Kenton~G.
+  McHenry, Agha Mirza, Jada Moseley, Heba~H. Mostafa, Melody Mumford, Kathleen
+  Munoz, Arika~D. Murray, Moira Nolan, Nil~A. Parikh, Andrew Pekosz, Janna
+  Pflugmacher, Janise~M. Phillips, Collin Pitts, Mark~C. Potter, James
+  Quisenberry, Janelle Rear, Matthew~L. Robinson, Edith Rosillo, Leslie~N. Rye,
+  MaryEllen Sherwood, Anna Simon, Jamie~M. Singson, Carly Skadden, Tina~H.
+  Skelton, Charlie Smith, Mary Stech, Ryan Thomas, Matthew~A. Tomaszewski,
+  Erika~A. Tyburski, Scott Vanwingerden, Evette Vlach, Ronald~S. Watkins,
+  Karriem Watson, Karen~C. White, Timothy~L. Killeen, Robert~J. Jones,
+  Andreas~C. Cangellaris, Susan~A. Martinis, Awais Vaid, Christopher~B. Brooke,
+  Joseph~T. Walsh, Ahmed Elbanna, William~C. Sullivan, Rebecca~L. Smith, Nigel
+  Goldenfeld, Timothy~M. Fan, Paul~J. Hergenrother, and Martin~D. Burke.
+\newblock {Mitigation of SARS-CoV-2 transmission at a large public university}.
+\newblock {\em Nature Communications}, 13(1):3207, 2022.
+
+\bibitem{jones2020two}
+Nicholas~R Jones, Zeshan~U Qureshi, Robert~J Temple, Jessica~PJ Larwood, Trisha
+  Greenhalgh, and Lydia Bourouiba.
+\newblock Two metres or one: what is the evidence for physical distancing in
+  {COVID-19?}
+\newblock {\em bmj}, 370, 2020.
+
+\bibitem{prather2020reducing}
+Kimberly~A Prather, Chia~C Wang, and Robert~T Schooley.
+\newblock Reducing transmission of {SARS-CoV-2}.
+\newblock {\em Science}, 368(6498):1422--1424, 2020.
+
+\bibitem{howard2021ev}
+Jeremy Howard, Austin Huang, Zhiyuan Li, Zeynep Tufekci, Vladimir Zdimal,
+  Helene-Mari van~der Westhuizen, Arne von Delft, Amy Price, Lex Fridman,
+  Lei-Han Tang, Viola Tang, Gregory~L. Watson, Christina~E. Bax, Reshama
+  Shaikh, Frederik Questier, Danny Hernandez, Larry~F. Chu, Christina~M.
+  Ramirez, and Anne~W. Rimoin.
+\newblock {An evidence review of face masks against COVID-19}.
+\newblock {\em Proceedings of the National Academy of Sciences},
+  118(4):e2014564118, 2021.
+
+\bibitem{allen2021indoor}
+Joseph~G Allen and Andrew~M Ibrahim.
+\newblock {Indoor air changes and potential implications for SARS-CoV-2
+  transmission}.
+\newblock {\em Jama}, 325(20):2112--2113, 2021.
+
+\bibitem{wang2021airborne}
+Chia~C Wang, Kimberly~A Prather, Josu{\'e} Sznitman, Jose~L Jimenez, Seema~S
+  Lakdawala, Zeynep Tufekci, and Linsey~C Marr.
+\newblock Airborne transmission of respiratory viruses.
+\newblock {\em Science}, 373(6558):eabd9149, 2021.
+
+\bibitem{lopman2021framework}
+Benjamin~A Lopman, Kayoko Shioda, Quan Nguyen, Stephen~J Beckett, Aaron~J
+  Siegler, Patrick~S Sullivan, and Joshua~S Weitz.
+\newblock {A framework for monitoring population immunity to SARS-CoV-2}.
+\newblock {\em Annals of Epidemiology}, 63:75--78, 2021.
+
+\bibitem{fox2020impact}
+Spencer~J Fox, Remy Pasco, Mauricio Tec, Zhanwei Du, Michael Lachmann, James
+  Scott, and Lauren~Ancel Meyers.
+\newblock {The impact of asymptomatic COVID-19 infections on future pandemic
+  waves}.
+\newblock {\em MedRxiv}, pages 2020--06, 2020.
+
+\bibitem{park2020reconciling}
+Sang~Woo Park, Benjamin~M Bolker, David Champredon, David~JD Earn, Michael Li,
+  Joshua~S Weitz, Bryan~T Grenfell, and Jonathan Dushoff.
+\newblock {Reconciling early-outbreak estimates of the basic reproductive
+  number and its uncertainty: framework and applications to the novel
+  coronavirus (SARS-CoV-2) outbreak}.
+\newblock {\em Journal of the Royal Society Interface}, 17(168):20200144, 2020.
+
+\bibitem{smith1984assessment}
+PG~Smith, LC~Rodrigues, and PEM Fine.
+\newblock Assessment of the protective efficacy of vaccines against common
+  diseases using case-control and cohort studies.
+\newblock {\em International journal of epidemiology}, 13(1):87--93, 1984.
+
+\bibitem{buckner2021dynamic}
+Jack~H Buckner, Gerardo Chowell, and Michael~R Springborn.
+\newblock {Dynamic prioritization of COVID-19 vaccines when social distancing
+  is limited for essential workers}.
+\newblock {\em Proceedings of the National Academy of Sciences},
+  118(16):e2025786118, 2021.
+
+\bibitem{bubar2021model}
+Kate~M Bubar, Kyle Reinholt, Stephen~M Kissler, Marc Lipsitch, Sarah Cobey,
+  Yonatan~H Grad, and Daniel~B Larremore.
+\newblock {Model-informed COVID-19 vaccine prioritization strategies by age and
+  serostatus}.
+\newblock {\em Science}, 371(6532):916--921, 2021.
+
+\end{thebibliography}
+
 
 \end{document}
